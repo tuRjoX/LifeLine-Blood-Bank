@@ -103,6 +103,7 @@ namespace LifeLineBloodBank.Forms
             int newstock = oldstock - 1;
             try
             {
+
                 string query = "update BloodTbl set BStock = @newstock where BGroup = @Bgroup";
                 Con.Open();
                 SqlCommand cmd = new SqlCommand(query, Con);
