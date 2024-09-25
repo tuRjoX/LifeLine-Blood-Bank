@@ -259,6 +259,7 @@
             this.btnLogOut.Size = new System.Drawing.Size(220, 45);
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnDonateBlood
             // 

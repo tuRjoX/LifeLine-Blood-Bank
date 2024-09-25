@@ -139,7 +139,14 @@ namespace LifeLineBloodBank
         }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide(); 
+                Login loginForm = new Login();
+                loginForm.FormClosed += (s, args) => this.Close(); 
+                loginForm.Show(); 
+            }
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)

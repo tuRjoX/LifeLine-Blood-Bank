@@ -132,5 +132,17 @@ namespace LifeLineBloodBank
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                Login loginForm = new Login();
+                loginForm.Show();
+                this.Close();
+            }
+        }
     }
 }
