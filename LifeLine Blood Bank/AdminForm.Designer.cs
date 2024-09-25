@@ -35,9 +35,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelMenu = new System.Windows.Forms.Panel();
             this.btnRequestList = new System.Windows.Forms.Button();
             this.btnBloodTransfer = new System.Windows.Forms.Button();
             this.btnBloodStock = new System.Windows.Forms.Button();
@@ -49,14 +50,13 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnDonor = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktopPane.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -139,6 +139,37 @@
             this.panelDesktopPane.Size = new System.Drawing.Size(914, 606);
             this.panelDesktopPane.TabIndex = 2;
             // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.panelMenu.Controls.Add(this.btnRequestList);
+            this.panelMenu.Controls.Add(this.btnBloodTransfer);
+            this.panelMenu.Controls.Add(this.btnBloodStock);
+            this.panelMenu.Controls.Add(this.btnViewPatient);
+            this.panelMenu.Controls.Add(this.btnPatient);
+            this.panelMenu.Controls.Add(this.btnDonate);
+            this.panelMenu.Controls.Add(this.btnViewDonor);
+            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.Controls.Add(this.btnLogOut);
+            this.panelMenu.Controls.Add(this.btnDonor);
+            this.panelMenu.Controls.Add(this.btnDashboard);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(220, 661);
+            this.panelMenu.TabIndex = 0;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.White;
+            this.panelLogo.Controls.Add(this.btnCloseChildForm);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(220, 55);
+            this.panelLogo.TabIndex = 0;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -161,27 +192,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.panelMenu.Controls.Add(this.btnRequestList);
-            this.panelMenu.Controls.Add(this.btnBloodTransfer);
-            this.panelMenu.Controls.Add(this.btnBloodStock);
-            this.panelMenu.Controls.Add(this.btnViewPatient);
-            this.panelMenu.Controls.Add(this.btnPatient);
-            this.panelMenu.Controls.Add(this.btnDonate);
-            this.panelMenu.Controls.Add(this.btnViewDonor);
-            this.panelMenu.Controls.Add(this.button1);
-            this.panelMenu.Controls.Add(this.btnLogOut);
-            this.panelMenu.Controls.Add(this.btnDonor);
-            this.panelMenu.Controls.Add(this.btnDashboard);
-            this.panelMenu.Controls.Add(this.panelLogo);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 661);
-            this.panelMenu.TabIndex = 0;
-            // 
             // btnRequestList
             // 
             this.btnRequestList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
@@ -190,7 +200,7 @@
             this.btnRequestList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRequestList.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRequestList.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnRequestList.Image = global::LifeLineBloodBank.Properties.Resources.blood;
+            this.btnRequestList.Image = global::LifeLineBloodBank.Properties.Resources.member_list__1_;
             this.btnRequestList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRequestList.Location = new System.Drawing.Point(0, 460);
             this.btnRequestList.Name = "btnRequestList";
@@ -379,16 +389,6 @@
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.White;
-            this.panelLogo.Controls.Add(this.btnCloseChildForm);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(220, 55);
-            this.panelLogo.TabIndex = 0;
-            // 
             // btnCloseChildForm
             // 
             this.btnCloseChildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCloseChildForm.BackgroundImage")));
@@ -415,10 +415,10 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktopPane.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

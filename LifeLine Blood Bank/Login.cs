@@ -31,46 +31,52 @@ namespace LifeLineBloodBank
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM UsersTbl WHERE [UName] COLLATE SQL_Latin1_General_CP1_CS_AS = @UserName AND [UPassword] = @Password";
-            SqlCommand sqlCmd = new SqlCommand(query, Con);
-            sqlCmd.Parameters.AddWithValue("@UserName", txtUsername.Text);
-            sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-
-            try
+            if (txtUsername.Text == "admin" && txtPassword.Text == "admin")
             {
-                Con.Open();
-                using (SqlDataReader reader = sqlCmd.ExecuteReader())
+                MessageBox.Show("Admin login successful.");
+                AdminForm adminForm = new AdminForm(); 
+                adminForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                string query = "SELECT * FROM UsersTbl WHERE [UName] COLLATE SQL_Latin1_General_CP1_CS_AS = @UserName AND [UPassword] = @Password";
+                SqlCommand sqlCmd = new SqlCommand(query, Con);
+                sqlCmd.Parameters.AddWithValue("@UserName", txtUsername.Text);
+                sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+
+                try
                 {
-                    if (reader.Read())
+                    Con.Open();
+                    using (SqlDataReader reader = sqlCmd.ExecuteReader())
                     {
-                        MessageBox.Show("Login Successful.");
+                        if (reader.Read())
+                        {
+                            MessageBox.Show("Login Successful.");
+                            int userId = Convert.ToInt32(reader["Id"]);
+                            string userEmail = reader["UEmail"].ToString();
 
-                        // Retrieve the user ID
-                        int userId = Convert.ToInt32(reader["Id"]); // Assuming the ID field is called "Id"
-                        string userEmail = reader["UEmail"].ToString();
-
-                        SendLoginNotification(userEmail);
-
-                        // Pass the user ID to the DonateBlood form
-                        UserForm userform = new UserForm(userId);
-                        userform.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Login Unsuccessful. Please check your username and password.");
+                            SendLoginNotification(userEmail);
+                            UserForm userForm = new UserForm(userId);
+                            userForm.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login Unsuccessful. Please check your username and password.");
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
-            finally
-            {
-                if (Con.State == ConnectionState.Open)
+                catch (Exception ex)
                 {
-                    Con.Close();
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    if (Con.State == ConnectionState.Open)
+                    {
+                        Con.Close();
+                    }
                 }
             }
         }
