@@ -108,7 +108,7 @@ namespace LifeLineBloodBank
         }
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.RequestForBlood(), sender);
+            OpenChildForm(new Forms.RequestForBlood(userId), sender);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {

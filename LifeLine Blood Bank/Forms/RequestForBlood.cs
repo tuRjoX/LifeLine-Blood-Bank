@@ -16,9 +16,11 @@ namespace LifeLineBloodBank.Forms
 {
     public partial class RequestForBlood : Form
     {
-        public RequestForBlood()
+        private int Id;
+        public RequestForBlood(int id)
         {
             InitializeComponent();
+            Id = id;
         }
         private void LoadTheme()
         {
@@ -79,7 +81,7 @@ namespace LifeLineBloodBank.Forms
 
         private void RequestForBlood_Load(object sender, EventArgs e)
         {
-            FetchUserData(100);
+            FetchUserData(Id);
             LoadTheme();
         }
 
