@@ -10,18 +10,22 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class RequestForBlood : Form
     {
         private int Id;
+        private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+        private System.Drawing.Printing.PrintDocument printRequestInfo = new System.Drawing.Printing.PrintDocument();
+
         public RequestForBlood(int id)
         {
             InitializeComponent();
             Id = id;
+            printRequestInfo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printRequestInfo_PrintPage);
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -36,18 +40,21 @@ namespace LifeLineBloodBank.Forms
                 }
                 label1.ForeColor = ThemeColor.PrimaryColor;
                 label12.ForeColor = ThemeColor.SecondaryColor;
-                label13.ForeColor = ThemeColor.PrimaryColor; ;
+                label13.ForeColor = ThemeColor.PrimaryColor;
                 label15.ForeColor = ThemeColor.SecondaryColor;
                 label2.ForeColor = ThemeColor.PrimaryColor;
             }
         }
+
         SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
+
         private void Reset()
         {
             RNameTb.Text = "";
             RPhone.Text = "";
             RBGroupCB.SelectedIndex = -1;
         }
+
         private void FetchUserData(int userId)
         {
             try
@@ -107,7 +114,10 @@ namespace LifeLineBloodBank.Forms
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Request Sent Successfully.");
-                    SendEmail(REmail.Text, "",RBGroupCB.SelectedItem.ToString());
+                    SendEmail(REmail.Text, "", RBGroupCB.SelectedItem.ToString());
+                    printPreviewDialog1.Document = printRequestInfo;
+                    printPreviewDialog1.ShowDialog();
+
                     Con.Close();
                     Reset();
                 }
@@ -117,12 +127,13 @@ namespace LifeLineBloodBank.Forms
                 }
             }
         }
+
         private void SendEmail(string toEmail, string userName, string bloodGroup)
         {
             try
             {
                 string from = "lifelinebloodbankbd@gmail.com";
-                string pass = "tpul kgmg gfrc nkki"; 
+                string pass = "tpul kgmg gfrc nkki";
                 string subject = "Blood Request Confirmation";
                 string messageBody = $"Dear {userName},<br><br>Your request for {bloodGroup} blood has been successfully submitted.<br><br>Thank you for using our services.";
 
@@ -132,7 +143,7 @@ namespace LifeLineBloodBank.Forms
                     Subject = subject,
                     IsBodyHtml = true
                 };
-                message.To.Add(toEmail); 
+                message.To.Add(toEmail);
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(
                     messageBody +
                     "<br><br>Best regards,<br>LifeLine Blood Bank<br><br>" +
@@ -146,7 +157,7 @@ namespace LifeLineBloodBank.Forms
                     null, "text/html"
                 );
 
-                message.AlternateViews.Add(htmlView); 
+                message.AlternateViews.Add(htmlView);
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com")
                 {
                     EnableSsl = true,
@@ -154,8 +165,6 @@ namespace LifeLineBloodBank.Forms
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     Credentials = new NetworkCredential(from, pass)
                 };
-
-                // Send the email
                 smtp.Send(message);
             }
             catch (Exception ex)
@@ -163,6 +172,27 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Failed to send email: " + ex.Message);
             }
         }
+        private void printRequestInfo_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font headerFont = new Font("Arial", 20, FontStyle.Bold);
+            Font bodyFont = new Font("Arial", 12);
+            PointF startingPoint = new PointF(100, 100);
+            e.Graphics.DrawString("Blood Request Information", headerFont, Brushes.Black, startingPoint);
 
+            startingPoint.Y += 50;
+            e.Graphics.DrawString($"Name: {RNameTb.Text}", bodyFont, Brushes.Black, startingPoint);
+
+            startingPoint.Y += 30;
+            e.Graphics.DrawString($"Phone: {RPhone.Text}", bodyFont, Brushes.Black, startingPoint);
+
+            startingPoint.Y += 30;
+            e.Graphics.DrawString($"Blood Group: {RBGroupCB.SelectedItem}", bodyFont, Brushes.Black, startingPoint);
+
+            startingPoint.Y += 30;
+            e.Graphics.DrawString($"Email: {REmail.Text}", bodyFont, Brushes.Black, startingPoint);
+
+            startingPoint.Y += 30;
+            e.Graphics.DrawString($"Date Created: {DateTime.Now.ToString("g")}", bodyFont, Brushes.Black, startingPoint);
+        }
     }
 }
