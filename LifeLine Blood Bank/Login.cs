@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Net;
+using LifeLineBloodBank.Forms;
 
 namespace LifeLineBloodBank
 {
@@ -43,8 +44,17 @@ namespace LifeLineBloodBank
                     if (reader.Read())
                     {
                         MessageBox.Show("Login Successful.");
+
+                        // Retrieve the user ID
+                        int userId = Convert.ToInt32(reader["Id"]); // Assuming the ID field is called "Id"
                         string userEmail = reader["UEmail"].ToString();
+
                         SendLoginNotification(userEmail);
+
+                        // Pass the user ID to the DonateBlood form
+                        UserForm userform = new UserForm(userId);
+                        userform.Show();
+                        this.Hide();
                     }
                     else
                     {
@@ -64,6 +74,7 @@ namespace LifeLineBloodBank
                 }
             }
         }
+
         private string GetLocalIPAddress()
         {
             string localIP = "";
@@ -151,13 +162,13 @@ namespace LifeLineBloodBank
         {
             Application.Exit();
         }
-        /*
+
         private void eye_Click(object sender, EventArgs e)
         {
             if (txtPassword.PasswordChar == '*')
             {
-                txtPassword.PasswordChar = '\0'; 
-                eye.Image = Properties.Resources.eye; 
+                txtPassword.PasswordChar = '\0';
+                eye.Image = Properties.Resources.eye;
             }
             else
             {
@@ -165,6 +176,5 @@ namespace LifeLineBloodBank
                 eye.Image = Properties.Resources.eye;
             }
         }
-        */
     }
 }

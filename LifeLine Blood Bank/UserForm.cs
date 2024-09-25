@@ -18,7 +18,8 @@ namespace LifeLineBloodBank
         private Random random;
         private int tempIndex;
         private Form activeForm;
-        public UserForm()
+        private int userId;
+        public UserForm(int userId)
         {
             InitializeComponent();
             random = new Random();
@@ -26,6 +27,7 @@ namespace LifeLineBloodBank
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.userId = userId;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -102,7 +104,7 @@ namespace LifeLineBloodBank
         }
         private void btnDonateBlood_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.DonateBlood(), sender);
+            OpenChildForm(new Forms.DonateBlood(userId), sender);
         }
         private void btnRequest_Click(object sender, EventArgs e)
         {

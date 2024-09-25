@@ -162,7 +162,7 @@ namespace LifeLineBloodBank
         {
             Application.Exit();
         }
-        /*
+
         private void eye1_Click(object sender, EventArgs e)
         {
             if (txtPassword.PasswordChar == '*')
@@ -176,6 +176,7 @@ namespace LifeLineBloodBank
                 eye1.Image = Properties.Resources.eye;
             }
         }
+
         private void eye2_Click(object sender, EventArgs e)
         {
             if (txtConfirmPass.PasswordChar == '*')
@@ -189,6 +190,5 @@ namespace LifeLineBloodBank
                 eye1.Image = Properties.Resources.eye;
             }
         }
-        */
     }
 }

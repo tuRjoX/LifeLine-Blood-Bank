@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Label();
+            this.eye = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.eye)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -47,7 +49,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.label7.Location = new System.Drawing.Point(95, 370);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 23);
+            this.label7.Size = new System.Drawing.Size(101, 17);
             this.label7.TabIndex = 28;
             this.label7.Text = "Create Account";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -57,7 +59,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(67, 353);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(196, 23);
+            this.label6.Size = new System.Drawing.Size(152, 17);
             this.label6.TabIndex = 27;
             this.label6.Text = "Don\'t Have An Account";
             // 
@@ -92,7 +94,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(36, 201);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 23);
+            this.label4.Size = new System.Drawing.Size(66, 17);
             this.label4.TabIndex = 21;
             this.label4.Text = "Password";
             // 
@@ -112,7 +114,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(36, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 17;
             this.label2.Text = "Username";
             // 
@@ -123,7 +125,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.label1.Location = new System.Drawing.Point(34, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 34);
+            this.label1.Size = new System.Drawing.Size(155, 27);
             this.label1.TabIndex = 16;
             this.label1.Text = "Get Started";
             // 
@@ -134,7 +136,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.label3.Location = new System.Drawing.Point(145, 252);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 23);
+            this.label3.Size = new System.Drawing.Size(110, 17);
             this.label3.TabIndex = 29;
             this.label3.Text = "Forget Password";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -146,17 +148,30 @@
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.btnClose.Location = new System.Drawing.Point(260, -6);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(40, 44);
+            this.btnClose.Size = new System.Drawing.Size(32, 35);
             this.btnClose.TabIndex = 30;
             this.btnClose.Text = "x";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // eye
+            // 
+            this.eye.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.eye.Image = global::LifeLineBloodBank.Properties.Resources.eye;
+            this.eye.Location = new System.Drawing.Point(237, 226);
+            this.eye.Name = "eye";
+            this.eye.Size = new System.Drawing.Size(16, 16);
+            this.eye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.eye.TabIndex = 32;
+            this.eye.TabStop = false;
+            this.eye.Click += new System.EventHandler(this.eye_Click);
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(289, 489);
+            this.Controls.Add(this.eye);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
@@ -175,6 +190,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.eye)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +208,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label btnClose;
+        private System.Windows.Forms.PictureBox eye;
     }
 }
