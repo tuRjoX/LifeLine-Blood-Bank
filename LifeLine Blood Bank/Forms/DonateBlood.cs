@@ -13,12 +13,12 @@ namespace LifeLineBloodBank.Forms
 {
     public partial class DonateBlood : Form
     {
-        private int Id; // Declare a field to hold the user ID
+        private int Id; 
 
-        public DonateBlood(int userId) // Modify the constructor to accept userId
+        public DonateBlood(int userId) 
         {
             InitializeComponent();
-            Id = userId; // Set the Id field
+            Id = userId; 
         }
 
         private void LoadTheme()
@@ -29,7 +29,7 @@ namespace LifeLineBloodBank.Forms
                 {
                     Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.Honeydew; // This line will not take effect because the next line overwrites it.
+                    btn.ForeColor = Color.Honeydew; 
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
@@ -54,43 +54,7 @@ namespace LifeLineBloodBank.Forms
             DBGroupCB.SelectedIndex = -1;
             DAddressTbl.Text = "";
         }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            if (DNameTb.Text == "" || DPhone.Text == "" || DAgeTb.Text == "" || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
-            {
-                MessageBox.Show("Missing Information.");
-            }
-            else if (DPhone.Text.Length != 11 || !long.TryParse(DPhone.Text, out _))
-            {
-                MessageBox.Show("Phone number must be exactly 11 digits.");
-            }
-            else
-            {
-                try
-                {
-                    String query = "INSERT INTO DonorTbl VALUES(@Name, @Age, @Gender, @Phone, @Address, @BloodGroup)";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.Parameters.AddWithValue("@Name", DNameTb.Text);
-                    cmd.Parameters.AddWithValue("@Age", DAgeTb.Text);
-                    cmd.Parameters.AddWithValue("@Gender", DGenderCB.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@Phone", DPhone.Text);
-                    cmd.Parameters.AddWithValue("@Address", DAddressTbl.Text);
-                    cmd.Parameters.AddWithValue("@BloodGroup", DBGroupCB.SelectedItem.ToString());
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Donor Successfully Saved.");
-                    Con.Close();
-                    Reset();
-                }
-                catch (Exception Ex)
-                {
-                    MessageBox.Show(Ex.Message);
-                }
-            }
-        }
-
-        private void LoadUserData(int userId) // Pass the user ID
+        private void LoadUserData(int userId) 
         {
             try
             {
@@ -122,15 +86,47 @@ namespace LifeLineBloodBank.Forms
 
         private void DonateBlood_Load(object sender, EventArgs e)
         {
-            LoadUserData(Id); // Now Id is defined
+            LoadUserData(Id); 
             LoadTheme();
         }
-
-        // Consider removing this duplicate button click event
         private void button2_Click(object sender, EventArgs e)
         {
-            // Duplicate logic as button2_Click_1
-            // Consider refactoring to avoid duplication
+            if (DNameTb.Text == "" || DPhone.Text == "" || DAgeTb.Text == "" || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
+            {
+                MessageBox.Show("Missing Information.");
+            }
+            else if (DPhone.Text.Length != 11 || !long.TryParse(DPhone.Text, out _))
+            {
+                MessageBox.Show("Phone number must be exactly 11 digits.");
+            }
+            else if (!int.TryParse(DAgeTb.Text, out int age) || age <= 17)
+            {
+                MessageBox.Show("Age must be a valid number greater than 17.");
+
+            }
+            else
+            {
+                try
+                {
+                    String query = "INSERT INTO DonorTbl VALUES(@Name, @Age, @Gender, @Phone, @Address, @BloodGroup)";
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.Parameters.AddWithValue("@Name", DNameTb.Text);
+                    cmd.Parameters.AddWithValue("@Age", DAgeTb.Text);
+                    cmd.Parameters.AddWithValue("@Gender", DGenderCB.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@Phone", DPhone.Text);
+                    cmd.Parameters.AddWithValue("@Address", DAddressTbl.Text);
+                    cmd.Parameters.AddWithValue("@BloodGroup", DBGroupCB.SelectedItem.ToString());
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Donor Successfully Saved.");
+                    Con.Close();
+                    Reset();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
         }
     }
 }
