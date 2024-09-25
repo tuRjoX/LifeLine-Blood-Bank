@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration; // Add this
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -18,6 +19,7 @@ namespace LifeLineBloodBank.Forms
             InitializeComponent();
             populate();
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -27,7 +29,6 @@ namespace LifeLineBloodBank.Forms
                     Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.Honeydew;
-                    btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
                 label1.ForeColor = ThemeColor.PrimaryColor;
@@ -35,13 +36,15 @@ namespace LifeLineBloodBank.Forms
                 label12.ForeColor = ThemeColor.PrimaryColor;
                 label13.ForeColor = ThemeColor.SecondaryColor;
                 label14.ForeColor = ThemeColor.PrimaryColor;
-                label15.ForeColor = ThemeColor.SecondaryColor;  
+                label15.ForeColor = ThemeColor.SecondaryColor;
                 label16.ForeColor = ThemeColor.PrimaryColor;
                 DonorDGV.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
-        
+
+        // Use the connection string from app.config
+        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
+
         private void Reset()
         {
             DNameTb.Text = "";
@@ -52,7 +55,7 @@ namespace LifeLineBloodBank.Forms
             DAddressTbl.Text = "";
             key = 0;
         }
-        
+
         private void populate()
         {
             Con.Open();
@@ -64,14 +67,16 @@ namespace LifeLineBloodBank.Forms
             DonorDGV.DataSource = ds.Tables[0];
             Con.Close();
         }
+
         int key = 0;
+
         private void DonorDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DNameTb.Text = DonorDGV.SelectedRows[0].Cells[1].Value.ToString();
             DAgeTb.Text = DonorDGV.SelectedRows[0].Cells[2].Value.ToString();
-            DGenderCB.SelectedItem= DonorDGV.SelectedRows[0].Cells[3].Value.ToString();
-            DPhone.Text= DonorDGV.SelectedRows[0].Cells[4].Value.ToString();
-            DAddressTbl.Text= DonorDGV.SelectedRows[0].Cells[5].Value.ToString();
+            DGenderCB.SelectedItem = DonorDGV.SelectedRows[0].Cells[3].Value.ToString();
+            DPhone.Text = DonorDGV.SelectedRows[0].Cells[4].Value.ToString();
+            DAddressTbl.Text = DonorDGV.SelectedRows[0].Cells[5].Value.ToString();
             DBGroupCB.SelectedItem = DonorDGV.SelectedRows[0].Cells[6].Value.ToString();
             if (DNameTb.Text == "")
             {
@@ -85,7 +90,7 @@ namespace LifeLineBloodBank.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(key == 0)
+            if (key == 0)
             {
                 MessageBox.Show("Select A Donor");
             }
@@ -93,7 +98,7 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    String query = "Delete from DonorTbl where DNum="+key+";";
+                    String query = "Delete from DonorTbl where DNum=" + key + ";";
                     Con.Open();
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
@@ -108,6 +113,7 @@ namespace LifeLineBloodBank.Forms
                 }
             }
         }
+
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (DNameTb.Text == "" || DPhone.Text == "" || DAgeTb.Text == "" || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
@@ -129,7 +135,7 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    String query = "update DonorTbl set DName='" + DNameTb.Text + "', DAge='" + DAgeTb.Text + "', DGender='" + DGenderCB.SelectedItem.ToString() + "', DPhone='" + DPhone.Text + "', DAddress='" + DAddressTbl.Text + "', DBGroup='" + DBGroupCB.SelectedItem.ToString() + "' where DNum="+key+";";
+                    String query = "update DonorTbl set DName='" + DNameTb.Text + "', DAge='" + DAgeTb.Text + "', DGender='" + DGenderCB.SelectedItem.ToString() + "', DPhone='" + DPhone.Text + "', DAddress='" + DAddressTbl.Text + "', DBGroup='" + DBGroupCB.SelectedItem.ToString() + "' where DNum=" + key + ";";
                     Con.Open();
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();

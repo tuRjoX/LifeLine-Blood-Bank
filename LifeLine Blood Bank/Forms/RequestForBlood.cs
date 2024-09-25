@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Configuration; // Import for accessing app.config
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LifeLineBloodBank.Forms
@@ -18,12 +13,15 @@ namespace LifeLineBloodBank.Forms
         private int Id;
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
         private System.Drawing.Printing.PrintDocument printRequestInfo = new System.Drawing.Printing.PrintDocument();
+        private SqlConnection Con;
 
         public RequestForBlood(int id)
         {
             InitializeComponent();
             Id = id;
             printRequestInfo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printRequestInfo_PrintPage);
+            string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
+            Con = new SqlConnection(connectionString);
         }
 
         private void LoadTheme()
@@ -35,24 +33,22 @@ namespace LifeLineBloodBank.Forms
                     Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.Honeydew;
-                    btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
-                label1.ForeColor = ThemeColor.PrimaryColor;
-                label12.ForeColor = ThemeColor.SecondaryColor;
-                label13.ForeColor = ThemeColor.PrimaryColor;
-                label15.ForeColor = ThemeColor.SecondaryColor;
-                label2.ForeColor = ThemeColor.PrimaryColor;
             }
+            label1.ForeColor = ThemeColor.PrimaryColor;
+            label12.ForeColor = ThemeColor.SecondaryColor;
+            label13.ForeColor = ThemeColor.PrimaryColor;
+            label15.ForeColor = ThemeColor.SecondaryColor;
+            label2.ForeColor = ThemeColor.PrimaryColor;
         }
-
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
 
         private void Reset()
         {
             RNameTb.Text = "";
             RPhone.Text = "";
             RBGroupCB.SelectedIndex = -1;
+            REmail.Text = ""; // Make sure to reset the email field as well
         }
 
         private void FetchUserData(int userId)
@@ -109,21 +105,27 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    String query = "insert into RequestTbl (RName, RPhone,REmail, RBGroup) values('" + RNameTb.Text + "','" + RPhone.Text + "','" + REmail.Text + "','" + RBGroupCB.SelectedItem.ToString() + "')";
+                    string query = "INSERT INTO RequestTbl (RName, RPhone, REmail, RBGroup) VALUES (@RName, @RPhone, @REmail, @RBGroup)";
                     Con.Open();
                     SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.Parameters.AddWithValue("@RName", RNameTb.Text);
+                    cmd.Parameters.AddWithValue("@RPhone", RPhone.Text);
+                    cmd.Parameters.AddWithValue("@REmail", REmail.Text);
+                    cmd.Parameters.AddWithValue("@RBGroup", RBGroupCB.SelectedItem.ToString());
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Request Sent Successfully.");
-                    SendEmail(REmail.Text, "", RBGroupCB.SelectedItem.ToString());
+                    SendEmail(REmail.Text, RNameTb.Text, RBGroupCB.SelectedItem.ToString());
                     printPreviewDialog1.Document = printRequestInfo;
                     printPreviewDialog1.ShowDialog();
-
-                    Con.Close();
                     Reset();
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+                }
+                finally
+                {
+                    Con.Close();
                 }
             }
         }
@@ -133,7 +135,7 @@ namespace LifeLineBloodBank.Forms
             try
             {
                 string from = "lifelinebloodbankbd@gmail.com";
-                string pass = "tpul kgmg gfrc nkki";
+                string pass = "tpul kgmg gfrc nkki"; // Consider storing this securely
                 string subject = "Blood Request Confirmation";
                 string messageBody = $"Dear {userName},<br><br>Your request for {bloodGroup} blood has been successfully submitted.<br><br>Thank you for using our services.";
 
@@ -172,6 +174,7 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Failed to send email: " + ex.Message);
             }
         }
+
         private void printRequestInfo_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font headerFont = new Font("Arial", 20, FontStyle.Bold);

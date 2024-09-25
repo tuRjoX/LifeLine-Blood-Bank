@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Configuration; // Import for accessing app.config
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LifeLineBloodBank.Forms
@@ -18,6 +13,7 @@ namespace LifeLineBloodBank.Forms
         // Add PrintPreviewDialog and PrintDocument
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
         private System.Drawing.Printing.PrintDocument printDonorInfo = new System.Drawing.Printing.PrintDocument();
+        private SqlConnection Con;
 
         public DonateBlood(int userId)
         {
@@ -26,31 +22,31 @@ namespace LifeLineBloodBank.Forms
 
             // Assign PrintPage event
             printDonorInfo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDonorInfo_PrintPage);
+
+            // Initialize the connection string from app.config
+            string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
+            Con = new SqlConnection(connectionString);
         }
 
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (btns is Button btn)
                 {
-                    Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.Honeydew;
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
-                label1.ForeColor = ThemeColor.PrimaryColor;
-                label11.ForeColor = ThemeColor.SecondaryColor;
-                label12.ForeColor = ThemeColor.PrimaryColor;
-                label13.ForeColor = ThemeColor.SecondaryColor;
-                label14.ForeColor = ThemeColor.PrimaryColor;
-                label15.ForeColor = ThemeColor.SecondaryColor;
-                label16.ForeColor = ThemeColor.PrimaryColor;
             }
+            label1.ForeColor = ThemeColor.PrimaryColor;
+            label11.ForeColor = ThemeColor.SecondaryColor;
+            label12.ForeColor = ThemeColor.PrimaryColor;
+            label13.ForeColor = ThemeColor.SecondaryColor;
+            label14.ForeColor = ThemeColor.PrimaryColor;
+            label15.ForeColor = ThemeColor.SecondaryColor;
+            label16.ForeColor = ThemeColor.PrimaryColor;
         }
-
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
 
         private void Reset()
         {
@@ -83,12 +79,16 @@ namespace LifeLineBloodBank.Forms
                     {
                         MessageBox.Show("User not found.");
                     }
-                    Con.Close();
+                    reader.Close();
                 }
             }
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
+            }
+            finally
+            {
+                Con.Close();
             }
         }
 
@@ -100,7 +100,8 @@ namespace LifeLineBloodBank.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (DNameTb.Text == "" || DPhone.Text == "" || DAgeTb.Text == "" || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(DNameTb.Text) || string.IsNullOrEmpty(DPhone.Text) ||
+                string.IsNullOrEmpty(DAgeTb.Text) || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information.");
             }
@@ -116,30 +117,36 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    String query = "INSERT INTO DonorTbl VALUES(@Name, @Age, @Gender, @Phone, @Address, @BloodGroup)";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.Parameters.AddWithValue("@Name", DNameTb.Text);
-                    cmd.Parameters.AddWithValue("@Age", DAgeTb.Text);
-                    cmd.Parameters.AddWithValue("@Gender", DGenderCB.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@Phone", DPhone.Text);
-                    cmd.Parameters.AddWithValue("@Address", DAddressTbl.Text);
-                    cmd.Parameters.AddWithValue("@BloodGroup", DBGroupCB.SelectedItem.ToString());
-                    cmd.ExecuteNonQuery();
+                    string query = "INSERT INTO DonorTbl (DName, DAge, DGender, DPhone, DAddress, DBGroup) VALUES (@Name, @Age, @Gender, @Phone, @Address, @BloodGroup)";
+                    using (SqlCommand cmd = new SqlCommand(query, Con))
+                    {
+                        cmd.Parameters.AddWithValue("@Name", DNameTb.Text);
+                        cmd.Parameters.AddWithValue("@Age", DAgeTb.Text);
+                        cmd.Parameters.AddWithValue("@Gender", DGenderCB.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@Phone", DPhone.Text);
+                        cmd.Parameters.AddWithValue("@Address", DAddressTbl.Text);
+                        cmd.Parameters.AddWithValue("@BloodGroup", DBGroupCB.SelectedItem.ToString());
+
+                        Con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                     MessageBox.Show("Donor Successfully Saved.");
-                    Con.Close();
-
-                    // Show print preview BEFORE resetting the form
-                    printPreviewDialog1.Document = printDonorInfo;
-                    printPreviewDialog1.ShowDialog();
-
-                    // Reset fields after successful print and save
-                    Reset();
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
                 }
+                finally
+                {
+                    Con.Close();
+                }
+
+                // Show print preview BEFORE resetting the form
+                printPreviewDialog1.Document = printDonorInfo;
+                printPreviewDialog1.ShowDialog();
+
+                // Reset fields after successful print and save
+                Reset();
             }
         }
 

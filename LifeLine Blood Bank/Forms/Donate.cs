@@ -3,17 +3,21 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Configuration; 
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class Donate : Form
     {
+        private string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
+
         public Donate()
         {
             InitializeComponent();
             populate();
             bloodStock();
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -26,6 +30,7 @@ namespace LifeLineBloodBank.Forms
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
+
                 label11.ForeColor = ThemeColor.SecondaryColor;
                 label12.ForeColor = ThemeColor.PrimaryColor;
                 label13.ForeColor = ThemeColor.SecondaryColor;
@@ -33,49 +38,53 @@ namespace LifeLineBloodBank.Forms
                 label15.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
         private void populate()
         {
-            Con.Open();
-            String Query = "select * from DonorTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            DonorsDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = "SELECT * FROM DonorTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                DonorsDGV.DataSource = ds.Tables[0];
+            }
         }
         private void bloodStock()
         {
-            Con.Open();
-            String Query = "select * from BloodTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            BloodStockDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = "SELECT * FROM BloodTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                BloodStockDGV.DataSource = ds.Tables[0];
+            }
         }
 
         private void Donate_Load(object sender, EventArgs e)
         {
-
+            LoadTheme();
         }
         int oldstock;
         private void GetStock(string Bgroup)
         {
-            Con.Open();
-            string query = "select * from BloodTbl where BGroup = @Bgroup";
-            SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.Parameters.AddWithValue("@Bgroup", Bgroup);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                oldstock = Convert.ToInt32(dr["BStock"].ToString());
+                con.Open();
+                string query = "SELECT BStock FROM BloodTbl WHERE BGroup = @Bgroup";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Bgroup", Bgroup);
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    oldstock = Convert.ToInt32(dt.Rows[0]["BStock"].ToString());
+                }
             }
-            Con.Close();
         }
         private void DonorsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -88,31 +97,35 @@ namespace LifeLineBloodBank.Forms
             DNameTb.Text = "";
             BGroupTb.Text = "";
         }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
-            if (DNameTb.Text == "")
+            if (string.IsNullOrEmpty(DNameTb.Text))
             {
                 MessageBox.Show("Select A Donor");
+                return;
             }
-            else
+
+            try
             {
-                try
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    int stock = oldstock + 1;
-                    string query = "update BloodTbl set BStock = " + stock + "where BGroup='" + BGroupTb.Text + "';";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
+                    con.Open();
+                    int newStock = oldstock + 1;
+                    string query = "UPDATE BloodTbl SET BStock = @newStock WHERE BGroup = @Bgroup";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@newStock", newStock);
+                    cmd.Parameters.AddWithValue("@Bgroup", BGroupTb.Text);
                     cmd.ExecuteNonQuery();
+
                     MessageBox.Show("Donation Successful");
-                    Con.Close();
+
                     reset();
                     bloodStock();
                 }
-                catch (Exception Ex)
-                {
-                    MessageBox.Show(Ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

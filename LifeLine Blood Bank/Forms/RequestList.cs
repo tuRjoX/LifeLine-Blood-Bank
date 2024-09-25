@@ -1,26 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Net.Mail;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Mail;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class RequestList : Form
     {
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
+
         public RequestList()
         {
             InitializeComponent();
             bloodStock();
             populate();
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -30,7 +29,6 @@ namespace LifeLineBloodBank.Forms
                     Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.Honeydew;
-                    btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
                 label12.ForeColor = ThemeColor.SecondaryColor;
@@ -38,49 +36,52 @@ namespace LifeLineBloodBank.Forms
                 label15.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
-
         private void populate()
         {
-            Con.Open();
-            String Query = "select id, RName, RPhone,REmail, RBGroup from RequestTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            RequestDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = "SELECT id, RName, RPhone, REmail, RBGroup FROM RequestTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                RequestDGV.DataSource = ds.Tables[0];
+            }
         }
-
         private void bloodStock()
         {
-            Con.Open();
-            String Query = "select * from BloodTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            BloodStockDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = "SELECT * FROM BloodTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                BloodStockDGV.DataSource = ds.Tables[0];
+            }
         }
 
-        int oldstock;
-        string selectedBloodGroup;
+        private int oldstock;
+        private string selectedBloodGroup;
         private void GetStock(string Bgroup)
         {
-            Con.Open();
-            string query = "select * from BloodTbl where BGroup = @Bgroup";
-            SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.Parameters.AddWithValue("@Bgroup", Bgroup);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                oldstock = Convert.ToInt32(dr["BStock"].ToString());
+                con.Open();
+                string query = "SELECT * FROM BloodTbl WHERE BGroup = @Bgroup";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Bgroup", Bgroup);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        oldstock = Convert.ToInt32(dr["BStock"].ToString());
+                    }
+                }
             }
-            Con.Close();
         }
 
         private void RequestList_Load(object sender, EventArgs e)
@@ -101,23 +102,28 @@ namespace LifeLineBloodBank.Forms
         private void updateStock()
         {
             int newstock = oldstock - 1;
-            try
-            {
 
-                string query = "update BloodTbl set BStock = @newstock where BGroup = @Bgroup";
-                Con.Open();
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@newstock", newstock);
-                cmd.Parameters.AddWithValue("@Bgroup", selectedBloodGroup);
-                cmd.ExecuteNonQuery();
-                Con.Close();
-                bloodStock();
-            }
-            catch (Exception Ex)
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                MessageBox.Show(Ex.Message);
+                try
+                {
+                    con.Open();
+                    string query = "UPDATE BloodTbl SET BStock = @newstock WHERE BGroup = @Bgroup";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@newstock", newstock);
+                        cmd.Parameters.AddWithValue("@Bgroup", selectedBloodGroup);
+                        cmd.ExecuteNonQuery();
+                    }
+                    bloodStock();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (oldstock > 0)
@@ -126,36 +132,37 @@ namespace LifeLineBloodBank.Forms
                 DataGridViewRow selectedRow = RequestDGV.SelectedRows[0];
                 string RName = selectedRow.Cells["RName"].Value.ToString();
                 string RBGroup = selectedRow.Cells["RBGroup"].Value.ToString();
-                string REmail = selectedRow.Cells["REmail"].Value.ToString(); // Get the email
+                string REmail = selectedRow.Cells["REmail"].Value.ToString();
                 int requestId = Convert.ToInt32(selectedRow.Cells["id"].Value);
 
-                try
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    // Insert into TransferTbl
-                    string insertQuery = "insert into TransferTbl (PName, BGroup) values (@PName, @BGroup)";
-                    Con.Open();
-                    SqlCommand insertCmd = new SqlCommand(insertQuery, Con);
-                    insertCmd.Parameters.AddWithValue("@PName", RName);
-                    insertCmd.Parameters.AddWithValue("@BGroup", RBGroup);
-                    insertCmd.ExecuteNonQuery();
+                    try
+                    {
+                        con.Open();
+                        string insertQuery = "INSERT INTO TransferTbl (PName, BGroup) VALUES (@PName, @BGroup)";
+                        using (SqlCommand insertCmd = new SqlCommand(insertQuery, con))
+                        {
+                            insertCmd.Parameters.AddWithValue("@PName", RName);
+                            insertCmd.Parameters.AddWithValue("@BGroup", RBGroup);
+                            insertCmd.ExecuteNonQuery();
+                        }
+                        string deleteQuery = "DELETE FROM RequestTbl WHERE id = @id";
+                        using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, con))
+                        {
+                            deleteCmd.Parameters.AddWithValue("@id", requestId);
+                            deleteCmd.ExecuteNonQuery();
+                        }
 
-                    // Delete from RequestTbl
-                    string deleteQuery = "delete from RequestTbl where id = @id";
-                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, Con);
-                    deleteCmd.Parameters.AddWithValue("@id", requestId);
-                    deleteCmd.ExecuteNonQuery();
+                        MessageBox.Show("Blood Transferred Successfully.");
 
-                    Con.Close();
-                    MessageBox.Show("Blood Transferred Successfully, Record Inserted and Request Deleted.");
-
-                    // Send success email after blood transfer
-                    SendEmail(REmail, RName, RBGroup);
-
-                    populate();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                        SendEmail(REmail, RName, RBGroup);
+                        populate();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
@@ -163,6 +170,7 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Insufficient Blood Stock");
             }
         }
+
         private void SendEmail(string toEmail, string userName, string bloodGroup)
         {
             try
@@ -178,7 +186,7 @@ namespace LifeLineBloodBank.Forms
                     Subject = subject,
                     IsBodyHtml = true
                 };
-                message.To.Add(toEmail); 
+                message.To.Add(toEmail);
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(
                     messageBody +
                     "<br><br>Best regards,<br>LifeLine Blood Bank<br><br>" +
@@ -192,7 +200,7 @@ namespace LifeLineBloodBank.Forms
                     null, "text/html"
                 );
 
-                message.AlternateViews.Add(htmlView); 
+                message.AlternateViews.Add(htmlView);
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com")
                 {
                     EnableSsl = true,
@@ -208,6 +216,5 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Failed to send email: " + ex.Message);
             }
         }
-
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration; // Add this
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -18,6 +19,7 @@ namespace LifeLineBloodBank.Forms
             InitializeComponent();
             populate();
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -27,15 +29,16 @@ namespace LifeLineBloodBank.Forms
                     Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.Honeydew;
-                    btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
                 label10.ForeColor = ThemeColor.PrimaryColor;
-                label11.ForeColor = ThemeColor.SecondaryColor; 
+                label11.ForeColor = ThemeColor.SecondaryColor;
             }
         }
 
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
+        // Use the connection string from app.config
+        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
+
         private void populate()
         {
             Con.Open();
@@ -47,10 +50,12 @@ namespace LifeLineBloodBank.Forms
             DonorDGV.DataSource = ds.Tables[0];
             Con.Close();
         }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             FilterDonorsByName(textBox1.Text);
         }
+
         private void FilterDonorsByName(string donorName)
         {
             try
@@ -68,16 +73,15 @@ namespace LifeLineBloodBank.Forms
                 Con.Close();
             }
         }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            // Implement any actions needed when a cell is clicked
         }
 
         private void ViewDonor_Load(object sender, EventArgs e)
         {
             LoadTheme();
         }
-
-        
     }
 }

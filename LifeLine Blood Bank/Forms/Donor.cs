@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Configuration; // Add this for ConfigurationManager
 
 namespace LifeLineBloodBank.Forms
 {
@@ -11,18 +12,19 @@ namespace LifeLineBloodBank.Forms
         {
             InitializeComponent();
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (btns is Button btn)
                 {
-                    Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.Honeydew;
-                    btn.ForeColor = Color.White;
+                    btn.ForeColor = Color.White; // Set forecolor to white
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
+
+                // Set label colors
                 label10.ForeColor = ThemeColor.PrimaryColor;
                 label11.ForeColor = ThemeColor.SecondaryColor;
                 label12.ForeColor = ThemeColor.PrimaryColor;
@@ -33,7 +35,10 @@ namespace LifeLineBloodBank.Forms
                 label1.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True");
+
+        // Use the connection string from app.config
+        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
+
         private void Reset()
         {
             DNameTb.Text = "";
@@ -43,9 +48,11 @@ namespace LifeLineBloodBank.Forms
             DBGroupCB.SelectedIndex = -1;
             DAddressTbl.Text = "";
         }
+
         private void button2_Click_1(object sender, EventArgs e)
         {
-            if (DNameTb.Text == "" || DPhone.Text == "" || DAgeTb.Text == "" || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
+            if (string.IsNullOrWhiteSpace(DNameTb.Text) || string.IsNullOrWhiteSpace(DPhone.Text) ||
+                string.IsNullOrWhiteSpace(DAgeTb.Text) || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information.");
             }
@@ -54,9 +61,9 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Age must be greater than 17.");
             }
             else if (DPhone.Text.Length != 11 || !long.TryParse(DPhone.Text, out _) ||
-            !(DPhone.Text.StartsWith("018") || DPhone.Text.StartsWith("015") ||
-            DPhone.Text.StartsWith("014") || DPhone.Text.StartsWith("017") ||
-            DPhone.Text.StartsWith("016")))
+                     !(DPhone.Text.StartsWith("018") || DPhone.Text.StartsWith("015") ||
+                       DPhone.Text.StartsWith("014") || DPhone.Text.StartsWith("017") ||
+                       DPhone.Text.StartsWith("016")))
             {
                 MessageBox.Show("Incorrect Mobile Number.");
             }
@@ -64,12 +71,23 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    String query = "insert into DonorTbl values('" + DNameTb.Text + "','" + DAgeTb.Text + "','" + DGenderCB.SelectedItem.ToString() + "','" + DPhone.Text + "','" + DAddressTbl.Text + "','" + DBGroupCB.SelectedItem.ToString() + "')";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
+                    string query = "INSERT INTO DonorTbl (DName, DAge, DGender, DPhone, DAddress, DBGroup) VALUES (@DName, @DAge, @DGender, @DPhone, @DAddress, @DBGroup)";
+                    using (Con)
+                    {
+                        Con.Open();
+                        using (SqlCommand cmd = new SqlCommand(query, Con))
+                        {
+                            cmd.Parameters.AddWithValue("@DName", DNameTb.Text);
+                            cmd.Parameters.AddWithValue("@DAge", DAgeTb.Text);
+                            cmd.Parameters.AddWithValue("@DGender", DGenderCB.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@DPhone", DPhone.Text);
+                            cmd.Parameters.AddWithValue("@DAddress", DAddressTbl.Text);
+                            cmd.Parameters.AddWithValue("@DBGroup", DBGroupCB.SelectedItem.ToString());
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
                     MessageBox.Show("Donor Successfully Saved.");
-                    Con.Close();
                     Reset();
                 }
                 catch (Exception Ex)
@@ -78,7 +96,6 @@ namespace LifeLineBloodBank.Forms
                 }
             }
         }
-
 
         private void Donor_Load(object sender, EventArgs e)
         {
