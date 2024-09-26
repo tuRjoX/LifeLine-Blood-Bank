@@ -106,7 +106,7 @@ namespace LifeLineBloodBank
         }
         private void btnBloodTransfer_Click_1(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Forms.BloodTransfer(), sender);
         }
         private void button1_Click_1(object sender, EventArgs e)
         {

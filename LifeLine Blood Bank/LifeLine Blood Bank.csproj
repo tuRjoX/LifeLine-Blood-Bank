@@ -79,6 +79,12 @@
     <Compile Include="Forms\BloodStock.Designer.cs">
       <DependentUpon>BloodStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BloodTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BloodTransfer.Designer.cs">
+      <DependentUpon>BloodTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BloodStock.resx">
       <DependentUpon>BloodStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BloodTransfer.resx">
+      <DependentUpon>BloodTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
