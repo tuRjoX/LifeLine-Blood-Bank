@@ -135,7 +135,7 @@ namespace LifeLineBloodBank
 
         private void btnBloodStock_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            
         }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
