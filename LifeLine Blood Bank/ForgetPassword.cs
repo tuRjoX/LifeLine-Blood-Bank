@@ -142,7 +142,12 @@ namespace LifeLineBloodBank
                 MessageBox.Show("Missing Info. Please fill in all the fields.");
                 return;
             }
-
+            string password = txtPassword.Text;
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Invalid password. It must be at least 6 characters long.");
+                return;
+            }
             if (txtPassword.Text == txtConfirmPass.Text)
             {
                 string connString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;

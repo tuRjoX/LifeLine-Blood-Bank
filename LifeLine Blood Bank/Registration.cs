@@ -57,20 +57,11 @@ namespace LifeLineBloodBank
             {
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString))
                 {
-                    string emailCheckQuery = "SELECT COUNT(*) FROM UsersTbl WHERE UEmail = @UE";
-                    SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, con);
-                    emailCheckCmd.Parameters.AddWithValue("@UE", txtEmail.Text);
-                    con.Open();
-                    int emailCount = (int)emailCheckCmd.ExecuteScalar();
-
-                    if (emailCount > 0)
-                    {
-                        MessageBox.Show("This email already exists. Please use a different email.");
-                        return;
-                    }
+                    // First check if the username is already taken
                     string usernameCheckQuery = "SELECT COUNT(*) FROM UsersTbl WHERE UName = @UN";
                     SqlCommand usernameCheckCmd = new SqlCommand(usernameCheckQuery, con);
                     usernameCheckCmd.Parameters.AddWithValue("@UN", txtUsername.Text);
+                    con.Open();
                     int usernameCount = (int)usernameCheckCmd.ExecuteScalar();
 
                     if (usernameCount > 0)
@@ -78,8 +69,21 @@ namespace LifeLineBloodBank
                         MessageBox.Show("This username already exists. Please choose a different username.");
                         return;
                     }
+
+                    // Check if the email is already registered
+                    string emailCheckQuery = "SELECT COUNT(*) FROM UsersTbl WHERE UEmail = @UE";
+                    SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, con);
+                    emailCheckCmd.Parameters.AddWithValue("@UE", txtEmail.Text);
+                    int emailCount = (int)emailCheckCmd.ExecuteScalar();
+
+                    if (emailCount > 0)
+                    {
+                        MessageBox.Show("This email already exists. Please use a different email.");
+                        return;
+                    }
                 }
 
+                // Proceed with OTP generation and sending the email
                 string from, pass, messageBody;
                 Random rand = new Random();
                 OTPCode = (rand.Next(999999)).ToString();
@@ -136,7 +140,19 @@ namespace LifeLineBloodBank
                 MessageBox.Show("Missing Info. Please fill in all the fields.");
                 return;
             }
-
+            string phone = txtPhone.Text;
+            if (phone.Length != 11 || !(phone.StartsWith("018") || phone.StartsWith("014") ||
+                                       phone.StartsWith("013") || phone.StartsWith("015") || phone.StartsWith("016")))
+            {
+                MessageBox.Show("Invalid phone number. It must be 11 digits and start with 018, 014, 013, 015, or 016.");
+                return;
+            }
+            string password = txtPassword.Text;
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Invalid password. It must be at least 6 characters long.");
+                return;
+            }
             if (txtPassword.Text == txtConfirmPass.Text)
             {
                 string query = "INSERT INTO UsersTbl (UName, UFullName, UPhone, UEmail, UPassword) VALUES (@UN, @UFN, @UP, @UE, @UPASS)";

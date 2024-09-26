@@ -293,7 +293,7 @@
             // 
             this.eye2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.eye2.Image = ((System.Drawing.Image)(resources.GetObject("eye2.Image")));
-            this.eye2.Location = new System.Drawing.Point(247, 425);
+            this.eye2.Location = new System.Drawing.Point(261, 422);
             this.eye2.Name = "eye2";
             this.eye2.Size = new System.Drawing.Size(16, 16);
             this.eye2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -305,7 +305,7 @@
             // 
             this.eye1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.eye1.Image = ((System.Drawing.Image)(resources.GetObject("eye1.Image")));
-            this.eye1.Location = new System.Drawing.Point(247, 373);
+            this.eye1.Location = new System.Drawing.Point(261, 370);
             this.eye1.Name = "eye1";
             this.eye1.Size = new System.Drawing.Size(16, 16);
             this.eye1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
