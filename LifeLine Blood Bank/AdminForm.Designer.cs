@@ -79,7 +79,7 @@
             this.bntMinimize.FlatAppearance.BorderSize = 0;
             this.bntMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntMinimize.Font = new System.Drawing.Font("Wingdings 3", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntMinimize.ForeColor = System.Drawing.Color.Black;
+            this.bntMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.bntMinimize.Location = new System.Drawing.Point(844, 0);
             this.bntMinimize.Name = "bntMinimize";
             this.bntMinimize.Size = new System.Drawing.Size(26, 26);
@@ -94,7 +94,7 @@
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Wingdings 3", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaximize.ForeColor = System.Drawing.Color.Black;
+            this.btnMaximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.btnMaximize.Location = new System.Drawing.Point(866, 0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(26, 26);
@@ -109,7 +109,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Wingdings 3", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.btnClose.Location = new System.Drawing.Point(888, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 26);
