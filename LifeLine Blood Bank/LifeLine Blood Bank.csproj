@@ -109,6 +109,12 @@
     <Compile Include="Forms\Donor.Designer.cs">
       <DependentUpon>Donor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Patients.Designer.cs">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RequestForBlood.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     </Compile>
     <Compile Include="Forms\ViewDonor.Designer.cs">
       <DependentUpon>ViewDonor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewPatients.Designer.cs">
+      <DependentUpon>ViewPatients.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -178,6 +190,9 @@
     <EmbeddedResource Include="Forms\Donor.resx">
       <DependentUpon>Donor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Patients.resx">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestForBlood.resx">
       <DependentUpon>RequestForBlood.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewDonor.resx">
       <DependentUpon>ViewDonor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewPatients.resx">
+      <DependentUpon>ViewPatients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

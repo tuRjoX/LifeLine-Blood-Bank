@@ -125,12 +125,12 @@ namespace LifeLineBloodBank
 
         private void btnPatient_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.Patients(), sender);
         }
 
         private void btnViewPatient_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.ViewPatients(), sender);
         }
 
         private void btnBloodStock_Click(object sender, EventArgs e)
