@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration; // Add this
+using System.Configuration; 
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -35,8 +35,6 @@ namespace LifeLineBloodBank.Forms
                 label11.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-
-        // Use the connection string from app.config
         SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
 
         private void populate()
@@ -76,7 +74,6 @@ namespace LifeLineBloodBank.Forms
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Implement any actions needed when a cell is clicked
         }
 
         private void ViewDonor_Load(object sender, EventArgs e)

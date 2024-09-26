@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Configuration; // Add this for ConfigurationManager
+using System.Configuration; 
 
 namespace LifeLineBloodBank.Forms
 {
@@ -20,11 +20,9 @@ namespace LifeLineBloodBank.Forms
                 if (btns is Button btn)
                 {
                     btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White; // Set forecolor to white
+                    btn.ForeColor = Color.White; 
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
-
-                // Set label colors
                 label10.ForeColor = ThemeColor.PrimaryColor;
                 label11.ForeColor = ThemeColor.SecondaryColor;
                 label12.ForeColor = ThemeColor.PrimaryColor;
@@ -35,8 +33,6 @@ namespace LifeLineBloodBank.Forms
                 label1.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-
-        // Use the connection string from app.config
         SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
 
         private void Reset()

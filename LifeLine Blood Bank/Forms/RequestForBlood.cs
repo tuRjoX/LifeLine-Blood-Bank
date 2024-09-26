@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Configuration; // Import for accessing app.config
+using System.Configuration; 
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Net;
@@ -48,7 +48,7 @@ namespace LifeLineBloodBank.Forms
             RNameTb.Text = "";
             RPhone.Text = "";
             RBGroupCB.SelectedIndex = -1;
-            REmail.Text = ""; // Make sure to reset the email field as well
+            REmail.Text = ""; 
         }
 
         private void FetchUserData(int userId)
@@ -135,7 +135,7 @@ namespace LifeLineBloodBank.Forms
             try
             {
                 string from = "lifelinebloodbankbd@gmail.com";
-                string pass = "tpul kgmg gfrc nkki"; // Consider storing this securely
+                string pass = "tpul kgmg gfrc nkki";
                 string subject = "Blood Request Confirmation";
                 string messageBody = $"Dear {userName},<br><br>Your request for {bloodGroup} blood has been successfully submitted.<br><br>Thank you for using our services.";
 

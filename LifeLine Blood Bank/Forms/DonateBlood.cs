@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Configuration; // Import for accessing app.config
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,8 +9,6 @@ namespace LifeLineBloodBank.Forms
     public partial class DonateBlood : Form
     {
         private int Id;
-
-        // Add PrintPreviewDialog and PrintDocument
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
         private System.Drawing.Printing.PrintDocument printDonorInfo = new System.Drawing.Printing.PrintDocument();
         private SqlConnection Con;
@@ -19,11 +17,7 @@ namespace LifeLineBloodBank.Forms
         {
             InitializeComponent();
             Id = userId;
-
-            // Assign PrintPage event
             printDonorInfo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDonorInfo_PrintPage);
-
-            // Initialize the connection string from app.config
             string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
             Con = new SqlConnection(connectionString);
         }
@@ -140,24 +134,16 @@ namespace LifeLineBloodBank.Forms
                 {
                     Con.Close();
                 }
-
-                // Show print preview BEFORE resetting the form
                 printPreviewDialog1.Document = printDonorInfo;
                 printPreviewDialog1.ShowDialog();
-
-                // Reset fields after successful print and save
                 Reset();
             }
         }
-
-        // Event handler for PrintPage event
         private void printDonorInfo_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font headerFont = new Font("Arial", 20, FontStyle.Bold);
             Font bodyFont = new Font("Arial", 12);
             PointF startingPoint = new PointF(100, 100);
-
-            // Print header
             e.Graphics.DrawString("Donor Information", headerFont, Brushes.Black, startingPoint);
 
             startingPoint.Y += 50;
