@@ -17,7 +17,7 @@ namespace LifeLineBloodBank
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BloodTransfer());
+            Application.Run(new BloodStock());
         }
     }
 }
