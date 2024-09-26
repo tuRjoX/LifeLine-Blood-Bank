@@ -262,5 +262,12 @@
   <ItemGroup>
     <None Include="Resources\pending.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Devlopers\1.jpg" />
+    <Content Include="Devlopers\2.jpg" />
+    <Content Include="Devlopers\3.jpg" />
+    <Content Include="Devlopers\4.jpg" />
+    <Content Include="Devlopers\Background.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
