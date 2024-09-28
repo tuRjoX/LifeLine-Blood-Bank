@@ -298,9 +298,9 @@
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(607, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.Size = new System.Drawing.Size(98, 20);
             this.label4.TabIndex = 68;
-            this.label4.Text = "Mobile";
+            this.label4.Text = "Mobile No.";
             // 
             // PAgeTb
             // 

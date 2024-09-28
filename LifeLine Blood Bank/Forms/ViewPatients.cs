@@ -98,13 +98,6 @@ namespace LifeLineBloodBank.Forms
             }
             else
             {
-                int age;
-                bool isAgeValid = int.TryParse(PAgeTb.Text, out age);
-                if (!isAgeValid || age <= 17)
-                {
-                    MessageBox.Show("Age must be greater than 17.");
-                    return;
-                }
                 string phone = PPhoneTb.Text;
                 string[] validPrefixes = { "014", "013", "017", "018", "016", "015" };
                 bool isPhoneValid = phone.Length == 11 && validPrefixes.Any(prefix => phone.StartsWith(prefix));
