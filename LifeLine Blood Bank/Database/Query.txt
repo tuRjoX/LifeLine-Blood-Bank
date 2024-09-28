@@ -1,0 +1,60 @@
+CREATE TABLE [dbo].[BloodTbl] (
+    [BGroup] VARCHAR (50) NOT NULL,
+    [BStock] INT          NOT NULL,
+    CONSTRAINT [PK_BloodTbl] PRIMARY KEY CLUSTERED ([BGroup] ASC)
+);
+
+CREATE TABLE [dbo].[DonorTbl] (
+    [DNum]     INT          IDENTITY (100, 1) NOT NULL,
+    [DName]    VARCHAR (50) NOT NULL,
+    [DAge]     INT          NOT NULL,
+    [DGender]  VARCHAR (50) NOT NULL,
+    [DPhone]   VARCHAR (50) NOT NULL,
+    [DAddress] VARCHAR (50) NOT NULL,
+    [DBGroup]  VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([DNum] ASC)
+);
+
+CREATE TABLE [dbo].[PatientsTbl] (
+    [PNum]        INT          IDENTITY (500, 1) NOT NULL,
+    [PName]       VARCHAR (50) NOT NULL,
+    [PAge]        INT          NOT NULL,
+    [PPhone]      VARCHAR (50) NOT NULL,
+    [PGender]     VARCHAR (50) NOT NULL,
+    [PBGroup]     VARCHAR (50) NOT NULL,
+    [PAdress]     VARCHAR (50) NOT NULL,
+    [PDList]      VARCHAR (50) NOT NULL,
+    [PWNo]        VARCHAR (50) NOT NULL,
+    [PBNo]        VARCHAR (50) NOT NULL,
+    [CreatedDate] DATETIME     DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([PNum] ASC)
+);
+
+CREATE TABLE [dbo].[RequestTbl] (
+    [Id]          INT          IDENTITY (500, 1) NOT NULL,
+    [RName]       VARCHAR (50) NULL,
+    [RPhone]      VARCHAR (11) NULL,
+    [REmail]      VARCHAR (50) NULL,
+    [RBGroup]     VARCHAR (50) NULL,
+    [CreatedDate] DATETIME     DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[TransferTbl] (
+    [TNum]   INT          IDENTITY (1, 1) NOT NULL,
+    [PName]  VARCHAR (50) NOT NULL,
+    [BGroup] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([TNum] ASC)
+);
+
+CREATE TABLE [dbo].[UsersTbl] (
+    [Id]          INT          IDENTITY (100, 1) NOT NULL,
+    [UName]       VARCHAR (50) NULL,
+    [UFullName]   VARCHAR (50) NULL,
+    [UPhone]      VARCHAR (11) NULL,
+    [UEmail]      VARCHAR (50) NULL,
+    [UPassword]   VARCHAR (50) NULL,
+    [CreatedDate] DATETIME     DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

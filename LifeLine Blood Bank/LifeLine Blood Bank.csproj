@@ -299,6 +299,9 @@
     <None Include="Resources\pending.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\BloodBankDb [With Data].sql" />
+    <Content Include="Database\BloodBankDb.sql" />
+    <Content Include="Database\Query.txt" />
     <Content Include="Devlopers\1.jpg" />
     <Content Include="Devlopers\2.jpg" />
     <Content Include="Devlopers\3.jpg" />
