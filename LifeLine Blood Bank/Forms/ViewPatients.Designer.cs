@@ -72,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(98, 83);
+            this.label2.Location = new System.Drawing.Point(98, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             this.PNameTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PNameTb.Location = new System.Drawing.Point(102, 115);
+            this.PNameTb.Location = new System.Drawing.Point(102, 108);
             this.PNameTb.Name = "PNameTb";
             this.PNameTb.Size = new System.Drawing.Size(176, 13);
             this.PNameTb.TabIndex = 2;
@@ -91,7 +91,7 @@
             // 
             this.PAgeTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PAgeTb.Location = new System.Drawing.Point(352, 115);
+            this.PAgeTb.Location = new System.Drawing.Point(352, 108);
             this.PAgeTb.Name = "PAgeTb";
             this.PAgeTb.Size = new System.Drawing.Size(176, 13);
             this.PAgeTb.TabIndex = 4;
@@ -101,7 +101,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(348, 83);
+            this.label3.Location = new System.Drawing.Point(348, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 3;
@@ -111,7 +111,7 @@
             // 
             this.PPhoneTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PPhoneTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PPhoneTb.Location = new System.Drawing.Point(597, 115);
+            this.PPhoneTb.Location = new System.Drawing.Point(597, 108);
             this.PPhoneTb.Name = "PPhoneTb";
             this.PPhoneTb.Size = new System.Drawing.Size(176, 13);
             this.PPhoneTb.TabIndex = 6;
@@ -121,7 +121,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(593, 83);
+            this.label4.Location = new System.Drawing.Point(593, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 20);
             this.label4.TabIndex = 5;
@@ -132,7 +132,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(98, 151);
+            this.label5.Location = new System.Drawing.Point(98, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 20);
             this.label5.TabIndex = 7;
@@ -142,7 +142,7 @@
             // 
             this.PAdressTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAdressTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PAdressTb.Location = new System.Drawing.Point(352, 250);
+            this.PAdressTb.Location = new System.Drawing.Point(352, 243);
             this.PAdressTb.Name = "PAdressTb";
             this.PAdressTb.Size = new System.Drawing.Size(176, 13);
             this.PAdressTb.TabIndex = 10;
@@ -152,7 +152,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(348, 218);
+            this.label6.Location = new System.Drawing.Point(348, 211);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 20);
             this.label6.TabIndex = 9;
@@ -163,7 +163,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(348, 151);
+            this.label7.Location = new System.Drawing.Point(348, 144);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 20);
             this.label7.TabIndex = 11;
@@ -177,7 +177,7 @@
             this.PGenderCb.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.PGenderCb.Location = new System.Drawing.Point(352, 183);
+            this.PGenderCb.Location = new System.Drawing.Point(352, 176);
             this.PGenderCb.Name = "PGenderCb";
             this.PGenderCb.Size = new System.Drawing.Size(176, 21);
             this.PGenderCb.TabIndex = 12;
@@ -190,7 +190,7 @@
             this.PWNoCb.Items.AddRange(new object[] {
             "M1-M20",
             "F1-F20"});
-            this.PWNoCb.Location = new System.Drawing.Point(597, 183);
+            this.PWNoCb.Location = new System.Drawing.Point(597, 176);
             this.PWNoCb.Name = "PWNoCb";
             this.PWNoCb.Size = new System.Drawing.Size(176, 21);
             this.PWNoCb.TabIndex = 14;
@@ -200,7 +200,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(593, 151);
+            this.label8.Location = new System.Drawing.Point(593, 144);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 20);
             this.label8.TabIndex = 13;
@@ -252,7 +252,7 @@
             "M-18",
             "M-19",
             "M-20"});
-            this.PBNoCb.Location = new System.Drawing.Point(102, 250);
+            this.PBNoCb.Location = new System.Drawing.Point(102, 243);
             this.PBNoCb.Name = "PBNoCb";
             this.PBNoCb.Size = new System.Drawing.Size(176, 21);
             this.PBNoCb.TabIndex = 16;
@@ -262,7 +262,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(98, 218);
+            this.label9.Location = new System.Drawing.Point(98, 211);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 20);
             this.label9.TabIndex = 15;
@@ -308,7 +308,7 @@
             "Ophthalmology",
             "Breast and Colorectal Surgeon",
             "Burn and Plastic Surgery"});
-            this.PDListCb.Location = new System.Drawing.Point(597, 250);
+            this.PDListCb.Location = new System.Drawing.Point(597, 243);
             this.PDListCb.Name = "PDListCb";
             this.PDListCb.Size = new System.Drawing.Size(176, 21);
             this.PDListCb.TabIndex = 18;
@@ -318,7 +318,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(593, 218);
+            this.label10.Location = new System.Drawing.Point(593, 211);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 20);
             this.label10.TabIndex = 17;
@@ -347,7 +347,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.PatientsDGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.PatientsDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.PatientsDGV.Location = new System.Drawing.Point(51, 348);
+            this.PatientsDGV.Location = new System.Drawing.Point(51, 332);
             this.PatientsDGV.Name = "PatientsDGV";
             this.PatientsDGV.RowHeadersVisible = false;
             this.PatientsDGV.Size = new System.Drawing.Size(799, 259);
@@ -381,7 +381,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(473, 296);
+            this.button1.Location = new System.Drawing.Point(473, 288);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 33);
             this.button1.TabIndex = 61;
@@ -395,7 +395,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(315, 296);
+            this.button2.Location = new System.Drawing.Point(315, 288);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 60;
@@ -417,7 +417,7 @@
             "O-",
             "B-",
             "AB-"});
-            this.PBGroupCb.Location = new System.Drawing.Point(102, 183);
+            this.PBGroupCb.Location = new System.Drawing.Point(102, 176);
             this.PBGroupCb.Name = "PBGroupCb";
             this.PBGroupCb.Size = new System.Drawing.Size(176, 21);
             this.PBGroupCb.TabIndex = 62;

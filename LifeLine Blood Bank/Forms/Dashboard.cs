@@ -63,6 +63,16 @@ namespace LifeLineBloodBank.Forms
                 sda1.Fill(dt1);
                 TransferLbl.Text = dt1.Rows[0][0].ToString();
 
+                SqlDataAdapter sda111 = new SqlDataAdapter("Select count(*) from PatientsTbl", Con);
+                DataTable dt111 = new DataTable();
+                sda111.Fill(dt111);
+                PatientsLbl.Text = dt111.Rows[0][0].ToString();
+
+                SqlDataAdapter sda1111 = new SqlDataAdapter("Select count(*) from RequestTbl", Con);
+                DataTable dt1111 = new DataTable();
+                sda1111.Fill(dt1111);
+                Requestlbl.Text = dt1111.Rows[0][0].ToString();
+
                 SqlDataAdapter sda100 = new SqlDataAdapter("SELECT SUM(BStock) FROM BloodTbl", Con);
                 DataTable dt100 = new DataTable();
                 sda100.Fill(dt100);

@@ -189,7 +189,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(379, 546);
+            this.button2.Location = new System.Drawing.Point(379, 538);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 41;
@@ -202,7 +202,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(478, 490);
+            this.label11.Location = new System.Drawing.Point(478, 482);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 20);
             this.label11.TabIndex = 40;
@@ -214,7 +214,7 @@
             this.BGroupTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BGroupTb.Enabled = false;
             this.BGroupTb.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BGroupTb.Location = new System.Drawing.Point(596, 491);
+            this.BGroupTb.Location = new System.Drawing.Point(596, 483);
             this.BGroupTb.Name = "BGroupTb";
             this.BGroupTb.Size = new System.Drawing.Size(163, 20);
             this.BGroupTb.TabIndex = 39;
@@ -224,7 +224,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(114, 490);
+            this.label13.Location = new System.Drawing.Point(114, 482);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 20);
             this.label13.TabIndex = 38;
@@ -236,7 +236,7 @@
             this.DNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DNameTb.Enabled = false;
             this.DNameTb.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DNameTb.Location = new System.Drawing.Point(177, 491);
+            this.DNameTb.Location = new System.Drawing.Point(177, 483);
             this.DNameTb.Name = "DNameTb";
             this.DNameTb.Size = new System.Drawing.Size(163, 20);
             this.DNameTb.TabIndex = 37;

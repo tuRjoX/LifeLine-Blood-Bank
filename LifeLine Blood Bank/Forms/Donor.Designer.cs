@@ -51,7 +51,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(388, 522);
+            this.button2.Location = new System.Drawing.Point(388, 479);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 43;
@@ -121,7 +121,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(480, 312);
+            this.label15.Location = new System.Drawing.Point(480, 314);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(112, 20);
             this.label15.TabIndex = 38;
@@ -146,9 +146,9 @@
             this.label12.ForeColor = System.Drawing.Color.Red;
             this.label12.Location = new System.Drawing.Point(480, 85);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 20);
+            this.label12.Size = new System.Drawing.Size(92, 20);
             this.label12.TabIndex = 36;
-            this.label12.Text = "Number";
+            this.label12.Text = "Moble No.";
             // 
             // DPhone
             // 
