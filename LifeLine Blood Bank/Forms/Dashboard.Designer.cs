@@ -92,7 +92,7 @@
             this.TotalBStocklbl.AutoSize = true;
             this.TotalBStocklbl.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalBStocklbl.ForeColor = System.Drawing.Color.Red;
-            this.TotalBStocklbl.Location = new System.Drawing.Point(347, 173);
+            this.TotalBStocklbl.Location = new System.Drawing.Point(347, 171);
             this.TotalBStocklbl.Name = "TotalBStocklbl";
             this.TotalBStocklbl.Size = new System.Drawing.Size(27, 25);
             this.TotalBStocklbl.TabIndex = 40;
@@ -104,7 +104,7 @@
             this.label19.BackColor = System.Drawing.SystemColors.Control;
             this.label19.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(758, 422);
+            this.label19.Location = new System.Drawing.Point(758, 420);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(26, 20);
             this.label19.TabIndex = 39;
@@ -116,7 +116,7 @@
             this.label20.BackColor = System.Drawing.SystemColors.Control;
             this.label20.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(554, 421);
+            this.label20.Location = new System.Drawing.Point(554, 419);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(31, 20);
             this.label20.TabIndex = 38;
@@ -128,7 +128,7 @@
             this.label21.BackColor = System.Drawing.SystemColors.Control;
             this.label21.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(343, 422);
+            this.label21.Location = new System.Drawing.Point(343, 420);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(38, 20);
             this.label21.TabIndex = 37;
@@ -140,7 +140,7 @@
             this.label22.BackColor = System.Drawing.SystemColors.Control;
             this.label22.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(120, 422);
+            this.label22.Location = new System.Drawing.Point(120, 420);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(43, 20);
             this.label22.TabIndex = 36;
@@ -152,7 +152,7 @@
             this.label18.BackColor = System.Drawing.SystemColors.Control;
             this.label18.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(758, 220);
+            this.label18.Location = new System.Drawing.Point(758, 218);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(26, 20);
             this.label18.TabIndex = 35;
@@ -164,7 +164,7 @@
             this.label17.BackColor = System.Drawing.SystemColors.Control;
             this.label17.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(554, 219);
+            this.label17.Location = new System.Drawing.Point(554, 217);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(31, 20);
             this.label17.TabIndex = 34;
@@ -176,7 +176,7 @@
             this.label16.BackColor = System.Drawing.SystemColors.Control;
             this.label16.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(343, 220);
+            this.label16.Location = new System.Drawing.Point(343, 218);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(26, 20);
             this.label16.TabIndex = 33;
@@ -189,7 +189,7 @@
             this.OMinusProgress.FillThickness = 10;
             this.OMinusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.OMinusProgress.ForeColor = System.Drawing.Color.White;
-            this.OMinusProgress.Location = new System.Drawing.Point(695, 459);
+            this.OMinusProgress.Location = new System.Drawing.Point(695, 457);
             this.OMinusProgress.Minimum = 0;
             this.OMinusProgress.Name = "OMinusProgress";
             this.OMinusProgress.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -216,7 +216,7 @@
             this.label15.BackColor = System.Drawing.SystemColors.Control;
             this.label15.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(120, 220);
+            this.label15.Location = new System.Drawing.Point(120, 218);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(31, 20);
             this.label15.TabIndex = 31;
@@ -229,7 +229,7 @@
             this.BMinusProgress.FillThickness = 10;
             this.BMinusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BMinusProgress.ForeColor = System.Drawing.Color.White;
-            this.BMinusProgress.Location = new System.Drawing.Point(695, 254);
+            this.BMinusProgress.Location = new System.Drawing.Point(695, 252);
             this.BMinusProgress.Minimum = 0;
             this.BMinusProgress.Name = "BMinusProgress";
             this.BMinusProgress.ProgressColor = System.Drawing.Color.Aqua;
@@ -257,7 +257,7 @@
             this.OPlusProgress.FillThickness = 10;
             this.OPlusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.OPlusProgress.ForeColor = System.Drawing.Color.White;
-            this.OPlusProgress.Location = new System.Drawing.Point(508, 459);
+            this.OPlusProgress.Location = new System.Drawing.Point(508, 457);
             this.OPlusProgress.Minimum = 0;
             this.OPlusProgress.Name = "OPlusProgress";
             this.OPlusProgress.ProgressColor = System.Drawing.Color.Silver;
@@ -285,7 +285,7 @@
             this.BPlusProgress.FillThickness = 10;
             this.BPlusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BPlusProgress.ForeColor = System.Drawing.Color.White;
-            this.BPlusProgress.Location = new System.Drawing.Point(508, 254);
+            this.BPlusProgress.Location = new System.Drawing.Point(508, 252);
             this.BPlusProgress.Minimum = 0;
             this.BPlusProgress.Name = "BPlusProgress";
             this.BPlusProgress.ProgressColor = System.Drawing.Color.Lime;
@@ -313,7 +313,7 @@
             this.ABMinusProgress.FillThickness = 10;
             this.ABMinusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ABMinusProgress.ForeColor = System.Drawing.Color.White;
-            this.ABMinusProgress.Location = new System.Drawing.Point(295, 459);
+            this.ABMinusProgress.Location = new System.Drawing.Point(295, 457);
             this.ABMinusProgress.Minimum = 0;
             this.ABMinusProgress.Name = "ABMinusProgress";
             this.ABMinusProgress.ProgressThickness = 10;
@@ -340,7 +340,7 @@
             this.AMinusProgress.FillThickness = 10;
             this.AMinusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.AMinusProgress.ForeColor = System.Drawing.Color.White;
-            this.AMinusProgress.Location = new System.Drawing.Point(295, 254);
+            this.AMinusProgress.Location = new System.Drawing.Point(295, 252);
             this.AMinusProgress.Minimum = 0;
             this.AMinusProgress.Name = "AMinusProgress";
             this.AMinusProgress.ProgressColor = System.Drawing.Color.Yellow;
@@ -368,7 +368,7 @@
             this.ABPlusProgress.FillThickness = 10;
             this.ABPlusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ABPlusProgress.ForeColor = System.Drawing.Color.White;
-            this.ABPlusProgress.Location = new System.Drawing.Point(73, 459);
+            this.ABPlusProgress.Location = new System.Drawing.Point(73, 457);
             this.ABPlusProgress.Minimum = 0;
             this.ABPlusProgress.Name = "ABPlusProgress";
             this.ABPlusProgress.ProgressColor = System.Drawing.Color.Blue;
@@ -396,7 +396,7 @@
             this.APlusProgress.FillThickness = 10;
             this.APlusProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.APlusProgress.ForeColor = System.Drawing.Color.White;
-            this.APlusProgress.Location = new System.Drawing.Point(73, 254);
+            this.APlusProgress.Location = new System.Drawing.Point(73, 252);
             this.APlusProgress.Minimum = 0;
             this.APlusProgress.Name = "APlusProgress";
             this.APlusProgress.ProgressColor = System.Drawing.Color.Red;
