@@ -307,6 +307,7 @@
     <Content Include="Devlopers\3.jpg" />
     <Content Include="Devlopers\4.jpg" />
     <Content Include="Devlopers\Background.png" />
+    <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\mobile-password-forgot %281%29.png" />
     <Content Include="Resources\mobile-password-forgot.png" />
     <None Include="Resources\error.png" />

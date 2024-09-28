@@ -35,10 +35,9 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.btnRequestList = new System.Windows.Forms.Button();
             this.btnBloodTransfer = new System.Windows.Forms.Button();
             this.btnBloodStock = new System.Windows.Forms.Button();
@@ -50,13 +49,14 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnDonor = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktopPane.SuspendLayout();
-            this.panelMenu.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -67,9 +67,10 @@
             this.panelTitleBar.Controls.Add(this.btnClose);
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
+            this.panelTitleBar.Location = new System.Drawing.Point(293, 0);
+            this.panelTitleBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(914, 55);
+            this.panelTitleBar.Size = new System.Drawing.Size(1219, 68);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -80,9 +81,10 @@
             this.bntMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntMinimize.Font = new System.Drawing.Font("Wingdings 3", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.bntMinimize.Location = new System.Drawing.Point(844, 0);
+            this.bntMinimize.Location = new System.Drawing.Point(1125, 0);
+            this.bntMinimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bntMinimize.Name = "bntMinimize";
-            this.bntMinimize.Size = new System.Drawing.Size(26, 26);
+            this.bntMinimize.Size = new System.Drawing.Size(35, 32);
             this.bntMinimize.TabIndex = 4;
             this.bntMinimize.Text = "O";
             this.bntMinimize.UseVisualStyleBackColor = true;
@@ -95,9 +97,10 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Wingdings 3", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.btnMaximize.Location = new System.Drawing.Point(866, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(1155, 0);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(26, 26);
+            this.btnMaximize.Size = new System.Drawing.Size(35, 32);
             this.btnMaximize.TabIndex = 3;
             this.btnMaximize.Text = "O";
             this.btnMaximize.UseVisualStyleBackColor = true;
@@ -110,9 +113,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Wingdings 3", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.btnClose.Location = new System.Drawing.Point(888, 0);
+            this.btnClose.Location = new System.Drawing.Point(1184, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 26);
+            this.btnClose.Size = new System.Drawing.Size(35, 32);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "O";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -123,9 +127,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.lblTitle.Location = new System.Drawing.Point(311, 12);
+            this.lblTitle.Location = new System.Drawing.Point(415, 15);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(239, 32);
+            this.lblTitle.Size = new System.Drawing.Size(297, 41);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "LifeLine Blood Bank";
             // 
@@ -134,10 +139,35 @@
             this.panelDesktopPane.Controls.Add(this.pictureBox2);
             this.panelDesktopPane.Controls.Add(this.pictureBox1);
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktopPane.Location = new System.Drawing.Point(220, 55);
+            this.panelDesktopPane.Location = new System.Drawing.Point(293, 68);
+            this.panelDesktopPane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelDesktopPane.Name = "panelDesktopPane";
-            this.panelDesktopPane.Size = new System.Drawing.Size(914, 606);
+            this.panelDesktopPane.Size = new System.Drawing.Size(1219, 746);
             this.panelDesktopPane.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = global::LifeLineBloodBank.Properties.Resources.Background;
+            this.pictureBox2.Location = new System.Drawing.Point(209, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(831, 746);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1219, 746);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panelMenu
             // 
@@ -156,41 +186,10 @@
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 661);
+            this.panelMenu.Size = new System.Drawing.Size(293, 814);
             this.panelMenu.TabIndex = 0;
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.White;
-            this.panelLogo.Controls.Add(this.btnCloseChildForm);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(220, 55);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = global::LifeLineBloodBank.Properties.Resources.Background;
-            this.pictureBox2.Location = new System.Drawing.Point(157, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(623, 606);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(914, 606);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnRequestList
             // 
@@ -202,9 +201,10 @@
             this.btnRequestList.ForeColor = System.Drawing.Color.Honeydew;
             this.btnRequestList.Image = global::LifeLineBloodBank.Properties.Resources.member_list__1_;
             this.btnRequestList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRequestList.Location = new System.Drawing.Point(0, 460);
+            this.btnRequestList.Location = new System.Drawing.Point(0, 563);
+            this.btnRequestList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRequestList.Name = "btnRequestList";
-            this.btnRequestList.Size = new System.Drawing.Size(220, 45);
+            this.btnRequestList.Size = new System.Drawing.Size(293, 55);
             this.btnRequestList.TabIndex = 18;
             this.btnRequestList.Text = "Request List";
             this.btnRequestList.UseVisualStyleBackColor = false;
@@ -220,9 +220,10 @@
             this.btnBloodTransfer.ForeColor = System.Drawing.Color.Honeydew;
             this.btnBloodTransfer.Image = global::LifeLineBloodBank.Properties.Resources.blood;
             this.btnBloodTransfer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBloodTransfer.Location = new System.Drawing.Point(0, 415);
+            this.btnBloodTransfer.Location = new System.Drawing.Point(0, 508);
+            this.btnBloodTransfer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBloodTransfer.Name = "btnBloodTransfer";
-            this.btnBloodTransfer.Size = new System.Drawing.Size(220, 45);
+            this.btnBloodTransfer.Size = new System.Drawing.Size(293, 55);
             this.btnBloodTransfer.TabIndex = 17;
             this.btnBloodTransfer.Text = "Blood Transfer";
             this.btnBloodTransfer.UseVisualStyleBackColor = false;
@@ -238,9 +239,10 @@
             this.btnBloodStock.ForeColor = System.Drawing.Color.Honeydew;
             this.btnBloodStock.Image = global::LifeLineBloodBank.Properties.Resources.blood_test_tube_alt___copy;
             this.btnBloodStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBloodStock.Location = new System.Drawing.Point(0, 370);
+            this.btnBloodStock.Location = new System.Drawing.Point(0, 453);
+            this.btnBloodStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBloodStock.Name = "btnBloodStock";
-            this.btnBloodStock.Size = new System.Drawing.Size(220, 45);
+            this.btnBloodStock.Size = new System.Drawing.Size(293, 55);
             this.btnBloodStock.TabIndex = 16;
             this.btnBloodStock.Text = "Blood Stock";
             this.btnBloodStock.UseVisualStyleBackColor = false;
@@ -256,9 +258,10 @@
             this.btnViewPatient.ForeColor = System.Drawing.Color.Honeydew;
             this.btnViewPatient.Image = global::LifeLineBloodBank.Properties.Resources.users_medical;
             this.btnViewPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewPatient.Location = new System.Drawing.Point(0, 325);
+            this.btnViewPatient.Location = new System.Drawing.Point(0, 398);
+            this.btnViewPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewPatient.Name = "btnViewPatient";
-            this.btnViewPatient.Size = new System.Drawing.Size(220, 45);
+            this.btnViewPatient.Size = new System.Drawing.Size(293, 55);
             this.btnViewPatient.TabIndex = 15;
             this.btnViewPatient.Text = "View Patient";
             this.btnViewPatient.UseVisualStyleBackColor = false;
@@ -274,9 +277,10 @@
             this.btnPatient.ForeColor = System.Drawing.Color.Honeydew;
             this.btnPatient.Image = global::LifeLineBloodBank.Properties.Resources.bed_pulse;
             this.btnPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPatient.Location = new System.Drawing.Point(0, 280);
+            this.btnPatient.Location = new System.Drawing.Point(0, 343);
+            this.btnPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPatient.Name = "btnPatient";
-            this.btnPatient.Size = new System.Drawing.Size(220, 45);
+            this.btnPatient.Size = new System.Drawing.Size(293, 55);
             this.btnPatient.TabIndex = 14;
             this.btnPatient.Text = "Patient";
             this.btnPatient.UseVisualStyleBackColor = false;
@@ -292,9 +296,10 @@
             this.btnDonate.ForeColor = System.Drawing.Color.Honeydew;
             this.btnDonate.Image = global::LifeLineBloodBank.Properties.Resources.hands_heart;
             this.btnDonate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDonate.Location = new System.Drawing.Point(0, 235);
+            this.btnDonate.Location = new System.Drawing.Point(0, 288);
+            this.btnDonate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDonate.Name = "btnDonate";
-            this.btnDonate.Size = new System.Drawing.Size(220, 45);
+            this.btnDonate.Size = new System.Drawing.Size(293, 55);
             this.btnDonate.TabIndex = 13;
             this.btnDonate.Text = "Donate";
             this.btnDonate.UseVisualStyleBackColor = false;
@@ -310,9 +315,10 @@
             this.btnViewDonor.ForeColor = System.Drawing.Color.Honeydew;
             this.btnViewDonor.Image = global::LifeLineBloodBank.Properties.Resources.magnifying_glass_eye___copy;
             this.btnViewDonor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewDonor.Location = new System.Drawing.Point(0, 190);
+            this.btnViewDonor.Location = new System.Drawing.Point(0, 233);
+            this.btnViewDonor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewDonor.Name = "btnViewDonor";
-            this.btnViewDonor.Size = new System.Drawing.Size(220, 45);
+            this.btnViewDonor.Size = new System.Drawing.Size(293, 55);
             this.btnViewDonor.TabIndex = 12;
             this.btnViewDonor.Text = "View Donor";
             this.btnViewDonor.UseVisualStyleBackColor = false;
@@ -328,9 +334,10 @@
             this.button1.ForeColor = System.Drawing.Color.Honeydew;
             this.button1.Image = global::LifeLineBloodBank.Properties.Resources.refresh;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 145);
+            this.button1.Location = new System.Drawing.Point(0, 178);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 45);
+            this.button1.Size = new System.Drawing.Size(293, 55);
             this.button1.TabIndex = 11;
             this.button1.Text = "Update Donor";
             this.button1.UseVisualStyleBackColor = false;
@@ -346,9 +353,10 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.Honeydew;
             this.btnLogOut.Image = global::LifeLineBloodBank.Properties.Resources.sign_out_alt;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLogOut.Location = new System.Drawing.Point(0, 616);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 759);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(220, 45);
+            this.btnLogOut.Size = new System.Drawing.Size(293, 55);
             this.btnLogOut.TabIndex = 9;
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
@@ -363,9 +371,10 @@
             this.btnDonor.ForeColor = System.Drawing.Color.Honeydew;
             this.btnDonor.Image = global::LifeLineBloodBank.Properties.Resources.hand_holding_heart___copy;
             this.btnDonor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDonor.Location = new System.Drawing.Point(0, 100);
+            this.btnDonor.Location = new System.Drawing.Point(0, 123);
+            this.btnDonor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDonor.Name = "btnDonor";
-            this.btnDonor.Size = new System.Drawing.Size(220, 45);
+            this.btnDonor.Size = new System.Drawing.Size(293, 55);
             this.btnDonor.TabIndex = 2;
             this.btnDonor.Text = "Add Donor";
             this.btnDonor.UseVisualStyleBackColor = false;
@@ -381,44 +390,59 @@
             this.btnDashboard.ForeColor = System.Drawing.Color.Honeydew;
             this.btnDashboard.Image = global::LifeLineBloodBank.Properties.Resources.dashboard_monitor;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 55);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 68);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(220, 45);
+            this.btnDashboard.Size = new System.Drawing.Size(293, 55);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.White;
+            this.panelLogo.Controls.Add(this.btnCloseChildForm);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(293, 68);
+            this.panelLogo.TabIndex = 0;
             // 
             // btnCloseChildForm
             // 
             this.btnCloseChildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCloseChildForm.BackgroundImage")));
             this.btnCloseChildForm.FlatAppearance.BorderSize = 0;
             this.btnCloseChildForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseChildForm.Location = new System.Drawing.Point(89, 12);
+            this.btnCloseChildForm.Location = new System.Drawing.Point(119, 15);
+            this.btnCloseChildForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCloseChildForm.Name = "btnCloseChildForm";
-            this.btnCloseChildForm.Size = new System.Drawing.Size(32, 31);
+            this.btnCloseChildForm.Size = new System.Drawing.Size(43, 38);
             this.btnCloseChildForm.TabIndex = 5;
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
             this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click);
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 661);
+            this.ClientSize = new System.Drawing.Size(1512, 814);
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktopPane.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
