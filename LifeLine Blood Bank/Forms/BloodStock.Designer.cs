@@ -61,12 +61,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.BloodStockDGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.BloodStockDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BloodStockDGV.Location = new System.Drawing.Point(60, 207);
-            this.BloodStockDGV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BloodStockDGV.Location = new System.Drawing.Point(44, 207);
             this.BloodStockDGV.Name = "BloodStockDGV";
             this.BloodStockDGV.RowHeadersVisible = false;
-            this.BloodStockDGV.RowHeadersWidth = 51;
-            this.BloodStockDGV.Size = new System.Drawing.Size(1083, 475);
+            this.BloodStockDGV.Size = new System.Drawing.Size(812, 386);
             this.BloodStockDGV.TabIndex = 22;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -104,10 +102,10 @@
             "AB-",
             "O+",
             "O-"});
-            this.comboBox1.Location = new System.Drawing.Point(153, 162);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Location = new System.Drawing.Point(115, 167);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(216, 24);
+            this.comboBox1.Size = new System.Drawing.Size(163, 21);
             this.comboBox1.TabIndex = 21;
             // 
             // label1
@@ -115,9 +113,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(56, 162);
+            this.label1.Location = new System.Drawing.Point(42, 167);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 23);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 20;
             this.label1.Text = "Filter";
             // 
@@ -126,22 +125,22 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(460, 31);
+            this.label5.Location = new System.Drawing.Point(345, 25);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(250, 47);
+            this.label5.Size = new System.Drawing.Size(201, 38);
             this.label5.TabIndex = 19;
             this.label5.Text = "Blood Stock";
             // 
             // BloodStock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1197, 762);
+            this.ClientSize = new System.Drawing.Size(898, 619);
             this.Controls.Add(this.BloodStockDGV);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BloodStock";
             this.Text = "BloodStock";
             this.Load += new System.EventHandler(this.BloodStock_Load);
