@@ -141,7 +141,7 @@ namespace LifeLineBloodBank
                 return;
             }
             string phone = txtPhone.Text;
-            if (phone.Length != 11 || !(phone.StartsWith("018") || phone.StartsWith("014") ||
+            if (phone.Length != 11 || !(phone.StartsWith("018") || phone.StartsWith("014") || phone.StartsWith("017") ||
                                        phone.StartsWith("013") || phone.StartsWith("015") || phone.StartsWith("016")))
             {
                 MessageBox.Show("Invalid phone number.");
