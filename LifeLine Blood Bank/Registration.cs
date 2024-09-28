@@ -144,7 +144,7 @@ namespace LifeLineBloodBank
             if (phone.Length != 11 || !(phone.StartsWith("018") || phone.StartsWith("014") ||
                                        phone.StartsWith("013") || phone.StartsWith("015") || phone.StartsWith("016")))
             {
-                MessageBox.Show("Invalid phone number. It must be 11 digits and start with 018, 014, 013, 015, or 016.");
+                MessageBox.Show("Invalid phone number.");
                 return;
             }
             string password = txtPassword.Text;
@@ -202,14 +202,30 @@ namespace LifeLineBloodBank
 
         private void eye1_Click(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = txtPassword.PasswordChar == '*' ? '\0' : '*';
-            eye1.Image = txtPassword.PasswordChar == '*' ? Properties.Resources.eye : Properties.Resources.eye;
+            if (txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+                eye1.Image = Properties.Resources.eye;
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+                eye1.Image = Properties.Resources.eye;
+            }
         }
 
         private void eye2_Click(object sender, EventArgs e)
         {
-            txtConfirmPass.PasswordChar = txtConfirmPass.PasswordChar == '*' ? '\0' : '*';
-            eye2.Image = txtConfirmPass.PasswordChar == '*' ? Properties.Resources.eye : Properties.Resources.eye;
+            if (txtConfirmPass.PasswordChar == '*')
+            {
+                txtConfirmPass.PasswordChar = '\0';
+                eye1.Image = Properties.Resources.eye;
+            }
+            else
+            {
+                txtConfirmPass.PasswordChar = '*';
+                eye1.Image = Properties.Resources.eye;
+            }
         }
     }
 }

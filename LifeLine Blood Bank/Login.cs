@@ -166,8 +166,16 @@ namespace LifeLineBloodBank
 
         private void eye_Click(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = txtPassword.PasswordChar == '*' ? '\0' : '*';
-            eye.Image = txtPassword.PasswordChar == '*' ? Properties.Resources.eye : Properties.Resources.eye; // Update with appropriate image
+            if (txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+                eye.Image = Properties.Resources.eye;
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+                eye.Image = Properties.Resources.eye;
+            }
         }
     }
 }
