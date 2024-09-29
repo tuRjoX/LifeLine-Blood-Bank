@@ -20,7 +20,7 @@ namespace LifeLineBloodBank
         int startpos = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            startpos += 3;
+            startpos += 4;
             MyProgressBar.Value = startpos;
             if (MyProgressBar.Value == 100)
             {
