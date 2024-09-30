@@ -22,7 +22,7 @@ namespace LifeLineBloodBank
             txtConfirmPass.Enabled = false;
             txtEmail.TextChanged += new EventHandler(txtEmail_TextChanged);
             txtCode.TextChanged += new EventHandler(txtCode_TextChanged);
-            userTbl = new UserTbl(); // Initialize UserTbl
+            userTbl = new UserTbl(); 
         }
 
         private void FP_Load(object sender, EventArgs e)
@@ -46,7 +46,6 @@ namespace LifeLineBloodBank
             Random rand = new Random();
             OTPCode = (rand.Next(999999)).ToString();
 
-            // Check if the email exists
             if (!userTbl.IsEmailExists(txtEmail.Text))
             {
                 MessageBox.Show("Email does not exist in our records.");
@@ -71,7 +70,7 @@ namespace LifeLineBloodBank
                 EnableSsl = true,
                 Port = 587,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential("lifelinebloodbankbd@gmail.com", "tpul kgmg gfrc nkki") // Consider using a secure way to handle passwords.
+                Credentials = new NetworkCredential("lifelinebloodbankbd@gmail.com", "tpul kgmg gfrc nkki") 
             };
 
             try
@@ -116,7 +115,6 @@ namespace LifeLineBloodBank
             }
             if (txtPassword.Text == txtConfirmPass.Text)
             {
-                // Update the password in the database
                 userTbl.UpdatePassword(to, txtConfirmPass.Text);
                 MessageBox.Show("Password Reset Successfully.");
                 Login login = new Login();
