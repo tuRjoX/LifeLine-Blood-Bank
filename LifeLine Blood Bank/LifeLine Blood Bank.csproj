@@ -70,6 +70,9 @@
     <Compile Include="Database\BloodTbl.cs" />
     <Compile Include="Database\DonorTbl.cs" />
     <Compile Include="Database\PatientsTbl.cs" />
+    <Compile Include="Database\RequestTbl.cs" />
+    <Compile Include="Database\TransferTbl.cs" />
+    <Compile Include="Database\UserTbl.cs" />
     <Compile Include="ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>

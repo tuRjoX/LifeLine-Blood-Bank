@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Configuration; 
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms;
+using LifeLineBloodBank.Database; 
 
 namespace LifeLineBloodBank.Forms
 {
@@ -13,15 +15,16 @@ namespace LifeLineBloodBank.Forms
         private int Id;
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
         private System.Drawing.Printing.PrintDocument printRequestInfo = new System.Drawing.Printing.PrintDocument();
-        private SqlConnection Con;
+        private RequestTbl requestTbl; 
+        private UserTbl userTbl; 
 
         public RequestForBlood(int id)
         {
             InitializeComponent();
             Id = id;
             printRequestInfo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printRequestInfo_PrintPage);
-            string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
-            Con = new SqlConnection(connectionString);
+            requestTbl = new RequestTbl(); 
+            userTbl = new UserTbl(); 
         }
 
         private void LoadTheme()
@@ -48,37 +51,21 @@ namespace LifeLineBloodBank.Forms
             RNameTb.Text = "";
             RPhone.Text = "";
             RBGroupCB.SelectedIndex = -1;
-            REmail.Text = ""; 
+            REmail.Text = "";
         }
 
         private void FetchUserData(int userId)
         {
             try
             {
-                Con.Open();
-                string query = "SELECT UName, UFullName, UEmail, UPhone FROM UsersTbl WHERE Id = @UserId";
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@UserId", userId);
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    RNameTb.Text = reader["UFullName"].ToString();
-                    RPhone.Text = reader["UPhone"].ToString();
-                    REmail.Text = reader["UEmail"].ToString();
-                }
-                else
-                {
-                    MessageBox.Show("User not found.");
-                }
-                reader.Close();
+                DataRow userData = userTbl.LoadUserData(userId);
+                RNameTb.Text = userData["UFullName"].ToString();
+                RPhone.Text = userData["UPhone"].ToString();
+                REmail.Text = userData["UEmail"].ToString(); 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error fetching user data: " + ex.Message);
-            }
-            finally
-            {
-                Con.Close();
             }
         }
 
@@ -95,9 +82,9 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Missing Information.");
             }
             else if (RPhone.Text.Length != 11 || !long.TryParse(RPhone.Text, out _) ||
-            !(RPhone.Text.StartsWith("018") || RPhone.Text.StartsWith("015") ||
-            RPhone.Text.StartsWith("014") || RPhone.Text.StartsWith("017") ||
-            RPhone.Text.StartsWith("016")))
+                !(RPhone.Text.StartsWith("018") || RPhone.Text.StartsWith("015") ||
+                RPhone.Text.StartsWith("014") || RPhone.Text.StartsWith("017") ||
+                RPhone.Text.StartsWith("016")))
             {
                 MessageBox.Show("Incorrect Mobile Number.");
             }
@@ -105,14 +92,7 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    string query = "INSERT INTO RequestTbl (RName, RPhone, REmail, RBGroup) VALUES (@RName, @RPhone, @REmail, @RBGroup)";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.Parameters.AddWithValue("@RName", RNameTb.Text);
-                    cmd.Parameters.AddWithValue("@RPhone", RPhone.Text);
-                    cmd.Parameters.AddWithValue("@REmail", REmail.Text);
-                    cmd.Parameters.AddWithValue("@RBGroup", RBGroupCB.SelectedItem.ToString());
-                    cmd.ExecuteNonQuery();
+                    requestTbl.AddRequest(RNameTb.Text, RPhone.Text, REmail.Text, RBGroupCB.SelectedItem.ToString());
                     MessageBox.Show("Request Sent Successfully.");
                     SendEmail(REmail.Text, RNameTb.Text, RBGroupCB.SelectedItem.ToString());
                     printPreviewDialog1.Document = printRequestInfo;
@@ -122,10 +102,6 @@ namespace LifeLineBloodBank.Forms
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-                }
-                finally
-                {
-                    Con.Close();
                 }
             }
         }

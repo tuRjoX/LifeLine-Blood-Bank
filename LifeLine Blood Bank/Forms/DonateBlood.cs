@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using LifeLineBloodBank.Database; // Ensure to include the database namespace
 
 namespace LifeLineBloodBank.Forms
 {
@@ -13,10 +15,16 @@ namespace LifeLineBloodBank.Forms
         private System.Drawing.Printing.PrintDocument printDonorInfo = new System.Drawing.Printing.PrintDocument();
         private SqlConnection Con;
 
+        // Add UserTbl and DonorTbl instances
+        private UserTbl userTbl;
+        private DonorTbl donorTbl;
+
         public DonateBlood(int userId)
         {
             InitializeComponent();
             Id = userId;
+            userTbl = new UserTbl(); // Initialize UserTbl
+            donorTbl = new DonorTbl(); // Initialize DonorTbl
             printDonorInfo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDonorInfo_PrintPage);
             string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
             Con = new SqlConnection(connectionString);
@@ -56,33 +64,14 @@ namespace LifeLineBloodBank.Forms
         {
             try
             {
-                string query = "SELECT UName, UFullName, UPhone FROM UsersTbl WHERE Id = @UserId";
-                using (SqlCommand cmd = new SqlCommand(query, Con))
-                {
-                    cmd.Parameters.AddWithValue("@UserId", userId);
-                    Con.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        DNameTb.Text = reader["UFullName"].ToString();
-                        txtUName.Text = reader["UName"].ToString();
-                        DPhone.Text = reader["UPhone"].ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("User not found.");
-                    }
-                    reader.Close();
-                }
+                DataRow userData = userTbl.LoadUserData(userId);
+                DNameTb.Text = userData["UFullName"].ToString();
+                txtUName.Text = userData["UName"].ToString();
+                DPhone.Text = userData["UPhone"].ToString();
             }
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
-            }
-            finally
-            {
-                Con.Close();
             }
         }
 
@@ -94,6 +83,7 @@ namespace LifeLineBloodBank.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Validate inputs
             if (string.IsNullOrEmpty(DNameTb.Text) || string.IsNullOrEmpty(DPhone.Text) ||
                 string.IsNullOrEmpty(DAgeTb.Text) || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
             {
@@ -111,34 +101,22 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    string query = "INSERT INTO DonorTbl (DName, DAge, DGender, DPhone, DAddress, DBGroup) VALUES (@Name, @Age, @Gender, @Phone, @Address, @BloodGroup)";
-                    using (SqlCommand cmd = new SqlCommand(query, Con))
-                    {
-                        cmd.Parameters.AddWithValue("@Name", DNameTb.Text);
-                        cmd.Parameters.AddWithValue("@Age", DAgeTb.Text);
-                        cmd.Parameters.AddWithValue("@Gender", DGenderCB.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@Phone", DPhone.Text);
-                        cmd.Parameters.AddWithValue("@Address", DAddressTbl.Text);
-                        cmd.Parameters.AddWithValue("@BloodGroup", DBGroupCB.SelectedItem.ToString());
-
-                        Con.Open();
-                        cmd.ExecuteNonQuery();
-                    }
+                    // Use DonorTbl to add the donor
+                    donorTbl.AddDonor(DNameTb.Text, age, DGenderCB.SelectedItem.ToString(), DPhone.Text, DAddressTbl.Text, DBGroupCB.SelectedItem.ToString());
                     MessageBox.Show("Donor Successfully Saved.");
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
                 }
-                finally
-                {
-                    Con.Close();
-                }
+
+                // Print donor info
                 printPreviewDialog1.Document = printDonorInfo;
                 printPreviewDialog1.ShowDialog();
                 Reset();
             }
         }
+
         private void printDonorInfo_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font headerFont = new Font("Arial", 20, FontStyle.Bold);

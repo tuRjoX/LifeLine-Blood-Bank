@@ -6,16 +6,25 @@ using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms;
 using System.Configuration;
+using LifeLineBloodBank.Database;
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class RequestList : Form
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
+        private TransferTbl transferTbl; // Instance of TransferTbl
+        private BloodTbl bloodTbl; // Instance of BloodTbl
+        private RequestTbl requestTbl; // Instance of RequestTbl
+        private int oldstock;
+        private string selectedBloodGroup;
 
         public RequestList()
         {
             InitializeComponent();
+            bloodTbl = new BloodTbl(); // Initialize BloodTbl
+            requestTbl = new RequestTbl(); // Initialize RequestTbl
+            transferTbl = new TransferTbl(); // Initialize TransferTbl
             bloodStock();
             populate();
         }
@@ -31,57 +40,26 @@ namespace LifeLineBloodBank.Forms
                     btn.ForeColor = Color.Honeydew;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
-                label12.ForeColor = ThemeColor.SecondaryColor;
-                label14.ForeColor = ThemeColor.PrimaryColor;
-                label15.ForeColor = ThemeColor.SecondaryColor;
             }
+            label12.ForeColor = ThemeColor.SecondaryColor;
+            label14.ForeColor = ThemeColor.PrimaryColor;
+            label15.ForeColor = ThemeColor.SecondaryColor;
         }
+
         private void populate()
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                string query = "SELECT id, RName, RPhone, REmail, RBGroup FROM RequestTbl";
-                SqlDataAdapter sda = new SqlDataAdapter(query, con);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
-                RequestDGV.DataSource = ds.Tables[0];
-            }
+            RequestTbl requestTbl = new RequestTbl();
+            DataTable requestData = requestTbl.GetAllRequests(); 
+            RequestDGV.DataSource = requestData;
         }
         private void bloodStock()
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                string query = "SELECT * FROM BloodTbl";
-                SqlDataAdapter sda = new SqlDataAdapter(query, con);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
-                BloodStockDGV.DataSource = ds.Tables[0];
-            }
+            BloodStockDGV.DataSource = bloodTbl.GetAllBloodStock();
         }
 
-        private int oldstock;
-        private string selectedBloodGroup;
         private void GetStock(string Bgroup)
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                string query = "SELECT * FROM BloodTbl WHERE BGroup = @Bgroup";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@Bgroup", Bgroup);
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        oldstock = Convert.ToInt32(dr["BStock"].ToString());
-                    }
-                }
-            }
+            oldstock = bloodTbl.GetStockByBloodGroup(Bgroup);
         }
 
         private void RequestList_Load(object sender, EventArgs e)
@@ -99,71 +77,27 @@ namespace LifeLineBloodBank.Forms
             }
         }
 
-        private void updateStock()
-        {
-            int newstock = oldstock - 1;
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    string query = "UPDATE BloodTbl SET BStock = @newstock WHERE BGroup = @Bgroup";
-                    using (SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@newstock", newstock);
-                        cmd.Parameters.AddWithValue("@Bgroup", selectedBloodGroup);
-                        cmd.ExecuteNonQuery();
-                    }
-                    bloodStock();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (oldstock > 0)
             {
-                updateStock();
+                int newstock = oldstock - 1;
+                bloodTbl.UpdateStock(selectedBloodGroup, newstock);
+
                 DataGridViewRow selectedRow = RequestDGV.SelectedRows[0];
                 string RName = selectedRow.Cells["RName"].Value.ToString();
                 string RBGroup = selectedRow.Cells["RBGroup"].Value.ToString();
                 string REmail = selectedRow.Cells["REmail"].Value.ToString();
                 int requestId = Convert.ToInt32(selectedRow.Cells["id"].Value);
 
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    try
-                    {
-                        con.Open();
-                        string insertQuery = "INSERT INTO TransferTbl (PName, BGroup) VALUES (@PName, @BGroup)";
-                        using (SqlCommand insertCmd = new SqlCommand(insertQuery, con))
-                        {
-                            insertCmd.Parameters.AddWithValue("@PName", RName);
-                            insertCmd.Parameters.AddWithValue("@BGroup", RBGroup);
-                            insertCmd.ExecuteNonQuery();
-                        }
-                        string deleteQuery = "DELETE FROM RequestTbl WHERE id = @id";
-                        using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, con))
-                        {
-                            deleteCmd.Parameters.AddWithValue("@id", requestId);
-                            deleteCmd.ExecuteNonQuery();
-                        }
+                // Add transfer record
+                transferTbl.AddTransfer(RName, RBGroup);
+                // Delete the request after transfer
+                transferTbl.DeleteRequest(requestId);
 
-                        MessageBox.Show("Blood Transferred Successfully.");
-
-                        SendEmail(REmail, RName, RBGroup);
-                        populate();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+                MessageBox.Show("Blood Transferred Successfully.");
+                SendEmail(REmail, RName, RBGroup);
+                populate();
             }
             else
             {
@@ -176,7 +110,7 @@ namespace LifeLineBloodBank.Forms
             try
             {
                 string from = "lifelinebloodbankbd@gmail.com";
-                string pass = "tpul kgmg gfrc nkki"; 
+                string pass = "tpul kgmg gfrc nkki";
                 string subject = "Blood Transfer Confirmation";
                 string messageBody = $"Dear {userName},<br><br>Your request for blood group {bloodGroup} has been successfully fulfilled and transferred.<br><br>Thank you for trusting LifeLine Blood Bank.";
 
