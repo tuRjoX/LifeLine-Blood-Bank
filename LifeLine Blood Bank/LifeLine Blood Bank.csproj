@@ -67,6 +67,9 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\BloodTbl.cs" />
+    <Compile Include="Database\DonorTbl.cs" />
+    <Compile Include="Database\PatientsTbl.cs" />
     <Compile Include="ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>

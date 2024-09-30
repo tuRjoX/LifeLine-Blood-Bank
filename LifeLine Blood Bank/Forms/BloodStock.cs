@@ -1,34 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
+﻿using LifeLineBloodBank.Database;
+using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class BloodStock : Form
     {
+        private BloodTbl bloodTbl = new BloodTbl(); 
+
         public BloodStock()
         {
             InitializeComponent();
             BloodStocks();
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (btns is Button btn)
                 {
-                    Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.Honeydew;
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
@@ -37,18 +32,12 @@ namespace LifeLineBloodBank.Forms
                 label1.ForeColor = ThemeColor.PrimaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
         private void BloodStocks()
         {
             try
             {
-                Con.Open();
-                string Query = "select * from BloodTbl";
-                SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-                SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-                var ds = new DataSet();
-                sda.Fill(ds);
-                BloodStockDGV.DataSource = ds.Tables[0];
+                DataTable dt = bloodTbl.GetAllBloodStock();  // Retrieve all blood stocks using BloodTbl
+                BloodStockDGV.DataSource = dt;
                 BloodStockDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 BloodStockDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 BloodStockDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -57,28 +46,28 @@ namespace LifeLineBloodBank.Forms
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            finally
-            {
-                Con.Close();
-            }
         }
+
+        // Method to handle filtering blood stocks by blood type
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedBloodType = comboBox1.SelectedItem.ToString();
-            if (selectedBloodType == "All")
+            try
             {
-                BloodStocks();
-                return;
+                if (selectedBloodType == "All")
+                {
+                    BloodStocks();  // Show all blood stocks if "All" is selected
+                }
+                else
+                {
+                    DataTable dt = bloodTbl.GetBloodStockByType(selectedBloodType);  // Filter blood stocks by blood type using BloodTbl
+                    BloodStockDGV.DataSource = dt;
+                }
             }
-            Con.Open();
-            string Query = "select * from BloodTbl where BGroup = @BT";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            sda.SelectCommand.Parameters.AddWithValue("@BT", selectedBloodType);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            BloodStockDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void BloodStock_Load(object sender, EventArgs e)

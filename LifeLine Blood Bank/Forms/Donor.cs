@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Configuration; 
+using LifeLineBloodBank.Database; 
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class Donor : Form
     {
+        private readonly DonorTbl donorTbl = new DonorTbl(); 
+
         public Donor()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace LifeLineBloodBank.Forms
                 if (btns is Button btn)
                 {
                     btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White; 
+                    btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
                 label10.ForeColor = ThemeColor.PrimaryColor;
@@ -33,7 +34,6 @@ namespace LifeLineBloodBank.Forms
                 label1.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
 
         private void Reset()
         {
@@ -67,28 +67,15 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    string query = "INSERT INTO DonorTbl (DName, DAge, DGender, DPhone, DAddress, DBGroup) VALUES (@DName, @DAge, @DGender, @DPhone, @DAddress, @DBGroup)";
-                    using (Con)
-                    {
-                        Con.Open();
-                        using (SqlCommand cmd = new SqlCommand(query, Con))
-                        {
-                            cmd.Parameters.AddWithValue("@DName", DNameTb.Text);
-                            cmd.Parameters.AddWithValue("@DAge", DAgeTb.Text);
-                            cmd.Parameters.AddWithValue("@DGender", DGenderCB.SelectedItem.ToString());
-                            cmd.Parameters.AddWithValue("@DPhone", DPhone.Text);
-                            cmd.Parameters.AddWithValue("@DAddress", DAddressTbl.Text);
-                            cmd.Parameters.AddWithValue("@DBGroup", DBGroupCB.SelectedItem.ToString());
+                    donorTbl.AddDonor(DNameTb.Text, age, DGenderCB.SelectedItem.ToString(),
+                                      DPhone.Text, DAddressTbl.Text, DBGroupCB.SelectedItem.ToString());
 
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
                     MessageBox.Show("Donor Successfully Saved.");
                     Reset();
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

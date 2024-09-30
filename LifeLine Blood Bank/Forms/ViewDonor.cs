@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration; 
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LifeLineBloodBank.Database; // Import the DataAccess namespace
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class ViewDonor : Form
     {
+        private readonly DonorTbl donorTbl = new DonorTbl(); // Create an instance of the DonorTbl class
+
         public ViewDonor()
         {
             InitializeComponent();
@@ -24,9 +20,8 @@ namespace LifeLineBloodBank.Forms
         {
             foreach (Control btns in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (btns is Button btn)
                 {
-                    Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.Honeydew;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
@@ -35,18 +30,19 @@ namespace LifeLineBloodBank.Forms
                 label11.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
 
         private void populate()
         {
-            Con.Open();
-            String Query = "select * from DonorTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            DonorDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            try
+            {
+                // Use DonorTbl to get all donors and bind to the DataGridView
+                DataTable dt = donorTbl.GetAllDonors();
+                DonorDGV.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -58,22 +54,14 @@ namespace LifeLineBloodBank.Forms
         {
             try
             {
-                Con.Open();
-                String Query = "SELECT * FROM DonorTbl WHERE DName LIKE @DN";
-                SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-                sda.SelectCommand.Parameters.AddWithValue("@DN", "%" + donorName + "%");
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
-                DonorDGV.DataSource = ds.Tables[0];
+                // Use DonorTbl to filter donors by name
+                DataTable dt = donorTbl.FilterDonorsByName(donorName);
+                DonorDGV.DataSource = dt;
             }
-            finally
+            catch (Exception ex)
             {
-                Con.Close();
+                MessageBox.Show(ex.Message);
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
 
         private void ViewDonor_Load(object sender, EventArgs e)

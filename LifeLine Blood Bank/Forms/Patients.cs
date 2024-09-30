@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LifeLineBloodBank.Database;
 
 namespace LifeLineBloodBank.Forms
 {
@@ -16,6 +11,15 @@ namespace LifeLineBloodBank.Forms
     {
         private PrintDocument printPatientsInfo = new PrintDocument();
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+        private PatientsTbl patientsTbl = new PatientsTbl();  
+
+        public Patients()
+        {
+            InitializeComponent();
+            printPatientsInfo.PrintPage += new PrintPageEventHandler(printPatientsInfo_PrintPage);
+            printPreviewDialog1.Document = printPatientsInfo;
+            printPreviewDialog1.WindowState = FormWindowState.Maximized;
+        }
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -38,14 +42,6 @@ namespace LifeLineBloodBank.Forms
                 label9.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        public Patients()
-        {
-            InitializeComponent();
-            printPatientsInfo.PrintPage += new PrintPageEventHandler(printPatientsInfo_PrintPage);
-            printPreviewDialog1.Document = printPatientsInfo;
-            printPreviewDialog1.WindowState = FormWindowState.Maximized;
-        }
-        SqlConnection Con = new SqlConnection("Data Source=TURJO\\SQLEXPRESS02;Initial Catalog=BloodBankDb;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
         private void Reset()
         {
             PNameTb.Text = "";
@@ -61,83 +57,71 @@ namespace LifeLineBloodBank.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (PNameTb.Text == "" || PAgeTb.Text == "" || PPhoneTb.Text == "" || PGenderCb.SelectedIndex == -1 || PBGroupCb.SelectedIndex == -1 || PAdressTb.Text == "" || PDListCb.SelectedIndex == -1 || PWNoCb.SelectedIndex == -1 || PBNoCb.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(PNameTb.Text) || string.IsNullOrEmpty(PAgeTb.Text) || string.IsNullOrEmpty(PPhoneTb.Text) ||
+                PGenderCb.SelectedIndex == -1 || PBGroupCb.SelectedIndex == -1 || string.IsNullOrEmpty(PAdressTb.Text) ||
+                PDListCb.SelectedIndex == -1 || PWNoCb.SelectedIndex == -1 || PBNoCb.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information");
+                return;
             }
-            else
+
+            string phone = PPhoneTb.Text;
+            string[] validPrefixes = { "014", "013", "017", "018", "016", "015" };
+            bool isPhoneValid = phone.Length == 11 && validPrefixes.Any(prefix => phone.StartsWith(prefix));
+
+            if (!isPhoneValid)
             {
-                string phone = PPhoneTb.Text;
-                string[] validPrefixes = { "014", "013", "017", "018", "016", "015" };
-                bool isPhoneValid = phone.Length == 11 && validPrefixes.Any(prefix => phone.StartsWith(prefix));
+                MessageBox.Show("Incorrect Mobile Number.");
+                return;
+            }
 
-                if (!isPhoneValid)
-                {
-                    MessageBox.Show("Incorrect Mobile Number.");
-                    return;
-                }
+            try
+            {
+                patientsTbl.InsertPatient(PNameTb.Text, PAgeTb.Text, PPhoneTb.Text, PGenderCb.SelectedItem.ToString(),
+                                         PBGroupCb.SelectedItem.ToString(), PAdressTb.Text, PDListCb.SelectedItem.ToString(),
+                                         PWNoCb.SelectedItem.ToString(), PBNoCb.SelectedItem.ToString());
 
-                try
-                {
-                    string query = $"insert into PatientsTbl (PName, PAge, PPhone, PGender, PBGroup, PAdress, PDList, PWNo, PBNo, CreatedDate) " +
-                                   $"Values ('{PNameTb.Text}','{PAgeTb.Text}','{PPhoneTb.Text}', '{PGenderCb.SelectedItem.ToString()}', " +
-                                   $"'{PBGroupCb.SelectedItem.ToString()}', '{PAdressTb.Text}', '{PDListCb.SelectedItem.ToString()}', " +
-                                   $"'{PWNoCb.SelectedItem.ToString()}', '{PBNoCb.SelectedItem.ToString()}', GETDATE())";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Patient Successfully Saved");
+                MessageBox.Show("Patient Successfully Saved");
 
-                    printPreviewDialog1.Document = printPatientsInfo;
-                    printPreviewDialog1.ShowDialog();
-                    Con.Close();
-                    Reset();
-                }
-                catch (Exception Ex)
-                {
-                    MessageBox.Show(Ex.Message);
-                }
+                printPreviewDialog1.Document = printPatientsInfo;
+                printPreviewDialog1.ShowDialog();
+                Reset();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
+
         private void printPatientsInfo_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font headerFont = new Font("Arial", 20, FontStyle.Bold);
             Font bodyFont = new Font("Arial", 12);
             PointF startingPoint = new PointF(100, 100);
+
             e.Graphics.DrawString("Patient Information", headerFont, Brushes.Black, startingPoint);
             startingPoint.Y += 50;
             e.Graphics.DrawString($"Name: {PNameTb.Text}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Age: {PAgeTb.Text}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Phone: {PPhoneTb.Text}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Gender: {PGenderCb.SelectedItem}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Blood Group: {PBGroupCb.SelectedItem}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Address: {PAdressTb.Text}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
-
             e.Graphics.DrawString($"Department List: {PDListCb.SelectedItem}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
-
             e.Graphics.DrawString($"Ward No: {PWNoCb.SelectedItem}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Bed No: {PBNoCb.SelectedItem}", bodyFont, Brushes.Black, startingPoint);
-
             startingPoint.Y += 30;
-
             e.Graphics.DrawString($"Date Created: {DateTime.Now.ToString("g")}", bodyFont, Brushes.Black, startingPoint);
         }
+
         private void Patients_Load(object sender, EventArgs e)
         {
             LoadTheme();

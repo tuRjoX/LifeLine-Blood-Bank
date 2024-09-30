@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
+﻿using LifeLineBloodBank.Database;
+using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class ViewPatients : Form
     {
+        private PatientsTbl patientsTbl = new PatientsTbl();
+        private int key = 0;
+
         public ViewPatients()
         {
             InitializeComponent();
             populate();
         }
+
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -41,7 +40,7 @@ namespace LifeLineBloodBank.Forms
                 label9.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
+
         private void Reset()
         {
             PNameTb.Text = "";
@@ -55,18 +54,11 @@ namespace LifeLineBloodBank.Forms
             PBNoCb.SelectedIndex = -1;
             key = 0;
         }
+
         private void populate()
         {
-            Con.Open();
-            string Query = "select * from PatientsTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            PatientsDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            PatientsDGV.DataSource = patientsTbl.GetPatients();
         }
-        int key = 0;
 
         private void PatientsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -80,14 +72,7 @@ namespace LifeLineBloodBank.Forms
             PWNoCb.SelectedItem = PatientsDGV.SelectedRows[0].Cells[8].Value.ToString();
             PBNoCb.SelectedItem = PatientsDGV.SelectedRows[0].Cells[9].Value.ToString();
 
-            if (PNameTb.Text == "")
-            {
-                key = 0;
-            }
-            else
-            {
-                key = Convert.ToInt32(PatientsDGV.SelectedRows[0].Cells[0].Value.ToString());
-            }
+            key = string.IsNullOrEmpty(PNameTb.Text) ? 0 : Convert.ToInt32(PatientsDGV.SelectedRows[0].Cells[0].Value.ToString());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -110,20 +95,17 @@ namespace LifeLineBloodBank.Forms
 
                 try
                 {
-                    string query = "update PatientsTbl set Pname='" + PNameTb.Text + "',Page='" + PAgeTb.Text + "',Pphone='" + PPhoneTb.Text + "',PGender='" + PGenderCb.SelectedItem.ToString() + "',PBGroup='" + PBGroupCb.SelectedItem.ToString() + "',Padress='" + PAdressTb.Text + "',PDList='" + PDListCb.SelectedItem.ToString() + "',PWNo='" + PWNoCb.SelectedItem.ToString() + "' ,PBNo='" + PBNoCb.SelectedItem.ToString() + "' where PNum=" + key + ";";
+                    patientsTbl.UpdatePatient(key, PNameTb.Text, PAgeTb.Text, PPhoneTb.Text, PGenderCb.SelectedItem.ToString(),
+                                              PBGroupCb.SelectedItem.ToString(), PAdressTb.Text, PDListCb.SelectedItem.ToString(),
+                                              PWNoCb.SelectedItem.ToString(), PBNoCb.SelectedItem.ToString());
 
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Patient Successfully Updated");
-
-                    Con.Close();
                     Reset();
                     populate();
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -138,18 +120,14 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    string query = "Delete From PatientsTbl where PNum = " + key + ";";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
+                    patientsTbl.DeletePatient(key);
                     MessageBox.Show("Patient Successfully Deleted");
-                    Con.Close();
                     Reset();
                     populate();
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration; 
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LifeLineBloodBank.Database; 
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class UpdateDonor : Form
     {
+        private readonly DonorTbl donorTbl = new DonorTbl(); 
+        private int key = 0; 
+
         public UpdateDonor()
         {
             InitializeComponent();
@@ -24,9 +21,8 @@ namespace LifeLineBloodBank.Forms
         {
             foreach (Control btns in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (btns is Button btn)
                 {
-                    Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.Honeydew;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
@@ -41,7 +37,6 @@ namespace LifeLineBloodBank.Forms
                 DonorDGV.ForeColor = ThemeColor.SecondaryColor;
             }
         }
-        SqlConnection Con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString);
 
         private void Reset()
         {
@@ -53,20 +48,17 @@ namespace LifeLineBloodBank.Forms
             DAddressTbl.Text = "";
             key = 0;
         }
-
         private void populate()
         {
-            Con.Open();
-            String Query = "select * from DonorTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            DonorDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            try
+            {
+                DonorDGV.DataSource = donorTbl.GetAllDonors();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        int key = 0;
 
         private void DonorDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -76,16 +68,8 @@ namespace LifeLineBloodBank.Forms
             DPhone.Text = DonorDGV.SelectedRows[0].Cells[4].Value.ToString();
             DAddressTbl.Text = DonorDGV.SelectedRows[0].Cells[5].Value.ToString();
             DBGroupCB.SelectedItem = DonorDGV.SelectedRows[0].Cells[6].Value.ToString();
-            if (DNameTb.Text == "")
-            {
-                key = 0;
-            }
-            else
-            {
-                key = Convert.ToInt32(DonorDGV.SelectedRows[0].Cells[0].Value.ToString());
-            }
+            key = Convert.ToInt32(DonorDGV.SelectedRows[0].Cells[0].Value.ToString());
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (key == 0)
@@ -96,25 +80,21 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    String query = "Delete from DonorTbl where DNum=" + key + ";";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
+                    donorTbl.DeleteDonor(key); 
                     MessageBox.Show("Donor Deleted Successfully.");
-                    Con.Close();
                     Reset();
                     populate();
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
-            if (DNameTb.Text == "" || DPhone.Text == "" || DAgeTb.Text == "" || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
+            if (string.IsNullOrWhiteSpace(DNameTb.Text) || string.IsNullOrWhiteSpace(DPhone.Text) ||
+                string.IsNullOrWhiteSpace(DAgeTb.Text) || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information.");
             }
@@ -133,18 +113,15 @@ namespace LifeLineBloodBank.Forms
             {
                 try
                 {
-                    String query = "update DonorTbl set DName='" + DNameTb.Text + "', DAge='" + DAgeTb.Text + "', DGender='" + DGenderCB.SelectedItem.ToString() + "', DPhone='" + DPhone.Text + "', DAddress='" + DAddressTbl.Text + "', DBGroup='" + DBGroupCB.SelectedItem.ToString() + "' where DNum=" + key + ";";
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
+                    donorTbl.UpdateDonor(key, DNameTb.Text, age, DGenderCB.SelectedItem.ToString(),
+                                         DPhone.Text, DAddressTbl.Text, DBGroupCB.SelectedItem.ToString()); // Use DonorTbl to update the donor
                     MessageBox.Show("Donor Updated Successfully.");
-                    Con.Close();
                     Reset();
                     populate();
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
