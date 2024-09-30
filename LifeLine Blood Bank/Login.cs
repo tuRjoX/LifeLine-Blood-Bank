@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms;
-using System.Configuration;
+using LifeLineBloodBank.Database;
 
 namespace LifeLineBloodBank
 {
     public partial class Login : Form
     {
         public static string to;
-        private readonly string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
+        private readonly UserTbl userTbl = new UserTbl(); // Create an instance of UserTbl
 
         public Login()
         {
@@ -34,39 +33,23 @@ namespace LifeLineBloodBank
             }
             else
             {
-                string query = "SELECT * FROM UsersTbl WHERE [UName] COLLATE SQL_Latin1_General_CP1_CS_AS = @UserName AND [UPassword] = @Password";
-                using (SqlConnection con = new SqlConnection(connectionString))
-                using (SqlCommand sqlCmd = new SqlCommand(query, con))
+                // Use the new AuthenticateUser method
+                DataRow userData = userTbl.AuthenticateUser(txtUsername.Text, txtPassword.Text);
+
+                if (userData != null)
                 {
-                    sqlCmd.Parameters.AddWithValue("@UserName", txtUsername.Text);
-                    sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+                    MessageBox.Show("Login Successful.");
+                    int userId = Convert.ToInt32(userData["Id"]);
+                    string userEmail = userData["UEmail"].ToString();
 
-                    try
-                    {
-                        con.Open();
-                        using (SqlDataReader reader = sqlCmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                MessageBox.Show("Login Successful.");
-                                int userId = Convert.ToInt32(reader["Id"]);
-                                string userEmail = reader["UEmail"].ToString();
-
-                                SendLoginNotification(userEmail);
-                                UserForm userForm = new UserForm(userId);
-                                userForm.Show();
-                                this.Hide();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Login Unsuccessful. Please check your username and password.");
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
+                    SendLoginNotification(userEmail);
+                    UserForm userForm = new UserForm(userId);
+                    userForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Login Unsuccessful. Please check your username and password.");
                 }
             }
         }
@@ -91,19 +74,18 @@ namespace LifeLineBloodBank
         private void SendLoginNotification(string userEmail)
         {
             string from = "lifelinebloodbankbd@gmail.com";
-            string pass = "tpul kgmg gfrc nkki";
-            string messageBody;
+            string pass = "tpul kgmg gfrc nkki"; // You should consider storing this securely
             string userIP = GetLocalIPAddress();
 
             MailMessage message = new MailMessage
             {
                 From = new MailAddress(from, "LifeLine Blood Bank"),
-                Subject = "Login successful - LifeLine Blood Bank"
+                Subject = "Login successful - LifeLine Blood Bank",
+                IsBodyHtml = true
             };
 
             message.To.Add(userEmail);
             message.Body = GenerateEmailBody(userIP);
-            message.IsBodyHtml = true;
 
             using (SmtpClient smtp = new SmtpClient
             {
@@ -169,12 +151,12 @@ namespace LifeLineBloodBank
             if (txtPassword.PasswordChar == '*')
             {
                 txtPassword.PasswordChar = '\0';
-                eye.Image = Properties.Resources.eye;
+                eye.Image = Properties.Resources.eye; // Assuming you have an eye icon
             }
             else
             {
                 txtPassword.PasswordChar = '*';
-                eye.Image = Properties.Resources.eye;
+                eye.Image = Properties.Resources.eye; // Assuming you have an eye icon
             }
         }
     }

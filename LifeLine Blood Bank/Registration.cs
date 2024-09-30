@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms;
-using System.Configuration;
+using LifeLineBloodBank.Database;
 
 namespace LifeLineBloodBank
 {
@@ -12,6 +10,7 @@ namespace LifeLineBloodBank
     {
         string OTPCode;
         public static string to;
+        private UserTbl userTbl;
 
         public Registration()
         {
@@ -23,6 +22,7 @@ namespace LifeLineBloodBank
             txtConfirmPass.Enabled = false;
             txtEmail.TextChanged += new EventHandler(txtEmail_TextChanged);
             txtCode.TextChanged += new EventHandler(txtCode_TextChanged);
+            userTbl = new UserTbl(); // Initialize UserTbl
         }
 
         private void Registration_Load(object sender, EventArgs e)
@@ -55,32 +55,18 @@ namespace LifeLineBloodBank
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString))
+                // Check if the username is already taken
+                if (userTbl.IsUsernameTaken(txtUsername.Text))
                 {
-                    // First check if the username is already taken
-                    string usernameCheckQuery = "SELECT COUNT(*) FROM UsersTbl WHERE UName = @UN";
-                    SqlCommand usernameCheckCmd = new SqlCommand(usernameCheckQuery, con);
-                    usernameCheckCmd.Parameters.AddWithValue("@UN", txtUsername.Text);
-                    con.Open();
-                    int usernameCount = (int)usernameCheckCmd.ExecuteScalar();
+                    MessageBox.Show("This username already exists. Please choose a different username.");
+                    return;
+                }
 
-                    if (usernameCount > 0)
-                    {
-                        MessageBox.Show("This username already exists. Please choose a different username.");
-                        return;
-                    }
-
-                    // Check if the email is already registered
-                    string emailCheckQuery = "SELECT COUNT(*) FROM UsersTbl WHERE UEmail = @UE";
-                    SqlCommand emailCheckCmd = new SqlCommand(emailCheckQuery, con);
-                    emailCheckCmd.Parameters.AddWithValue("@UE", txtEmail.Text);
-                    int emailCount = (int)emailCheckCmd.ExecuteScalar();
-
-                    if (emailCount > 0)
-                    {
-                        MessageBox.Show("This email already exists. Please use a different email.");
-                        return;
-                    }
+                // Check if the email is already registered
+                if (userTbl.IsEmailTaken(txtEmail.Text))
+                {
+                    MessageBox.Show("This email already exists. Please use a different email.");
+                    return;
                 }
 
                 // Proceed with OTP generation and sending the email
@@ -140,6 +126,7 @@ namespace LifeLineBloodBank
                 MessageBox.Show("Missing Info. Please fill in all the fields.");
                 return;
             }
+
             string phone = txtPhone.Text;
             if (phone.Length != 11 || !(phone.StartsWith("018") || phone.StartsWith("014") || phone.StartsWith("017") ||
                                        phone.StartsWith("013") || phone.StartsWith("015") || phone.StartsWith("016")))
@@ -147,39 +134,29 @@ namespace LifeLineBloodBank
                 MessageBox.Show("Invalid phone number.");
                 return;
             }
+
             string password = txtPassword.Text;
             if (password.Length < 6)
             {
                 MessageBox.Show("Invalid password. It must be at least 6 characters long.");
                 return;
             }
+
             if (txtPassword.Text == txtConfirmPass.Text)
             {
-                string query = "INSERT INTO UsersTbl (UName, UFullName, UPhone, UEmail, UPassword) VALUES (@UN, @UFN, @UP, @UE, @UPASS)";
-
-                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString))
+                try
                 {
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@UN", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@UFN", txtFullName.Text);
-                    cmd.Parameters.AddWithValue("@UP", txtPhone.Text);
-                    cmd.Parameters.AddWithValue("@UE", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@UPASS", txtPassword.Text);
-
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Registration Successful.");
-                        Reset();
-                        Login login = new Login();
-                        login.Show();
-                        this.Hide();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
+                    // Register the new user
+                    userTbl.RegisterUser(txtUsername.Text, txtFullName.Text, txtPhone.Text, txtEmail.Text, txtPassword.Text);
+                    MessageBox.Show("Registration Successful.");
+                    Reset();
+                    Login login = new Login();
+                    login.Show();
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
             else
@@ -219,12 +196,12 @@ namespace LifeLineBloodBank
             if (txtConfirmPass.PasswordChar == '*')
             {
                 txtConfirmPass.PasswordChar = '\0';
-                eye1.Image = Properties.Resources.eye;
+                eye2.Image = Properties.Resources.eye;
             }
             else
             {
                 txtConfirmPass.PasswordChar = '*';
-                eye1.Image = Properties.Resources.eye;
+                eye2.Image = Properties.Resources.eye;
             }
         }
     }

@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Mail;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Mail;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration; // Include this namespace
+using LifeLineBloodBank.Database;
 
 namespace LifeLineBloodBank
 {
@@ -18,6 +10,7 @@ namespace LifeLineBloodBank
     {
         string OTPCode;
         public static string to;
+        private UserTbl userTbl;
 
         public ForgetPassword()
         {
@@ -29,6 +22,7 @@ namespace LifeLineBloodBank
             txtConfirmPass.Enabled = false;
             txtEmail.TextChanged += new EventHandler(txtEmail_TextChanged);
             txtCode.TextChanged += new EventHandler(txtCode_TextChanged);
+            userTbl = new UserTbl(); // Initialize UserTbl
         }
 
         private void FP_Load(object sender, EventArgs e)
@@ -49,62 +43,35 @@ namespace LifeLineBloodBank
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            string from, pass, messageBody;
             Random rand = new Random();
             OTPCode = (rand.Next(999999)).ToString();
-            string connString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
 
-            using (SqlConnection Con = new SqlConnection(connString))
+            // Check if the email exists
+            if (!userTbl.IsEmailExists(txtEmail.Text))
             {
-                Con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM UsersTbl WHERE UEmail=@Email", Con);
-                cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-
-                int count = (int)cmd.ExecuteScalar();
-
-                if (count == 0)
-                {
-                    MessageBox.Show("Email does not exist in our records.");
-                    return;
-                }
+                MessageBox.Show("Email does not exist in our records.");
+                return;
             }
 
-            MailMessage message = new MailMessage();
+            MailMessage message = new MailMessage
+            {
+                From = new MailAddress("lifelinebloodbankbd@gmail.com", "LifeLine Blood Bank"),
+                Subject = "Password Reset OTP - LifeLine Blood Bank",
+                Body = $"Dear User,<br><br>Your one-time password (OTP) for resetting your account password is: {OTPCode}.<br><br>" +
+                       "Please use this code to complete the password reset process. This OTP is valid for a limited time and should not be shared with anyone for security purposes.<br><br>" +
+                       "Thank you for using our services.<br><br>Best regards,<br>LifeLine Blood Bank",
+                IsBodyHtml = true
+            };
+
             to = txtEmail.Text;
-            from = "lifelinebloodbankbd@gmail.com";
-            pass = "tpul kgmg gfrc nkki"; // Consider using a secure way to handle passwords.
-            messageBody = "Your one-time password is: " + OTPCode;
             message.To.Add(to);
-            message.From = new MailAddress("lifelinebloodbankbd@gmail.com", "LifeLine Blood Bank");
-            message.Body = messageBody;
-            message.Subject = "Password Reset OTP - LifeLine Blood Bank";
 
-            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(
-                $"Dear User,<br><br>Your one-time password (OTP) for resetting your account password is: {OTPCode}.<br><br>" +
-                "Please use this code to complete the password reset process. This OTP is valid for a limited time and should not be shared with anyone for security purposes.<br><br>" +
-                "Thank you for using our services.<br><br>Best regards,<br>LifeLine Blood Bank<br><br>" +
-                "<hr><br>" +
-                "<b>LifeLine Blood Bank</b><br>" +
-                "House 11, Road 62, Gulshan 2 <br>" +
-                "Dhaka, Bangladesh<br>" +
-                "Phone: (+880) 185 656 4543<br>" +
-                "Email: support@lifelinebloodbank.com<br>" +
-                "<a href='https://www.lifelinebloodbank.com'>www.lifelinebloodbank.com</a><br>" +
-                "<img src=cid:logoImage>", null, "text/html"
-            );
-
-            LinkedResource logo = new LinkedResource(@"C:\Users\tdas4\source\repos\GUI\Background1.png");
-            logo.ContentId = "logoImage";
-            htmlView.LinkedResources.Add(logo);
-            message.AlternateViews.Add(htmlView);
-
-            message.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com")
             {
                 EnableSsl = true,
                 Port = 587,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential(from, pass)
+                Credentials = new NetworkCredential("lifelinebloodbankbd@gmail.com", "tpul kgmg gfrc nkki") // Consider using a secure way to handle passwords.
             };
 
             try
@@ -115,7 +82,7 @@ namespace LifeLineBloodBank
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error sending OTP: " + ex.Message);
             }
         }
 
@@ -123,7 +90,6 @@ namespace LifeLineBloodBank
         {
             if (OTPCode == txtCode.Text)
             {
-                to = txtEmail.Text;
                 MessageBox.Show("Verification Successful.");
                 txtPassword.Enabled = true;
                 txtConfirmPass.Enabled = true;
@@ -150,15 +116,8 @@ namespace LifeLineBloodBank
             }
             if (txtPassword.Text == txtConfirmPass.Text)
             {
-                string connString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
-                using (SqlConnection Con = new SqlConnection(connString))
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE UsersTbl SET UPassword=@Password WHERE UEmail=@Email", Con);
-                    cmd.Parameters.AddWithValue("@Password", txtConfirmPass.Text);
-                    cmd.Parameters.AddWithValue("@Email", to);
-                    Con.Open();
-                    cmd.ExecuteNonQuery();
-                }
+                // Update the password in the database
+                userTbl.UpdatePassword(to, txtConfirmPass.Text);
                 MessageBox.Show("Password Reset Successfully.");
                 Login login = new Login();
                 login.Show();
@@ -201,12 +160,12 @@ namespace LifeLineBloodBank
             if (txtConfirmPass.PasswordChar == '*')
             {
                 txtConfirmPass.PasswordChar = '\0';
-                eye1.Image = Properties.Resources.eye;
+                eye2.Image = Properties.Resources.eye;
             }
             else
             {
                 txtConfirmPass.PasswordChar = '*';
-                eye1.Image = Properties.Resources.eye;
+                eye2.Image = Properties.Resources.eye;
             }
         }
     }
