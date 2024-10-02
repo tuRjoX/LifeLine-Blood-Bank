@@ -70,5 +70,5 @@ The system offers different features based on the user role.
 5. Update the **app.config** file with your SQL Server connection string.
    ```xml
    <connectionStrings>
-     <add name="BloodBankDb" connectionString="Data Source=YOUR_SERVER;Initial Catalog=BloodBankDb;Integrated Security=True" />
+     <add name="connection_string" providerName="System.Data.SqlClient" connectionString="Enter Your Coonection String"/>
    </connectionStrings>
