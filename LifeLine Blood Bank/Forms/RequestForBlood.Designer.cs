@@ -50,6 +50,7 @@
             this.RPhone.Name = "RPhone";
             this.RPhone.Size = new System.Drawing.Size(163, 16);
             this.RPhone.TabIndex = 54;
+            this.RPhone.TabStop = false;
             // 
             // label13
             // 
@@ -73,6 +74,7 @@
             this.RNameTb.Name = "RNameTb";
             this.RNameTb.Size = new System.Drawing.Size(163, 16);
             this.RNameTb.TabIndex = 52;
+            this.RNameTb.TabStop = false;
             // 
             // RBGroupCB
             // 
@@ -93,6 +95,7 @@
             this.RBGroupCB.Name = "RBGroupCB";
             this.RBGroupCB.Size = new System.Drawing.Size(163, 24);
             this.RBGroupCB.TabIndex = 57;
+            this.RBGroupCB.TabStop = false;
             // 
             // label15
             // 
@@ -127,6 +130,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 59;
+            this.button2.TabStop = false;
             this.button2.Text = "Request";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -163,6 +167,7 @@
             this.REmail.Name = "REmail";
             this.REmail.Size = new System.Drawing.Size(163, 16);
             this.REmail.TabIndex = 61;
+            this.REmail.TabStop = false;
             // 
             // RequestForBlood
             // 

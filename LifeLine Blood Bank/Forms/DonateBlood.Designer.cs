@@ -70,6 +70,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 58;
+            this.button2.TabStop = false;
             this.button2.Text = "Donate";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -94,7 +95,7 @@
             this.DAddressTbl.Location = new System.Drawing.Point(206, 279);
             this.DAddressTbl.Name = "DAddressTbl";
             this.DAddressTbl.Size = new System.Drawing.Size(163, 16);
-            this.DAddressTbl.TabIndex = 56;
+            this.DAddressTbl.TabIndex = 0;
             // 
             // DBGroupCB
             // 
@@ -115,6 +116,7 @@
             this.DBGroupCB.Name = "DBGroupCB";
             this.DBGroupCB.Size = new System.Drawing.Size(163, 24);
             this.DBGroupCB.TabIndex = 55;
+            this.DBGroupCB.TabStop = false;
             // 
             // DGenderCB
             // 
@@ -129,6 +131,7 @@
             this.DGenderCB.Name = "DGenderCB";
             this.DGenderCB.Size = new System.Drawing.Size(163, 24);
             this.DGenderCB.TabIndex = 54;
+            this.DGenderCB.TabStop = false;
             // 
             // label15
             // 
@@ -174,7 +177,8 @@
             this.DPhone.Location = new System.Drawing.Point(614, 169);
             this.DPhone.Name = "DPhone";
             this.DPhone.Size = new System.Drawing.Size(163, 16);
-            this.DPhone.TabIndex = 50;
+            this.DPhone.TabIndex = 1;
+            this.DPhone.TabStop = false;
             // 
             // label11
             // 
@@ -195,7 +199,7 @@
             this.DAgeTb.Location = new System.Drawing.Point(614, 279);
             this.DAgeTb.Name = "DAgeTb";
             this.DAgeTb.Size = new System.Drawing.Size(163, 16);
-            this.DAgeTb.TabIndex = 48;
+            this.DAgeTb.TabIndex = 1;
             // 
             // label13
             // 
@@ -218,7 +222,8 @@
             this.DNameTb.Location = new System.Drawing.Point(206, 169);
             this.DNameTb.Name = "DNameTb";
             this.DNameTb.Size = new System.Drawing.Size(163, 16);
-            this.DNameTb.TabIndex = 46;
+            this.DNameTb.TabIndex = 0;
+            this.DNameTb.TabStop = false;
             // 
             // txtUName
             // 
@@ -231,6 +236,7 @@
             this.txtUName.Name = "txtUName";
             this.txtUName.Size = new System.Drawing.Size(163, 20);
             this.txtUName.TabIndex = 60;
+            this.txtUName.TabStop = false;
             // 
             // pictureBox1
             // 
