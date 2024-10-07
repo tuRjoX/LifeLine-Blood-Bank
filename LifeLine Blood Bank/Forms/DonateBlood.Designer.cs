@@ -93,8 +93,9 @@
             this.DAddressTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAddressTbl.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DAddressTbl.Location = new System.Drawing.Point(206, 279);
+            this.DAddressTbl.Multiline = true;
             this.DAddressTbl.Name = "DAddressTbl";
-            this.DAddressTbl.Size = new System.Drawing.Size(163, 16);
+            this.DAddressTbl.Size = new System.Drawing.Size(163, 20);
             this.DAddressTbl.TabIndex = 0;
             // 
             // DBGroupCB
@@ -177,8 +178,9 @@
             this.DPhone.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DPhone.ForeColor = System.Drawing.Color.Black;
             this.DPhone.Location = new System.Drawing.Point(614, 169);
+            this.DPhone.Multiline = true;
             this.DPhone.Name = "DPhone";
-            this.DPhone.Size = new System.Drawing.Size(163, 16);
+            this.DPhone.Size = new System.Drawing.Size(163, 20);
             this.DPhone.TabIndex = 1;
             this.DPhone.TabStop = false;
             // 
@@ -199,8 +201,9 @@
             this.DAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAgeTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DAgeTb.Location = new System.Drawing.Point(614, 279);
+            this.DAgeTb.Multiline = true;
             this.DAgeTb.Name = "DAgeTb";
-            this.DAgeTb.Size = new System.Drawing.Size(163, 16);
+            this.DAgeTb.Size = new System.Drawing.Size(163, 20);
             this.DAgeTb.TabIndex = 1;
             // 
             // label13
@@ -222,8 +225,9 @@
             this.DNameTb.Enabled = false;
             this.DNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DNameTb.Location = new System.Drawing.Point(206, 169);
+            this.DNameTb.Multiline = true;
             this.DNameTb.Name = "DNameTb";
-            this.DNameTb.Size = new System.Drawing.Size(163, 16);
+            this.DNameTb.Size = new System.Drawing.Size(163, 20);
             this.DNameTb.TabIndex = 0;
             this.DNameTb.TabStop = false;
             // 

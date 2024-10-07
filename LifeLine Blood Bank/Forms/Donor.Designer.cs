@@ -79,8 +79,9 @@
             this.DAddressTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAddressTbl.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DAddressTbl.Location = new System.Drawing.Point(193, 198);
+            this.DAddressTbl.Multiline = true;
             this.DAddressTbl.Name = "DAddressTbl";
-            this.DAddressTbl.Size = new System.Drawing.Size(163, 16);
+            this.DAddressTbl.Size = new System.Drawing.Size(163, 20);
             this.DAddressTbl.TabIndex = 2;
             // 
             // DBGroupCB
@@ -161,8 +162,9 @@
             this.DPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DPhone.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DPhone.Location = new System.Drawing.Point(601, 88);
+            this.DPhone.Multiline = true;
             this.DPhone.Name = "DPhone";
-            this.DPhone.Size = new System.Drawing.Size(163, 16);
+            this.DPhone.Size = new System.Drawing.Size(163, 20);
             this.DPhone.TabIndex = 1;
             // 
             // label11
@@ -182,8 +184,9 @@
             this.DAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAgeTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DAgeTb.Location = new System.Drawing.Point(601, 198);
+            this.DAgeTb.Multiline = true;
             this.DAgeTb.Name = "DAgeTb";
-            this.DAgeTb.Size = new System.Drawing.Size(163, 16);
+            this.DAgeTb.Size = new System.Drawing.Size(163, 20);
             this.DAgeTb.TabIndex = 3;
             // 
             // label13
@@ -204,8 +207,9 @@
             this.DNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DNameTb.Location = new System.Drawing.Point(193, 88);
+            this.DNameTb.Multiline = true;
             this.DNameTb.Name = "DNameTb";
-            this.DNameTb.Size = new System.Drawing.Size(163, 16);
+            this.DNameTb.Size = new System.Drawing.Size(163, 20);
             this.DNameTb.TabIndex = 0;
             // 
             // label10

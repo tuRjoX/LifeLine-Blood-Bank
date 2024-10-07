@@ -47,8 +47,9 @@
             this.RPhone.Enabled = false;
             this.RPhone.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RPhone.Location = new System.Drawing.Point(402, 197);
+            this.RPhone.Multiline = true;
             this.RPhone.Name = "RPhone";
-            this.RPhone.Size = new System.Drawing.Size(163, 16);
+            this.RPhone.Size = new System.Drawing.Size(163, 20);
             this.RPhone.TabIndex = 54;
             this.RPhone.TabStop = false;
             // 
@@ -71,8 +72,9 @@
             this.RNameTb.Enabled = false;
             this.RNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RNameTb.Location = new System.Drawing.Point(402, 137);
+            this.RNameTb.Multiline = true;
             this.RNameTb.Name = "RNameTb";
-            this.RNameTb.Size = new System.Drawing.Size(163, 16);
+            this.RNameTb.Size = new System.Drawing.Size(163, 20);
             this.RNameTb.TabIndex = 52;
             this.RNameTb.TabStop = false;
             // 
@@ -165,8 +167,9 @@
             this.REmail.Enabled = false;
             this.REmail.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.REmail.Location = new System.Drawing.Point(402, 263);
+            this.REmail.Multiline = true;
             this.REmail.Name = "REmail";
-            this.REmail.Size = new System.Drawing.Size(163, 16);
+            this.REmail.Size = new System.Drawing.Size(163, 20);
             this.REmail.TabIndex = 61;
             this.REmail.TabStop = false;
             // 
