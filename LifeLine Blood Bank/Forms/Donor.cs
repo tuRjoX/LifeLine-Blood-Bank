@@ -52,9 +52,9 @@ namespace LifeLineBloodBank.Forms
             {
                 MessageBox.Show("Missing Information.");
             }
-            else if (!int.TryParse(DAgeTb.Text, out int age) || age <= 17)
+            else if (!int.TryParse(DAgeTb.Text, out int age) || age <= 17 || age >= 66)
             {
-                MessageBox.Show("Age must be greater than 17.");
+                MessageBox.Show("You are not eligiable for donation at this age.");
             }
             else if (DPhone.Text.Length != 11 || !long.TryParse(DPhone.Text, out _) ||
                      !(DPhone.Text.StartsWith("018") || DPhone.Text.StartsWith("015") ||

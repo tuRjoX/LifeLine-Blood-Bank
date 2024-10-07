@@ -78,13 +78,13 @@ namespace LifeLineBloodBank.Forms
 
         private void Reset()
         {
+            PatientIdCb.SelectedIndex = 0;
             PatNameTb.Text = "";
             BloodGroup.Text = "";
             AvailableLbl.Visible = false;
             TransferBtn.Visible = false;
         }
-
-        private void TransferBtn_Click(object sender, EventArgs e)
+        private void TransferBtn_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(PatNameTb.Text))
             {
@@ -106,10 +106,11 @@ namespace LifeLineBloodBank.Forms
                 }
             }
         }
-
         private void BloodTransfer_Load(object sender, EventArgs e)
         {
             LoadTheme();
         }
+
+        
     }
 }

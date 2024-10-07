@@ -55,6 +55,7 @@
             this.PBGroupCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PBGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBGroupCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PBGroupCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PBGroupCb.FormattingEnabled = true;
             this.PBGroupCb.Items.AddRange(new object[] {
             "A+",
@@ -67,7 +68,7 @@
             "AB-"});
             this.PBGroupCb.Location = new System.Drawing.Point(116, 232);
             this.PBGroupCb.Name = "PBGroupCb";
-            this.PBGroupCb.Size = new System.Drawing.Size(176, 21);
+            this.PBGroupCb.Size = new System.Drawing.Size(176, 24);
             this.PBGroupCb.TabIndex = 83;
             this.PBGroupCb.TabStop = false;
             // 
@@ -92,6 +93,7 @@
             this.PDListCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PDListCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PDListCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PDListCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PDListCb.FormattingEnabled = true;
             this.PDListCb.Items.AddRange(new object[] {
             "Cardiothoracic and Vascular Surgery",
@@ -130,7 +132,7 @@
             "Burn and Plastic Surgery"});
             this.PDListCb.Location = new System.Drawing.Point(611, 343);
             this.PDListCb.Name = "PDListCb";
-            this.PDListCb.Size = new System.Drawing.Size(176, 21);
+            this.PDListCb.Size = new System.Drawing.Size(176, 24);
             this.PDListCb.TabIndex = 80;
             this.PDListCb.TabStop = false;
             // 
@@ -150,6 +152,7 @@
             this.PBNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PBNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PBNoCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PBNoCb.FormattingEnabled = true;
             this.PBNoCb.Items.AddRange(new object[] {
             "F-1",
@@ -194,7 +197,7 @@
             "M-20"});
             this.PBNoCb.Location = new System.Drawing.Point(116, 343);
             this.PBNoCb.Name = "PBNoCb";
-            this.PBNoCb.Size = new System.Drawing.Size(176, 21);
+            this.PBNoCb.Size = new System.Drawing.Size(176, 24);
             this.PBNoCb.TabIndex = 78;
             this.PBNoCb.TabStop = false;
             // 
@@ -214,13 +217,14 @@
             this.PWNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PWNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PWNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PWNoCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PWNoCb.FormattingEnabled = true;
             this.PWNoCb.Items.AddRange(new object[] {
             "M1-M20",
             "F1-F20"});
             this.PWNoCb.Location = new System.Drawing.Point(611, 232);
             this.PWNoCb.Name = "PWNoCb";
-            this.PWNoCb.Size = new System.Drawing.Size(176, 21);
+            this.PWNoCb.Size = new System.Drawing.Size(176, 24);
             this.PWNoCb.TabIndex = 76;
             this.PWNoCb.TabStop = false;
             // 
@@ -240,13 +244,14 @@
             this.PGenderCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PGenderCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PGenderCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PGenderCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PGenderCb.FormattingEnabled = true;
             this.PGenderCb.Items.AddRange(new object[] {
             "Male",
             "Female"});
             this.PGenderCb.Location = new System.Drawing.Point(366, 232);
             this.PGenderCb.Name = "PGenderCb";
-            this.PGenderCb.Size = new System.Drawing.Size(176, 21);
+            this.PGenderCb.Size = new System.Drawing.Size(176, 24);
             this.PGenderCb.TabIndex = 74;
             this.PGenderCb.TabStop = false;
             // 
@@ -265,6 +270,7 @@
             // 
             this.PAdressTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAdressTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PAdressTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PAdressTb.Location = new System.Drawing.Point(366, 343);
             this.PAdressTb.Multiline = true;
             this.PAdressTb.Name = "PAdressTb";
@@ -297,6 +303,7 @@
             // 
             this.PPhoneTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PPhoneTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PPhoneTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PPhoneTb.Location = new System.Drawing.Point(611, 135);
             this.PPhoneTb.Multiline = true;
             this.PPhoneTb.Name = "PPhoneTb";
@@ -318,6 +325,7 @@
             // 
             this.PAgeTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PAgeTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PAgeTb.Location = new System.Drawing.Point(366, 135);
             this.PAgeTb.Multiline = true;
             this.PAgeTb.Name = "PAgeTb";
@@ -339,6 +347,7 @@
             // 
             this.PNameTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PNameTb.Location = new System.Drawing.Point(116, 135);
             this.PNameTb.Multiline = true;
             this.PNameTb.Name = "PNameTb";

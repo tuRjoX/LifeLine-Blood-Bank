@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PNameTb = new System.Windows.Forms.TextBox();
@@ -82,6 +82,7 @@
             // 
             this.PNameTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PNameTb.Location = new System.Drawing.Point(102, 108);
             this.PNameTb.Multiline = true;
             this.PNameTb.Name = "PNameTb";
@@ -92,6 +93,7 @@
             // 
             this.PAgeTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PAgeTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PAgeTb.Location = new System.Drawing.Point(352, 108);
             this.PAgeTb.Multiline = true;
             this.PAgeTb.Name = "PAgeTb";
@@ -113,6 +115,7 @@
             // 
             this.PPhoneTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PPhoneTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PPhoneTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PPhoneTb.Location = new System.Drawing.Point(597, 108);
             this.PPhoneTb.Multiline = true;
             this.PPhoneTb.Name = "PPhoneTb";
@@ -145,6 +148,7 @@
             // 
             this.PAdressTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAdressTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PAdressTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PAdressTb.Location = new System.Drawing.Point(352, 243);
             this.PAdressTb.Multiline = true;
             this.PAdressTb.Name = "PAdressTb";
@@ -178,13 +182,14 @@
             this.PGenderCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PGenderCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PGenderCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PGenderCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PGenderCb.FormattingEnabled = true;
             this.PGenderCb.Items.AddRange(new object[] {
             "Male",
             "Female"});
             this.PGenderCb.Location = new System.Drawing.Point(352, 176);
             this.PGenderCb.Name = "PGenderCb";
-            this.PGenderCb.Size = new System.Drawing.Size(176, 21);
+            this.PGenderCb.Size = new System.Drawing.Size(176, 24);
             this.PGenderCb.TabIndex = 12;
             this.PGenderCb.TabStop = false;
             // 
@@ -193,13 +198,14 @@
             this.PWNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PWNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PWNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PWNoCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PWNoCb.FormattingEnabled = true;
             this.PWNoCb.Items.AddRange(new object[] {
             "M1-M20",
             "F1-F20"});
             this.PWNoCb.Location = new System.Drawing.Point(597, 176);
             this.PWNoCb.Name = "PWNoCb";
-            this.PWNoCb.Size = new System.Drawing.Size(176, 21);
+            this.PWNoCb.Size = new System.Drawing.Size(176, 24);
             this.PWNoCb.TabIndex = 14;
             this.PWNoCb.TabStop = false;
             // 
@@ -219,6 +225,7 @@
             this.PBNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PBNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PBNoCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PBNoCb.FormattingEnabled = true;
             this.PBNoCb.Items.AddRange(new object[] {
             "F-1",
@@ -263,7 +270,7 @@
             "M-20"});
             this.PBNoCb.Location = new System.Drawing.Point(102, 243);
             this.PBNoCb.Name = "PBNoCb";
-            this.PBNoCb.Size = new System.Drawing.Size(176, 21);
+            this.PBNoCb.Size = new System.Drawing.Size(176, 24);
             this.PBNoCb.TabIndex = 16;
             this.PBNoCb.TabStop = false;
             // 
@@ -283,6 +290,7 @@
             this.PDListCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PDListCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PDListCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PDListCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PDListCb.FormattingEnabled = true;
             this.PDListCb.Items.AddRange(new object[] {
             "Cardiothoracic and Vascular Surgery",
@@ -321,7 +329,7 @@
             "Burn and Plastic Surgery"});
             this.PDListCb.Location = new System.Drawing.Point(597, 243);
             this.PDListCb.Name = "PDListCb";
-            this.PDListCb.Size = new System.Drawing.Size(176, 21);
+            this.PDListCb.Size = new System.Drawing.Size(176, 24);
             this.PDListCb.TabIndex = 18;
             this.PDListCb.TabStop = false;
             // 
@@ -338,26 +346,26 @@
             // 
             // PatientsDGV
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.PatientsDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PatientsDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.PatientsDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PatientsDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.PatientsDGV.ColumnHeadersHeight = 24;
             this.PatientsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PatientsDGV.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PatientsDGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.PatientsDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.PatientsDGV.Location = new System.Drawing.Point(51, 332);
             this.PatientsDGV.Name = "PatientsDGV";
@@ -426,6 +434,7 @@
             this.PBGroupCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PBGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBGroupCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PBGroupCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PBGroupCb.FormattingEnabled = true;
             this.PBGroupCb.Items.AddRange(new object[] {
             "A+",
@@ -438,7 +447,7 @@
             "AB-"});
             this.PBGroupCb.Location = new System.Drawing.Point(102, 176);
             this.PBGroupCb.Name = "PBGroupCb";
-            this.PBGroupCb.Size = new System.Drawing.Size(176, 21);
+            this.PBGroupCb.Size = new System.Drawing.Size(176, 24);
             this.PBGroupCb.TabIndex = 62;
             this.PBGroupCb.TabStop = false;
             // 

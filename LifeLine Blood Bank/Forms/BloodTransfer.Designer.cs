@@ -30,13 +30,13 @@
         {
             this.BloodGroup = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.TransferBtn = new System.Windows.Forms.Button();
             this.AvailableLbl = new System.Windows.Forms.Label();
             this.PatNameTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PatientIdCb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TransferBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BloodGroup
@@ -64,23 +64,6 @@
             this.label5.Size = new System.Drawing.Size(252, 38);
             this.label5.TabIndex = 50;
             this.label5.Text = "Blood Transfer";
-            // 
-            // TransferBtn
-            // 
-            this.TransferBtn.BackColor = System.Drawing.Color.Red;
-            this.TransferBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TransferBtn.FlatAppearance.BorderSize = 0;
-            this.TransferBtn.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransferBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
-            this.TransferBtn.Location = new System.Drawing.Point(389, 470);
-            this.TransferBtn.Name = "TransferBtn";
-            this.TransferBtn.Size = new System.Drawing.Size(117, 45);
-            this.TransferBtn.TabIndex = 52;
-            this.TransferBtn.TabStop = false;
-            this.TransferBtn.Text = "Transfer";
-            this.TransferBtn.UseVisualStyleBackColor = false;
-            this.TransferBtn.Visible = false;
-            this.TransferBtn.Click += new System.EventHandler(this.TransferBtn_Click);
             // 
             // AvailableLbl
             // 
@@ -160,15 +143,31 @@
             this.label1.TabIndex = 44;
             this.label1.Text = "Patient ID";
             // 
+            // TransferBtn
+            // 
+            this.TransferBtn.BackColor = System.Drawing.Color.Red;
+            this.TransferBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TransferBtn.FlatAppearance.BorderSize = 0;
+            this.TransferBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TransferBtn.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransferBtn.Location = new System.Drawing.Point(394, 474);
+            this.TransferBtn.Name = "TransferBtn";
+            this.TransferBtn.Size = new System.Drawing.Size(109, 33);
+            this.TransferBtn.TabIndex = 53;
+            this.TransferBtn.TabStop = false;
+            this.TransferBtn.Text = "Transfer";
+            this.TransferBtn.UseVisualStyleBackColor = false;
+            this.TransferBtn.Click += new System.EventHandler(this.TransferBtn_Click_1);
+            // 
             // BloodTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(898, 619);
+            this.Controls.Add(this.TransferBtn);
             this.Controls.Add(this.BloodGroup);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.TransferBtn);
             this.Controls.Add(this.AvailableLbl);
             this.Controls.Add(this.PatNameTb);
             this.Controls.Add(this.label3);
@@ -187,12 +186,12 @@
 
         private System.Windows.Forms.TextBox BloodGroup;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button TransferBtn;
         private System.Windows.Forms.Label AvailableLbl;
         private System.Windows.Forms.TextBox PatNameTb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox PatientIdCb;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button TransferBtn;
     }
 }

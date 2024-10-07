@@ -93,9 +93,9 @@ namespace LifeLineBloodBank.Forms
             {
                 MessageBox.Show("Phone number must be exactly 11 digits.");
             }
-            else if (!int.TryParse(DAgeTb.Text, out int age) || age <= 17)
+            else if (!int.TryParse(DAgeTb.Text, out int age) || age <= 17 || age >= 66)
             {
-                MessageBox.Show("Age must be a valid number greater than 17.");
+                MessageBox.Show("You are not eligiable for donation at this age.");
             }
             else
             {
