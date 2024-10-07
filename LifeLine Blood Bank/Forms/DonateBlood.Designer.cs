@@ -43,6 +43,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.DNameTb = new System.Windows.Forms.TextBox();
             this.txtUName = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -220,15 +222,25 @@
             // 
             // txtUName
             // 
-            this.txtUName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.txtUName.BackColor = System.Drawing.Color.White;
             this.txtUName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUName.Enabled = false;
-            this.txtUName.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUName.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUName.ForeColor = System.Drawing.Color.Black;
-            this.txtUName.Location = new System.Drawing.Point(351, 92);
+            this.txtUName.Location = new System.Drawing.Point(428, 91);
             this.txtUName.Name = "txtUName";
-            this.txtUName.Size = new System.Drawing.Size(163, 16);
+            this.txtUName.Size = new System.Drawing.Size(163, 20);
             this.txtUName.TabIndex = 60;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LifeLineBloodBank.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(391, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
             // 
             // DonateBlood
             // 
@@ -236,6 +248,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(898, 619);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -255,6 +268,7 @@
             this.Name = "DonateBlood";
             this.Text = "DonateBlood";
             this.Load += new System.EventHandler(this.DonateBlood_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +291,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox DNameTb;
         private System.Windows.Forms.TextBox txtUName;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
