@@ -25,7 +25,6 @@ The system offers different features based on the user role.
 - **Frontend:**
   - C# (Windows Forms)
   - Guna UI
-  - ReaLTaiizor UI Components
 
 - **Backend:**
   - Microsoft SQL Server (Database Management)
@@ -35,7 +34,6 @@ The system offers different features based on the user role.
 ### Prerequisites
 - Visual Studio with .NET Framework installed
 - Microsoft SQL Server
-- Guna UI and ReaLTaiizor packages (can be installed via NuGet Package Manager)
 
 ## Contributors
 <table>
