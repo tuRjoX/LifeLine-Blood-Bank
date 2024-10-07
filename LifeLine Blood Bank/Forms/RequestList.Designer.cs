@@ -67,7 +67,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RequestDGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.RequestDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.RequestDGV.Location = new System.Drawing.Point(437, 149);
+            this.RequestDGV.Location = new System.Drawing.Point(437, 140);
             this.RequestDGV.Name = "RequestDGV";
             this.RequestDGV.RowHeadersVisible = false;
             this.RequestDGV.Size = new System.Drawing.Size(418, 221);
