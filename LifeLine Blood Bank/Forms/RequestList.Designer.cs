@@ -72,6 +72,7 @@
             this.RequestDGV.RowHeadersVisible = false;
             this.RequestDGV.Size = new System.Drawing.Size(418, 221);
             this.RequestDGV.TabIndex = 50;
+            this.RequestDGV.TabStop = false;
             this.RequestDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.RequestDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.RequestDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -124,6 +125,7 @@
             this.BloodStockDGV.RowTemplate.Height = 25;
             this.BloodStockDGV.Size = new System.Drawing.Size(258, 221);
             this.BloodStockDGV.TabIndex = 49;
+            this.BloodStockDGV.TabStop = false;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -190,6 +192,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 33);
             this.button2.TabIndex = 52;
+            this.button2.TabStop = false;
             this.button2.Text = "Transfer";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);

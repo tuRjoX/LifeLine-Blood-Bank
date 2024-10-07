@@ -67,6 +67,7 @@
             this.BloodStockDGV.RowHeadersWidth = 51;
             this.BloodStockDGV.Size = new System.Drawing.Size(812, 386);
             this.BloodStockDGV.TabIndex = 22;
+            this.BloodStockDGV.TabStop = false;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -104,10 +105,11 @@
             "O+",
             "O-"});
             this.comboBox1.Location = new System.Drawing.Point(117, 170);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(163, 21);
             this.comboBox1.TabIndex = 21;
+            this.comboBox1.TabStop = false;
             // 
             // label1
             // 

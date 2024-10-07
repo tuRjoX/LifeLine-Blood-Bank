@@ -68,6 +68,7 @@
             this.PBGroupCb.Name = "PBGroupCb";
             this.PBGroupCb.Size = new System.Drawing.Size(176, 21);
             this.PBGroupCb.TabIndex = 83;
+            this.PBGroupCb.TabStop = false;
             // 
             // button2
             // 
@@ -80,6 +81,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 81;
+            this.button2.TabStop = false;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -128,6 +130,7 @@
             this.PDListCb.Name = "PDListCb";
             this.PDListCb.Size = new System.Drawing.Size(176, 21);
             this.PDListCb.TabIndex = 80;
+            this.PDListCb.TabStop = false;
             // 
             // label10
             // 
@@ -190,6 +193,7 @@
             this.PBNoCb.Name = "PBNoCb";
             this.PBNoCb.Size = new System.Drawing.Size(176, 21);
             this.PBNoCb.TabIndex = 78;
+            this.PBNoCb.TabStop = false;
             // 
             // label9
             // 
@@ -214,6 +218,7 @@
             this.PWNoCb.Name = "PWNoCb";
             this.PWNoCb.Size = new System.Drawing.Size(176, 21);
             this.PWNoCb.TabIndex = 76;
+            this.PWNoCb.TabStop = false;
             // 
             // label8
             // 
@@ -238,6 +243,7 @@
             this.PGenderCb.Name = "PGenderCb";
             this.PGenderCb.Size = new System.Drawing.Size(176, 21);
             this.PGenderCb.TabIndex = 74;
+            this.PGenderCb.TabStop = false;
             // 
             // label7
             // 
@@ -258,7 +264,7 @@
             this.PAdressTb.Multiline = true;
             this.PAdressTb.Name = "PAdressTb";
             this.PAdressTb.Size = new System.Drawing.Size(176, 21);
-            this.PAdressTb.TabIndex = 72;
+            this.PAdressTb.TabIndex = 3;
             // 
             // label6
             // 
@@ -290,7 +296,7 @@
             this.PPhoneTb.Multiline = true;
             this.PPhoneTb.Name = "PPhoneTb";
             this.PPhoneTb.Size = new System.Drawing.Size(176, 23);
-            this.PPhoneTb.TabIndex = 69;
+            this.PPhoneTb.TabIndex = 2;
             // 
             // label4
             // 
@@ -311,7 +317,7 @@
             this.PAgeTb.Multiline = true;
             this.PAgeTb.Name = "PAgeTb";
             this.PAgeTb.Size = new System.Drawing.Size(176, 23);
-            this.PAgeTb.TabIndex = 67;
+            this.PAgeTb.TabIndex = 1;
             // 
             // label3
             // 
@@ -332,7 +338,7 @@
             this.PNameTb.Multiline = true;
             this.PNameTb.Name = "PNameTb";
             this.PNameTb.Size = new System.Drawing.Size(176, 23);
-            this.PNameTb.TabIndex = 65;
+            this.PNameTb.TabIndex = 0;
             // 
             // label2
             // 

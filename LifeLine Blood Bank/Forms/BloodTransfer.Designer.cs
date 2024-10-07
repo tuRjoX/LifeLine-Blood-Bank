@@ -46,11 +46,12 @@
             this.BloodGroup.Enabled = false;
             this.BloodGroup.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BloodGroup.Location = new System.Drawing.Point(660, 296);
-            this.BloodGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BloodGroup.Margin = new System.Windows.Forms.Padding(2);
             this.BloodGroup.Multiline = true;
             this.BloodGroup.Name = "BloodGroup";
             this.BloodGroup.Size = new System.Drawing.Size(163, 24);
             this.BloodGroup.TabIndex = 51;
+            this.BloodGroup.TabStop = false;
             // 
             // label5
             // 
@@ -75,6 +76,7 @@
             this.TransferBtn.Name = "TransferBtn";
             this.TransferBtn.Size = new System.Drawing.Size(117, 45);
             this.TransferBtn.TabIndex = 52;
+            this.TransferBtn.TabStop = false;
             this.TransferBtn.Text = "Transfer";
             this.TransferBtn.UseVisualStyleBackColor = false;
             this.TransferBtn.Visible = false;
@@ -100,11 +102,12 @@
             this.PatNameTb.Enabled = false;
             this.PatNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatNameTb.Location = new System.Drawing.Point(369, 296);
-            this.PatNameTb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PatNameTb.Margin = new System.Windows.Forms.Padding(2);
             this.PatNameTb.Multiline = true;
             this.PatNameTb.Name = "PatNameTb";
             this.PatNameTb.Size = new System.Drawing.Size(163, 24);
             this.PatNameTb.TabIndex = 48;
+            this.PatNameTb.TabStop = false;
             // 
             // label3
             // 
@@ -137,10 +140,11 @@
             this.PatientIdCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatientIdCb.FormattingEnabled = true;
             this.PatientIdCb.Location = new System.Drawing.Point(102, 298);
-            this.PatientIdCb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PatientIdCb.Margin = new System.Windows.Forms.Padding(2);
             this.PatientIdCb.Name = "PatientIdCb";
             this.PatientIdCb.Size = new System.Drawing.Size(163, 24);
             this.PatientIdCb.TabIndex = 45;
+            this.PatientIdCb.TabStop = false;
             this.PatientIdCb.SelectedIndexChanged += new System.EventHandler(this.PatientIdCb_SelectedIndexChanged);
             // 
             // label1

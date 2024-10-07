@@ -76,6 +76,7 @@
             this.DonorsDGV.RowHeadersVisible = false;
             this.DonorsDGV.Size = new System.Drawing.Size(526, 221);
             this.DonorsDGV.TabIndex = 46;
+            this.DonorsDGV.TabStop = false;
             this.DonorsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DonorsDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.DonorsDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -128,6 +129,7 @@
             this.BloodStockDGV.RowTemplate.Height = 25;
             this.BloodStockDGV.Size = new System.Drawing.Size(258, 221);
             this.BloodStockDGV.TabIndex = 45;
+            this.BloodStockDGV.TabStop = false;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.BloodStockDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -194,6 +196,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 41;
+            this.button2.TabStop = false;
             this.button2.Text = "Donate";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
@@ -219,6 +222,7 @@
             this.BGroupTb.Name = "BGroupTb";
             this.BGroupTb.Size = new System.Drawing.Size(163, 20);
             this.BGroupTb.TabIndex = 39;
+            this.BGroupTb.TabStop = false;
             // 
             // label13
             // 
@@ -241,6 +245,7 @@
             this.DNameTb.Name = "DNameTb";
             this.DNameTb.Size = new System.Drawing.Size(163, 20);
             this.DNameTb.TabIndex = 37;
+            this.DNameTb.TabStop = false;
             // 
             // Donate
             // 

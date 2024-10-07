@@ -83,18 +83,20 @@
             this.PNameTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PNameTb.Location = new System.Drawing.Point(102, 108);
+            this.PNameTb.Multiline = true;
             this.PNameTb.Name = "PNameTb";
-            this.PNameTb.Size = new System.Drawing.Size(176, 13);
-            this.PNameTb.TabIndex = 2;
+            this.PNameTb.Size = new System.Drawing.Size(176, 20);
+            this.PNameTb.TabIndex = 0;
             // 
             // PAgeTb
             // 
             this.PAgeTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PAgeTb.Location = new System.Drawing.Point(352, 108);
+            this.PAgeTb.Multiline = true;
             this.PAgeTb.Name = "PAgeTb";
-            this.PAgeTb.Size = new System.Drawing.Size(176, 13);
-            this.PAgeTb.TabIndex = 4;
+            this.PAgeTb.Size = new System.Drawing.Size(176, 20);
+            this.PAgeTb.TabIndex = 1;
             // 
             // label3
             // 
@@ -112,9 +114,10 @@
             this.PPhoneTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PPhoneTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PPhoneTb.Location = new System.Drawing.Point(597, 108);
+            this.PPhoneTb.Multiline = true;
             this.PPhoneTb.Name = "PPhoneTb";
-            this.PPhoneTb.Size = new System.Drawing.Size(176, 13);
-            this.PPhoneTb.TabIndex = 6;
+            this.PPhoneTb.Size = new System.Drawing.Size(176, 20);
+            this.PPhoneTb.TabIndex = 2;
             // 
             // label4
             // 
@@ -143,9 +146,10 @@
             this.PAdressTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.PAdressTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PAdressTb.Location = new System.Drawing.Point(352, 243);
+            this.PAdressTb.Multiline = true;
             this.PAdressTb.Name = "PAdressTb";
-            this.PAdressTb.Size = new System.Drawing.Size(176, 13);
-            this.PAdressTb.TabIndex = 10;
+            this.PAdressTb.Size = new System.Drawing.Size(176, 20);
+            this.PAdressTb.TabIndex = 3;
             // 
             // label6
             // 
@@ -181,6 +185,7 @@
             this.PGenderCb.Name = "PGenderCb";
             this.PGenderCb.Size = new System.Drawing.Size(176, 21);
             this.PGenderCb.TabIndex = 12;
+            this.PGenderCb.TabStop = false;
             // 
             // PWNoCb
             // 
@@ -194,6 +199,7 @@
             this.PWNoCb.Name = "PWNoCb";
             this.PWNoCb.Size = new System.Drawing.Size(176, 21);
             this.PWNoCb.TabIndex = 14;
+            this.PWNoCb.TabStop = false;
             // 
             // label8
             // 
@@ -256,6 +262,7 @@
             this.PBNoCb.Name = "PBNoCb";
             this.PBNoCb.Size = new System.Drawing.Size(176, 21);
             this.PBNoCb.TabIndex = 16;
+            this.PBNoCb.TabStop = false;
             // 
             // label9
             // 
@@ -312,6 +319,7 @@
             this.PDListCb.Name = "PDListCb";
             this.PDListCb.Size = new System.Drawing.Size(176, 21);
             this.PDListCb.TabIndex = 18;
+            this.PDListCb.TabStop = false;
             // 
             // label10
             // 
@@ -352,6 +360,7 @@
             this.PatientsDGV.RowHeadersVisible = false;
             this.PatientsDGV.Size = new System.Drawing.Size(799, 259);
             this.PatientsDGV.TabIndex = 19;
+            this.PatientsDGV.TabStop = false;
             this.PatientsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.PatientsDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.PatientsDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -386,6 +395,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 33);
             this.button1.TabIndex = 61;
+            this.button1.TabStop = false;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -401,6 +411,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 60;
+            this.button2.TabStop = false;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -423,6 +434,7 @@
             this.PBGroupCb.Name = "PBGroupCb";
             this.PBGroupCb.Size = new System.Drawing.Size(176, 21);
             this.PBGroupCb.TabIndex = 62;
+            this.PBGroupCb.TabStop = false;
             // 
             // ViewPatients
             // 

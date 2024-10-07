@@ -56,6 +56,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 43;
+            this.button2.TabStop = false;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
@@ -80,7 +81,7 @@
             this.DAddressTbl.Location = new System.Drawing.Point(193, 198);
             this.DAddressTbl.Name = "DAddressTbl";
             this.DAddressTbl.Size = new System.Drawing.Size(163, 16);
-            this.DAddressTbl.TabIndex = 41;
+            this.DAddressTbl.TabIndex = 2;
             // 
             // DBGroupCB
             // 
@@ -101,6 +102,7 @@
             this.DBGroupCB.Name = "DBGroupCB";
             this.DBGroupCB.Size = new System.Drawing.Size(163, 24);
             this.DBGroupCB.TabIndex = 40;
+            this.DBGroupCB.TabStop = false;
             // 
             // DGenderCB
             // 
@@ -116,6 +118,7 @@
             this.DGenderCB.Name = "DGenderCB";
             this.DGenderCB.Size = new System.Drawing.Size(163, 24);
             this.DGenderCB.TabIndex = 39;
+            this.DGenderCB.TabStop = false;
             // 
             // label15
             // 
@@ -159,7 +162,7 @@
             this.DPhone.Location = new System.Drawing.Point(601, 88);
             this.DPhone.Name = "DPhone";
             this.DPhone.Size = new System.Drawing.Size(163, 16);
-            this.DPhone.TabIndex = 35;
+            this.DPhone.TabIndex = 1;
             // 
             // label11
             // 
@@ -180,7 +183,7 @@
             this.DAgeTb.Location = new System.Drawing.Point(601, 198);
             this.DAgeTb.Name = "DAgeTb";
             this.DAgeTb.Size = new System.Drawing.Size(163, 16);
-            this.DAgeTb.TabIndex = 33;
+            this.DAgeTb.TabIndex = 3;
             // 
             // label13
             // 
@@ -202,7 +205,7 @@
             this.DNameTb.Location = new System.Drawing.Point(193, 88);
             this.DNameTb.Name = "DNameTb";
             this.DNameTb.Size = new System.Drawing.Size(163, 16);
-            this.DNameTb.TabIndex = 31;
+            this.DNameTb.TabIndex = 0;
             // 
             // label10
             // 

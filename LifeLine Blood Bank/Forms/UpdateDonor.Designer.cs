@@ -82,7 +82,7 @@
             this.DAddressTbl.Location = new System.Drawing.Point(114, 171);
             this.DAddressTbl.Name = "DAddressTbl";
             this.DAddressTbl.Size = new System.Drawing.Size(163, 16);
-            this.DAddressTbl.TabIndex = 55;
+            this.DAddressTbl.TabIndex = 2;
             // 
             // DBGroupCB
             // 
@@ -103,6 +103,7 @@
             this.DBGroupCB.Name = "DBGroupCB";
             this.DBGroupCB.Size = new System.Drawing.Size(163, 24);
             this.DBGroupCB.TabIndex = 54;
+            this.DBGroupCB.TabStop = false;
             // 
             // DGenderCB
             // 
@@ -117,6 +118,7 @@
             this.DGenderCB.Name = "DGenderCB";
             this.DGenderCB.Size = new System.Drawing.Size(163, 24);
             this.DGenderCB.TabIndex = 53;
+            this.DGenderCB.TabStop = false;
             // 
             // label15
             // 
@@ -160,7 +162,7 @@
             this.DPhone.Location = new System.Drawing.Point(441, 93);
             this.DPhone.Name = "DPhone";
             this.DPhone.Size = new System.Drawing.Size(163, 16);
-            this.DPhone.TabIndex = 49;
+            this.DPhone.TabIndex = 1;
             // 
             // label11
             // 
@@ -181,7 +183,7 @@
             this.DAgeTb.Location = new System.Drawing.Point(441, 171);
             this.DAgeTb.Name = "DAgeTb";
             this.DAgeTb.Size = new System.Drawing.Size(163, 16);
-            this.DAgeTb.TabIndex = 47;
+            this.DAgeTb.TabIndex = 3;
             // 
             // label13
             // 
@@ -203,7 +205,7 @@
             this.DNameTb.Location = new System.Drawing.Point(114, 93);
             this.DNameTb.Name = "DNameTb";
             this.DNameTb.Size = new System.Drawing.Size(163, 16);
-            this.DNameTb.TabIndex = 45;
+            this.DNameTb.TabIndex = 0;
             // 
             // button2
             // 
@@ -216,6 +218,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
             this.button2.TabIndex = 58;
+            this.button2.TabStop = false;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
@@ -231,6 +234,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 33);
             this.button1.TabIndex = 59;
+            this.button1.TabStop = false;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -263,6 +267,7 @@
             this.DonorDGV.RowHeadersVisible = false;
             this.DonorDGV.Size = new System.Drawing.Size(849, 290);
             this.DonorDGV.TabIndex = 60;
+            this.DonorDGV.TabStop = false;
             this.DonorDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DonorDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.DonorDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;

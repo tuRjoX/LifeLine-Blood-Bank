@@ -35,10 +35,9 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.btnRequestList = new System.Windows.Forms.Button();
             this.btnBloodTransfer = new System.Windows.Forms.Button();
             this.btnBloodStock = new System.Windows.Forms.Button();
@@ -50,13 +49,14 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnDonor = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktopPane.SuspendLayout();
-            this.panelMenu.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -85,6 +85,7 @@
             this.bntMinimize.Name = "bntMinimize";
             this.bntMinimize.Size = new System.Drawing.Size(26, 26);
             this.bntMinimize.TabIndex = 4;
+            this.bntMinimize.TabStop = false;
             this.bntMinimize.Text = "O";
             this.bntMinimize.UseVisualStyleBackColor = true;
             this.bntMinimize.Click += new System.EventHandler(this.bntMinimize_Click);
@@ -101,6 +102,7 @@
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(26, 26);
             this.btnMaximize.TabIndex = 3;
+            this.btnMaximize.TabStop = false;
             this.btnMaximize.Text = "O";
             this.btnMaximize.UseVisualStyleBackColor = true;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
@@ -117,6 +119,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 2;
+            this.btnClose.TabStop = false;
             this.btnClose.Text = "O";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -142,37 +145,6 @@
             this.panelDesktopPane.Size = new System.Drawing.Size(914, 606);
             this.panelDesktopPane.TabIndex = 2;
             // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.panelMenu.Controls.Add(this.btnRequestList);
-            this.panelMenu.Controls.Add(this.btnBloodTransfer);
-            this.panelMenu.Controls.Add(this.btnBloodStock);
-            this.panelMenu.Controls.Add(this.btnViewPatient);
-            this.panelMenu.Controls.Add(this.btnPatient);
-            this.panelMenu.Controls.Add(this.btnDonate);
-            this.panelMenu.Controls.Add(this.btnViewDonor);
-            this.panelMenu.Controls.Add(this.button1);
-            this.panelMenu.Controls.Add(this.btnLogOut);
-            this.panelMenu.Controls.Add(this.btnDonor);
-            this.panelMenu.Controls.Add(this.btnDashboard);
-            this.panelMenu.Controls.Add(this.panelLogo);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 661);
-            this.panelMenu.TabIndex = 0;
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.White;
-            this.panelLogo.Controls.Add(this.btnCloseChildForm);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(220, 55);
-            this.panelLogo.TabIndex = 0;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -195,6 +167,27 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.panelMenu.Controls.Add(this.btnRequestList);
+            this.panelMenu.Controls.Add(this.btnBloodTransfer);
+            this.panelMenu.Controls.Add(this.btnBloodStock);
+            this.panelMenu.Controls.Add(this.btnViewPatient);
+            this.panelMenu.Controls.Add(this.btnPatient);
+            this.panelMenu.Controls.Add(this.btnDonate);
+            this.panelMenu.Controls.Add(this.btnViewDonor);
+            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.Controls.Add(this.btnLogOut);
+            this.panelMenu.Controls.Add(this.btnDonor);
+            this.panelMenu.Controls.Add(this.btnDashboard);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(220, 661);
+            this.panelMenu.TabIndex = 0;
+            // 
             // btnRequestList
             // 
             this.btnRequestList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
@@ -210,6 +203,7 @@
             this.btnRequestList.Name = "btnRequestList";
             this.btnRequestList.Size = new System.Drawing.Size(220, 45);
             this.btnRequestList.TabIndex = 18;
+            this.btnRequestList.TabStop = false;
             this.btnRequestList.Text = "Request List";
             this.btnRequestList.UseVisualStyleBackColor = false;
             this.btnRequestList.Click += new System.EventHandler(this.btnRequestList_Click);
@@ -229,6 +223,7 @@
             this.btnBloodTransfer.Name = "btnBloodTransfer";
             this.btnBloodTransfer.Size = new System.Drawing.Size(220, 45);
             this.btnBloodTransfer.TabIndex = 17;
+            this.btnBloodTransfer.TabStop = false;
             this.btnBloodTransfer.Text = "Blood Transfer";
             this.btnBloodTransfer.UseVisualStyleBackColor = false;
             this.btnBloodTransfer.Click += new System.EventHandler(this.btnBloodTransfer_Click_1);
@@ -248,6 +243,7 @@
             this.btnBloodStock.Name = "btnBloodStock";
             this.btnBloodStock.Size = new System.Drawing.Size(220, 45);
             this.btnBloodStock.TabIndex = 16;
+            this.btnBloodStock.TabStop = false;
             this.btnBloodStock.Text = "Blood Stock";
             this.btnBloodStock.UseVisualStyleBackColor = false;
             this.btnBloodStock.Click += new System.EventHandler(this.btnBloodStock_Click);
@@ -267,6 +263,7 @@
             this.btnViewPatient.Name = "btnViewPatient";
             this.btnViewPatient.Size = new System.Drawing.Size(220, 45);
             this.btnViewPatient.TabIndex = 15;
+            this.btnViewPatient.TabStop = false;
             this.btnViewPatient.Text = "View Patient";
             this.btnViewPatient.UseVisualStyleBackColor = false;
             this.btnViewPatient.Click += new System.EventHandler(this.btnViewPatient_Click);
@@ -286,6 +283,7 @@
             this.btnPatient.Name = "btnPatient";
             this.btnPatient.Size = new System.Drawing.Size(220, 45);
             this.btnPatient.TabIndex = 14;
+            this.btnPatient.TabStop = false;
             this.btnPatient.Text = "Patient";
             this.btnPatient.UseVisualStyleBackColor = false;
             this.btnPatient.Click += new System.EventHandler(this.btnPatient_Click);
@@ -305,6 +303,7 @@
             this.btnDonate.Name = "btnDonate";
             this.btnDonate.Size = new System.Drawing.Size(220, 45);
             this.btnDonate.TabIndex = 13;
+            this.btnDonate.TabStop = false;
             this.btnDonate.Text = "Donate";
             this.btnDonate.UseVisualStyleBackColor = false;
             this.btnDonate.Click += new System.EventHandler(this.btnDonate_Click);
@@ -324,6 +323,7 @@
             this.btnViewDonor.Name = "btnViewDonor";
             this.btnViewDonor.Size = new System.Drawing.Size(220, 45);
             this.btnViewDonor.TabIndex = 12;
+            this.btnViewDonor.TabStop = false;
             this.btnViewDonor.Text = "View Donor";
             this.btnViewDonor.UseVisualStyleBackColor = false;
             this.btnViewDonor.Click += new System.EventHandler(this.btnViewDonor_Click);
@@ -343,6 +343,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(220, 45);
             this.button1.TabIndex = 11;
+            this.button1.TabStop = false;
             this.button1.Text = "Update Donor";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -362,6 +363,7 @@
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(220, 45);
             this.btnLogOut.TabIndex = 9;
+            this.btnLogOut.TabStop = false;
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
@@ -380,6 +382,7 @@
             this.btnDonor.Name = "btnDonor";
             this.btnDonor.Size = new System.Drawing.Size(220, 45);
             this.btnDonor.TabIndex = 2;
+            this.btnDonor.TabStop = false;
             this.btnDonor.Text = "Add Donor";
             this.btnDonor.UseVisualStyleBackColor = false;
             this.btnDonor.Click += new System.EventHandler(this.btnDonor_Click);
@@ -399,9 +402,20 @@
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(220, 45);
             this.btnDashboard.TabIndex = 1;
+            this.btnDashboard.TabStop = false;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.White;
+            this.panelLogo.Controls.Add(this.btnCloseChildForm);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(220, 55);
+            this.panelLogo.TabIndex = 0;
             // 
             // btnCloseChildForm
             // 
@@ -413,6 +427,7 @@
             this.btnCloseChildForm.Name = "btnCloseChildForm";
             this.btnCloseChildForm.Size = new System.Drawing.Size(32, 31);
             this.btnCloseChildForm.TabIndex = 5;
+            this.btnCloseChildForm.TabStop = false;
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
             this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click);
             // 
@@ -431,10 +446,10 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktopPane.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
