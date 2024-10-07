@@ -75,7 +75,8 @@
             this.button1.Location = new System.Drawing.Point(421, 296);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 35);
-            this.button1.TabIndex = 26;
+            this.button1.TabIndex = 1000;
+            this.button1.TabStop = false;
             this.button1.Text = "LOGIN";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -89,7 +90,7 @@
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(216, 28);
-            this.txtPassword.TabIndex = 22;
+            this.txtPassword.TabIndex = 1;
             // 
             // label4
             // 
@@ -109,7 +110,7 @@
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(216, 28);
-            this.txtUsername.TabIndex = 18;
+            this.txtUsername.TabIndex = 0;
             // 
             // label2
             // 

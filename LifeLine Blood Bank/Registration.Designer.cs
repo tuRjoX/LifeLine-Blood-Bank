@@ -86,7 +86,7 @@
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(247, 28);
-            this.txtUsername.TabIndex = 2;
+            this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
@@ -97,7 +97,7 @@
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(247, 28);
-            this.txtPassword.TabIndex = 6;
+            this.txtPassword.TabIndex = 5;
             // 
             // label4
             // 
@@ -117,7 +117,7 @@
             this.txtConfirmPass.Multiline = true;
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.Size = new System.Drawing.Size(247, 28);
-            this.txtConfirmPass.TabIndex = 8;
+            this.txtConfirmPass.TabIndex = 6;
             // 
             // label5
             // 
@@ -139,6 +139,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(247, 35);
             this.button1.TabIndex = 10;
+            this.button1.TabStop = false;
             this.button1.Text = "REGISTER";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -173,7 +174,7 @@
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(247, 28);
-            this.txtPhone.TabIndex = 15;
+            this.txtPhone.TabIndex = 2;
             // 
             // label8
             // 
@@ -217,7 +218,7 @@
             this.txtCode.Multiline = true;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(247, 28);
-            this.txtCode.TabIndex = 36;
+            this.txtCode.TabIndex = 4;
             // 
             // label3
             // 
@@ -237,7 +238,7 @@
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(247, 28);
-            this.txtEmail.TabIndex = 34;
+            this.txtEmail.TabIndex = 3;
             // 
             // label9
             // 
@@ -269,7 +270,7 @@
             this.txtFullName.Multiline = true;
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(247, 28);
-            this.txtFullName.TabIndex = 43;
+            this.txtFullName.TabIndex = 1;
             // 
             // label10
             // 

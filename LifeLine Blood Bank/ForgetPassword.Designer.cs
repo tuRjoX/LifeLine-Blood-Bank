@@ -59,7 +59,7 @@
             this.txtCode.Multiline = true;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(216, 28);
-            this.txtCode.TabIndex = 30;
+            this.txtCode.TabIndex = 1;
             // 
             // label8
             // 
@@ -93,6 +93,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(216, 35);
             this.button3.TabIndex = 26;
+            this.button3.TabStop = false;
             this.button3.Text = "CONFIRM";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -106,7 +107,7 @@
             this.txtConfirmPass.Multiline = true;
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.Size = new System.Drawing.Size(216, 28);
-            this.txtConfirmPass.TabIndex = 24;
+            this.txtConfirmPass.TabIndex = 3;
             // 
             // label5
             // 
@@ -126,7 +127,7 @@
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(216, 28);
-            this.txtPassword.TabIndex = 22;
+            this.txtPassword.TabIndex = 2;
             // 
             // label4
             // 
@@ -146,7 +147,7 @@
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(216, 28);
-            this.txtEmail.TabIndex = 20;
+            this.txtEmail.TabIndex = 0;
             // 
             // label3
             // 

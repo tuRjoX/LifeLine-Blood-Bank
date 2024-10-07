@@ -15,8 +15,16 @@ namespace LifeLineBloodBank
         public Login()
         {
             InitializeComponent();
+            this.KeyPreview = true; 
+            this.KeyDown += new KeyEventHandler(Login_KeyDown);
         }
-
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e); 
+            }
+        }
         private void Login_Load(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
@@ -24,6 +32,17 @@ namespace LifeLineBloodBank
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Username cannot be blank.");
+                return; 
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                MessageBox.Show("Password cannot be blank.");
+                return; 
+            }
             if (txtUsername.Text == "admin" && txtPassword.Text == "admin")
             {
                 MessageBox.Show("Admin login successful.");
