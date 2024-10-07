@@ -15,15 +15,6 @@ namespace LifeLineBloodBank
         public Login()
         {
             InitializeComponent();
-            this.KeyPreview = true; 
-            this.KeyDown += new KeyEventHandler(Login_KeyDown);
-        }
-        private void Login_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button1_Click(sender, e); 
-            }
         }
         private void Login_Load(object sender, EventArgs e)
         {
