@@ -176,6 +176,7 @@
             // PGenderCb
             // 
             this.PGenderCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PGenderCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PGenderCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PGenderCb.FormattingEnabled = true;
             this.PGenderCb.Items.AddRange(new object[] {
@@ -190,6 +191,7 @@
             // PWNoCb
             // 
             this.PWNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PWNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PWNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PWNoCb.FormattingEnabled = true;
             this.PWNoCb.Items.AddRange(new object[] {
@@ -215,6 +217,7 @@
             // PBNoCb
             // 
             this.PBNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PBNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PBNoCb.FormattingEnabled = true;
             this.PBNoCb.Items.AddRange(new object[] {
@@ -278,6 +281,7 @@
             // PDListCb
             // 
             this.PDListCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PDListCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PDListCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PDListCb.FormattingEnabled = true;
             this.PDListCb.Items.AddRange(new object[] {
@@ -357,6 +361,7 @@
             this.PatientsDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.PatientsDGV.Location = new System.Drawing.Point(51, 332);
             this.PatientsDGV.Name = "PatientsDGV";
+            this.PatientsDGV.ReadOnly = true;
             this.PatientsDGV.RowHeadersVisible = false;
             this.PatientsDGV.Size = new System.Drawing.Size(799, 259);
             this.PatientsDGV.TabIndex = 19;
@@ -374,7 +379,7 @@
             this.PatientsDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.PatientsDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.PatientsDGV.ThemeStyle.HeaderStyle.Height = 24;
-            this.PatientsDGV.ThemeStyle.ReadOnly = false;
+            this.PatientsDGV.ThemeStyle.ReadOnly = true;
             this.PatientsDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.PatientsDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.PatientsDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -419,6 +424,7 @@
             // PBGroupCb
             // 
             this.PBGroupCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PBGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBGroupCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PBGroupCb.FormattingEnabled = true;
             this.PBGroupCb.Items.AddRange(new object[] {

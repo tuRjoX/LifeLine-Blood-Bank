@@ -65,7 +65,7 @@ namespace LifeLineBloodBank.Forms
             if (stock > 0)
             {
                 TransferBtn.Visible = true;
-                AvailableLbl.Text = "Available Stock";
+                AvailableLbl.Text = "Stock Available";
                 AvailableLbl.Visible = true;
             }
             else

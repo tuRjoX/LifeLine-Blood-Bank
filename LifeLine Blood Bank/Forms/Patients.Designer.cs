@@ -53,6 +53,7 @@
             // PBGroupCb
             // 
             this.PBGroupCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PBGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBGroupCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PBGroupCb.FormattingEnabled = true;
             this.PBGroupCb.Items.AddRange(new object[] {
@@ -89,6 +90,7 @@
             // PDListCb
             // 
             this.PDListCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PDListCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PDListCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PDListCb.FormattingEnabled = true;
             this.PDListCb.Items.AddRange(new object[] {
@@ -146,6 +148,7 @@
             // PBNoCb
             // 
             this.PBNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PBNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PBNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PBNoCb.FormattingEnabled = true;
             this.PBNoCb.Items.AddRange(new object[] {
@@ -209,6 +212,7 @@
             // PWNoCb
             // 
             this.PWNoCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PWNoCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PWNoCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PWNoCb.FormattingEnabled = true;
             this.PWNoCb.Items.AddRange(new object[] {
@@ -234,6 +238,7 @@
             // PGenderCb
             // 
             this.PGenderCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PGenderCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PGenderCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PGenderCb.FormattingEnabled = true;
             this.PGenderCb.Items.AddRange(new object[] {

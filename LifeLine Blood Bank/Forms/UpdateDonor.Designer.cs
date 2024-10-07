@@ -87,6 +87,7 @@
             // DBGroupCB
             // 
             this.DBGroupCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.DBGroupCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DBGroupCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DBGroupCB.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DBGroupCB.FormattingEnabled = true;
@@ -108,6 +109,7 @@
             // DGenderCB
             // 
             this.DGenderCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.DGenderCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DGenderCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DGenderCB.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DGenderCB.FormattingEnabled = true;
@@ -264,6 +266,7 @@
             this.DonorDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DonorDGV.Location = new System.Drawing.Point(26, 297);
             this.DonorDGV.Name = "DonorDGV";
+            this.DonorDGV.ReadOnly = true;
             this.DonorDGV.RowHeadersVisible = false;
             this.DonorDGV.Size = new System.Drawing.Size(849, 290);
             this.DonorDGV.TabIndex = 60;
@@ -281,7 +284,7 @@
             this.DonorDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.DonorDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DonorDGV.ThemeStyle.HeaderStyle.Height = 28;
-            this.DonorDGV.ThemeStyle.ReadOnly = false;
+            this.DonorDGV.ThemeStyle.ReadOnly = true;
             this.DonorDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.DonorDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DonorDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

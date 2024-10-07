@@ -61,10 +61,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DonorDGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.DonorDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DonorDGV.Location = new System.Drawing.Point(6, 130);
+            this.DonorDGV.Location = new System.Drawing.Point(21, 130);
             this.DonorDGV.Name = "DonorDGV";
+            this.DonorDGV.ReadOnly = true;
             this.DonorDGV.RowHeadersVisible = false;
-            this.DonorDGV.Size = new System.Drawing.Size(891, 452);
+            this.DonorDGV.Size = new System.Drawing.Size(853, 452);
             this.DonorDGV.TabIndex = 13;
             this.DonorDGV.TabStop = false;
             this.DonorDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -80,7 +81,7 @@
             this.DonorDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.DonorDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DonorDGV.ThemeStyle.HeaderStyle.Height = 28;
-            this.DonorDGV.ThemeStyle.ReadOnly = false;
+            this.DonorDGV.ThemeStyle.ReadOnly = true;
             this.DonorDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.DonorDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DonorDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,7 +106,7 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(65, 85);
+            this.textBox1.Location = new System.Drawing.Point(65, 86);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 16);
             this.textBox1.TabIndex = 11;

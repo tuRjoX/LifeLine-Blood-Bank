@@ -100,6 +100,7 @@
             // DBGroupCB
             // 
             this.DBGroupCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.DBGroupCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DBGroupCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DBGroupCB.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DBGroupCB.FormattingEnabled = true;
@@ -121,6 +122,7 @@
             // DGenderCB
             // 
             this.DGenderCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.DGenderCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DGenderCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DGenderCB.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DGenderCB.FormattingEnabled = true;

@@ -40,6 +40,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.AvailableLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RequestDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BloodStockDGV)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             this.RequestDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.RequestDGV.Location = new System.Drawing.Point(437, 140);
             this.RequestDGV.Name = "RequestDGV";
+            this.RequestDGV.ReadOnly = true;
             this.RequestDGV.RowHeadersVisible = false;
             this.RequestDGV.Size = new System.Drawing.Size(418, 221);
             this.RequestDGV.TabIndex = 50;
@@ -86,7 +88,7 @@
             this.RequestDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.RequestDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.RequestDGV.ThemeStyle.HeaderStyle.Height = 25;
-            this.RequestDGV.ThemeStyle.ReadOnly = false;
+            this.RequestDGV.ThemeStyle.ReadOnly = true;
             this.RequestDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.RequestDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.RequestDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,6 +123,7 @@
             this.BloodStockDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.BloodStockDGV.Location = new System.Drawing.Point(66, 140);
             this.BloodStockDGV.Name = "BloodStockDGV";
+            this.BloodStockDGV.ReadOnly = true;
             this.BloodStockDGV.RowHeadersVisible = false;
             this.BloodStockDGV.RowTemplate.Height = 25;
             this.BloodStockDGV.Size = new System.Drawing.Size(258, 221);
@@ -139,7 +142,7 @@
             this.BloodStockDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.BloodStockDGV.ThemeStyle.HeaderStyle.Height = 25;
-            this.BloodStockDGV.ThemeStyle.ReadOnly = false;
+            this.BloodStockDGV.ThemeStyle.ReadOnly = true;
             this.BloodStockDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.BloodStockDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,11 +200,25 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // AvailableLbl
+            // 
+            this.AvailableLbl.AutoSize = true;
+            this.AvailableLbl.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AvailableLbl.ForeColor = System.Drawing.Color.Red;
+            this.AvailableLbl.Location = new System.Drawing.Point(359, 473);
+            this.AvailableLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AvailableLbl.Name = "AvailableLbl";
+            this.AvailableLbl.Size = new System.Drawing.Size(176, 23);
+            this.AvailableLbl.TabIndex = 53;
+            this.AvailableLbl.Text = "Available Or Not";
+            this.AvailableLbl.Visible = false;
+            // 
             // RequestList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 619);
+            this.Controls.Add(this.AvailableLbl);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.RequestDGV);
@@ -226,5 +243,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label AvailableLbl;
     }
 }

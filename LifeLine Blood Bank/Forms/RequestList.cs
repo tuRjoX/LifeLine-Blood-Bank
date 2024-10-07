@@ -25,6 +25,7 @@ namespace LifeLineBloodBank.Forms
             bloodTbl = new BloodTbl(); // Initialize BloodTbl
             requestTbl = new RequestTbl(); // Initialize RequestTbl
             transferTbl = new TransferTbl(); // Initialize TransferTbl
+            button2.Visible = false;
             bloodStock();
             populate();
         }
@@ -44,6 +45,7 @@ namespace LifeLineBloodBank.Forms
             label12.ForeColor = ThemeColor.SecondaryColor;
             label14.ForeColor = ThemeColor.PrimaryColor;
             label15.ForeColor = ThemeColor.SecondaryColor;
+            AvailableLbl.ForeColor = ThemeColor.PrimaryColor;
         }
 
         private void populate()
@@ -74,7 +76,25 @@ namespace LifeLineBloodBank.Forms
                 DataGridViewRow row = RequestDGV.Rows[e.RowIndex];
                 selectedBloodGroup = row.Cells["RBGroup"].Value.ToString();
                 GetStock(selectedBloodGroup);
+                // Check if stock is available and adjust UI elements
+                if (oldstock > 0)
+                {
+                    button2.Visible = true;
+                    AvailableLbl.Text = "Stock Available";
+                    AvailableLbl.Visible = true; 
+                }
+                else
+                {
+                    button2.Visible = false;
+                    AvailableLbl.Text = "Stock Not Available";
+                    AvailableLbl.Visible = true;
+                }
             }
+        }
+        private void Reset()
+        {
+            AvailableLbl.Visible = false;
+            button2.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -98,6 +118,7 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Blood Transferred Successfully.");
                 SendEmail(REmail, RName, RBGroup);
                 populate();
+                Reset();
             }
             else
             {

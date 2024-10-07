@@ -136,6 +136,7 @@
             // PatientIdCb
             // 
             this.PatientIdCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.PatientIdCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PatientIdCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PatientIdCb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatientIdCb.FormattingEnabled = true;

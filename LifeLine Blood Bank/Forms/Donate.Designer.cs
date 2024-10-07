@@ -73,6 +73,7 @@
             this.DonorsDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DonorsDGV.Location = new System.Drawing.Point(347, 132);
             this.DonorsDGV.Name = "DonorsDGV";
+            this.DonorsDGV.ReadOnly = true;
             this.DonorsDGV.RowHeadersVisible = false;
             this.DonorsDGV.Size = new System.Drawing.Size(526, 221);
             this.DonorsDGV.TabIndex = 46;
@@ -90,7 +91,7 @@
             this.DonorsDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.DonorsDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DonorsDGV.ThemeStyle.HeaderStyle.Height = 25;
-            this.DonorsDGV.ThemeStyle.ReadOnly = false;
+            this.DonorsDGV.ThemeStyle.ReadOnly = true;
             this.DonorsDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.DonorsDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DonorsDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,6 +126,7 @@
             this.BloodStockDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.BloodStockDGV.Location = new System.Drawing.Point(26, 132);
             this.BloodStockDGV.Name = "BloodStockDGV";
+            this.BloodStockDGV.ReadOnly = true;
             this.BloodStockDGV.RowHeadersVisible = false;
             this.BloodStockDGV.RowTemplate.Height = 25;
             this.BloodStockDGV.Size = new System.Drawing.Size(258, 221);
@@ -143,7 +145,7 @@
             this.BloodStockDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.BloodStockDGV.ThemeStyle.HeaderStyle.Height = 25;
-            this.BloodStockDGV.ThemeStyle.ReadOnly = false;
+            this.BloodStockDGV.ThemeStyle.ReadOnly = true;
             this.BloodStockDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.BloodStockDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.BloodStockDGV.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
