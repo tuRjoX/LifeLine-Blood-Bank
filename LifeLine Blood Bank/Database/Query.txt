@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[DonorTbl] (
     [DPhone]   VARCHAR (50) NOT NULL,
     [DAddress] VARCHAR (50) NOT NULL,
     [DBGroup]  VARCHAR (50) NOT NULL,
+    [DPicture] IMAGE        NULL,
     PRIMARY KEY CLUSTERED ([DNum] ASC)
 );
 
@@ -26,6 +27,7 @@ CREATE TABLE [dbo].[PatientsTbl] (
     [PDList]      VARCHAR (50) NOT NULL,
     [PWNo]        VARCHAR (50) NOT NULL,
     [PBNo]        VARCHAR (50) NOT NULL,
+    [PPicture]    IMAGE        NULL,
     [CreatedDate] DATETIME     DEFAULT (getdate()) NOT NULL,
     PRIMARY KEY CLUSTERED ([PNum] ASC)
 );
