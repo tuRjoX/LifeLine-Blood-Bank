@@ -60,3 +60,11 @@ CREATE TABLE [dbo].[UsersTbl] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('A+', 1);
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('A-', 1);
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('B+', 1);
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('B-', 1);
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('AB+', 1);
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('AB-', 1);
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('O+', 1);
+INSERT INTO [dbo].[BloodTbl] ([BGroup], [BStock]) VALUES ('O-', 1);
