@@ -57,6 +57,7 @@ namespace LifeLineBloodBank.Forms
             DGenderCB.SelectedIndex = -1;
             DBGroupCB.SelectedIndex = -1;
             DAddressTbl.Text = "";
+            DPBox.Image = null;
         }
         private void LoadUserData(int userId)
         {
