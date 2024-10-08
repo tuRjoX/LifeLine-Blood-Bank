@@ -13,9 +13,9 @@ namespace LifeLineBloodBank.Database
         {
             connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
         }
-        public void AddDonor(string name, int age, string gender, string phone, string address, string bloodGroup)
+        public void AddDonor(string name, int age, string gender, string phone, string address, string bloodGroup, byte[] picture)
         {
-            string query = "INSERT INTO DonorTbl (DName, DAge, DGender, DPhone, DAddress, DBGroup) VALUES (@DName, @DAge, @DGender, @DPhone, @DAddress, @DBGroup)";
+            string query = "INSERT INTO DonorTbl (DName, DAge, DGender, DPhone, DAddress, DBGroup, DPicture) VALUES (@DName, @DAge, @DGender, @DPhone, @DAddress, @DBGroup, @DPicture)";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
@@ -29,6 +29,7 @@ namespace LifeLineBloodBank.Database
                         cmd.Parameters.AddWithValue("@DPhone", phone);
                         cmd.Parameters.AddWithValue("@DAddress", address);
                         cmd.Parameters.AddWithValue("@DBGroup", bloodGroup);
+                        cmd.Parameters.AddWithValue("@DPicture", picture);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -38,6 +39,7 @@ namespace LifeLineBloodBank.Database
                 }
             }
         }
+
         // Method to retrieve all donors
         public DataTable GetAllDonors()
         {

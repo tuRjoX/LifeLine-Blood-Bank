@@ -110,7 +110,5 @@ namespace LifeLineBloodBank.Forms
         {
             LoadTheme();
         }
-
-        
     }
 }

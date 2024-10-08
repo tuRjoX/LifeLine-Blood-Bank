@@ -43,6 +43,9 @@
             this.DNameTb = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.DPBox = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DPBox)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -66,7 +69,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(117, 195);
+            this.label16.Location = new System.Drawing.Point(121, 374);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(75, 20);
             this.label16.TabIndex = 42;
@@ -78,7 +81,7 @@
             this.DAddressTbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.DAddressTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAddressTbl.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DAddressTbl.Location = new System.Drawing.Point(193, 198);
+            this.DAddressTbl.Location = new System.Drawing.Point(197, 377);
             this.DAddressTbl.Multiline = true;
             this.DAddressTbl.Name = "DAddressTbl";
             this.DAddressTbl.Size = new System.Drawing.Size(163, 20);
@@ -100,7 +103,7 @@
             "AB-",
             "O+",
             "O-"});
-            this.DBGroupCB.Location = new System.Drawing.Point(601, 315);
+            this.DBGroupCB.Location = new System.Drawing.Point(605, 374);
             this.DBGroupCB.Name = "DBGroupCB";
             this.DBGroupCB.Size = new System.Drawing.Size(163, 24);
             this.DBGroupCB.TabIndex = 40;
@@ -116,7 +119,7 @@
             this.DGenderCB.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.DGenderCB.Location = new System.Drawing.Point(193, 315);
+            this.DGenderCB.Location = new System.Drawing.Point(605, 288);
             this.DGenderCB.Name = "DGenderCB";
             this.DGenderCB.Size = new System.Drawing.Size(163, 24);
             this.DGenderCB.TabIndex = 39;
@@ -127,7 +130,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(480, 314);
+            this.label15.Location = new System.Drawing.Point(473, 377);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(112, 20);
             this.label15.TabIndex = 38;
@@ -138,7 +141,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(117, 315);
+            this.label14.Location = new System.Drawing.Point(473, 285);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(69, 20);
             this.label14.TabIndex = 37;
@@ -150,7 +153,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(480, 85);
+            this.label12.Location = new System.Drawing.Point(473, 111);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 20);
             this.label12.TabIndex = 36;
@@ -161,7 +164,7 @@
             this.DPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.DPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DPhone.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DPhone.Location = new System.Drawing.Point(601, 88);
+            this.DPhone.Location = new System.Drawing.Point(605, 114);
             this.DPhone.Multiline = true;
             this.DPhone.Name = "DPhone";
             this.DPhone.Size = new System.Drawing.Size(163, 20);
@@ -172,7 +175,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(480, 195);
+            this.label11.Location = new System.Drawing.Point(473, 190);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 20);
             this.label11.TabIndex = 34;
@@ -183,7 +186,7 @@
             this.DAgeTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.DAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAgeTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DAgeTb.Location = new System.Drawing.Point(601, 198);
+            this.DAgeTb.Location = new System.Drawing.Point(605, 193);
             this.DAgeTb.Multiline = true;
             this.DAgeTb.Name = "DAgeTb";
             this.DAgeTb.Size = new System.Drawing.Size(163, 20);
@@ -194,7 +197,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(117, 85);
+            this.label13.Location = new System.Drawing.Point(121, 285);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 20);
             this.label13.TabIndex = 32;
@@ -206,7 +209,7 @@
             this.DNameTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.DNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DNameTb.Location = new System.Drawing.Point(193, 88);
+            this.DNameTb.Location = new System.Drawing.Point(197, 288);
             this.DNameTb.Multiline = true;
             this.DNameTb.Name = "DNameTb";
             this.DNameTb.Size = new System.Drawing.Size(163, 20);
@@ -235,12 +238,37 @@
             this.label1.Text = "Donor";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // DPBox
+            // 
+            this.DPBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.DPBox.Location = new System.Drawing.Point(197, 111);
+            this.DPBox.Name = "DPBox";
+            this.DPBox.Size = new System.Drawing.Size(90, 100);
+            this.DPBox.TabIndex = 64;
+            this.DPBox.TabStop = false;
+            this.DPBox.Click += new System.EventHandler(this.DPBox_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(121, 149);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.TabIndex = 66;
+            this.label3.Text = "Picture";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Donor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(898, 567);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.DPBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label16);
@@ -260,6 +288,7 @@
             this.Name = "Donor";
             this.Text = "Donor";
             this.Load += new System.EventHandler(this.Donor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DPBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +311,7 @@
         private System.Windows.Forms.TextBox DNameTb;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox DPBox;
+        private System.Windows.Forms.Label label3;
     }
 }

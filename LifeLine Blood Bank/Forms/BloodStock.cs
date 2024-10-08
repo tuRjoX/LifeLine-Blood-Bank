@@ -36,7 +36,7 @@ namespace LifeLineBloodBank.Forms
         {
             try
             {
-                DataTable dt = bloodTbl.GetAllBloodStock();  // Retrieve all blood stocks using BloodTbl
+                DataTable dt = bloodTbl.GetAllBloodStock();  
                 BloodStockDGV.DataSource = dt;
                 BloodStockDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 BloodStockDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -47,8 +47,6 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-        // Method to handle filtering blood stocks by blood type
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedBloodType = comboBox1.SelectedItem.ToString();
@@ -56,11 +54,11 @@ namespace LifeLineBloodBank.Forms
             {
                 if (selectedBloodType == "All")
                 {
-                    BloodStocks();  // Show all blood stocks if "All" is selected
+                    BloodStocks(); 
                 }
                 else
                 {
-                    DataTable dt = bloodTbl.GetBloodStockByType(selectedBloodType);  // Filter blood stocks by blood type using BloodTbl
+                    DataTable dt = bloodTbl.GetBloodStockByType(selectedBloodType);  
                     BloodStockDGV.DataSource = dt;
                 }
             }

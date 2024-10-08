@@ -42,6 +42,7 @@
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.DonorDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DonorDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,7 +96,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(2, 85);
+            this.label11.Location = new System.Drawing.Point(21, 92);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 20);
             this.label11.TabIndex = 12;
@@ -106,7 +107,7 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(65, 86);
+            this.textBox1.Location = new System.Drawing.Point(84, 93);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 20);
@@ -119,7 +120,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(327, 9);
+            this.label10.Location = new System.Drawing.Point(343, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(185, 38);
             this.label10.TabIndex = 10;

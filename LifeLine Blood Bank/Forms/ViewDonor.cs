@@ -2,13 +2,13 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using LifeLineBloodBank.Database; // Import the DataAccess namespace
+using LifeLineBloodBank.Database; 
 
 namespace LifeLineBloodBank.Forms
 {
     public partial class ViewDonor : Form
     {
-        private readonly DonorTbl donorTbl = new DonorTbl(); // Create an instance of the DonorTbl class
+        private readonly DonorTbl donorTbl = new DonorTbl(); 
 
         public ViewDonor()
         {
@@ -35,9 +35,10 @@ namespace LifeLineBloodBank.Forms
         {
             try
             {
-                // Use DonorTbl to get all donors and bind to the DataGridView
                 DataTable dt = donorTbl.GetAllDonors();
                 DonorDGV.DataSource = dt;
+                DonorDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                DonorDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
             catch (Exception ex)
             {
@@ -54,7 +55,6 @@ namespace LifeLineBloodBank.Forms
         {
             try
             {
-                // Use DonorTbl to filter donors by name
                 DataTable dt = donorTbl.FilterDonorsByName(donorName);
                 DonorDGV.DataSource = dt;
             }

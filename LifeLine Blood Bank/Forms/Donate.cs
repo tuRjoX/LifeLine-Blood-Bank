@@ -42,7 +42,12 @@ namespace LifeLineBloodBank.Forms
         private void populate()
         {
             DonorTbl donorTbl = new DonorTbl();
-            DonorsDGV.DataSource = donorTbl.GetAllDonors();
+            DataTable dt = donorTbl.GetAllDonors();
+            if (dt.Columns.Contains("DPicture"))
+            {
+                dt.Columns.Remove("DPicture");
+            }
+            DonorsDGV.DataSource = dt;
         }
         private void bloodStock()
         {

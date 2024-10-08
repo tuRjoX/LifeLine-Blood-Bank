@@ -348,6 +348,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.PatientsDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.PatientsDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -367,11 +368,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.PatientsDGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.PatientsDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.PatientsDGV.Location = new System.Drawing.Point(51, 332);
+            this.PatientsDGV.Location = new System.Drawing.Point(47, 327);
             this.PatientsDGV.Name = "PatientsDGV";
             this.PatientsDGV.ReadOnly = true;
             this.PatientsDGV.RowHeadersVisible = false;
-            this.PatientsDGV.Size = new System.Drawing.Size(799, 259);
+            this.PatientsDGV.Size = new System.Drawing.Size(823, 259);
             this.PatientsDGV.TabIndex = 19;
             this.PatientsDGV.TabStop = false;
             this.PatientsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;

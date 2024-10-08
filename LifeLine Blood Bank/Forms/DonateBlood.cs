@@ -3,8 +3,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
-using LifeLineBloodBank.Database; // Ensure to include the database namespace
+using LifeLineBloodBank.Database; 
 
 namespace LifeLineBloodBank.Forms
 {
@@ -14,8 +15,6 @@ namespace LifeLineBloodBank.Forms
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
         private System.Drawing.Printing.PrintDocument printDonorInfo = new System.Drawing.Printing.PrintDocument();
         private SqlConnection Con;
-
-        // Add UserTbl and DonorTbl instances
         private UserTbl userTbl;
         private DonorTbl donorTbl;
 
@@ -23,8 +22,8 @@ namespace LifeLineBloodBank.Forms
         {
             InitializeComponent();
             Id = userId;
-            userTbl = new UserTbl(); // Initialize UserTbl
-            donorTbl = new DonorTbl(); // Initialize DonorTbl
+            userTbl = new UserTbl(); 
+            donorTbl = new DonorTbl(); 
             printDonorInfo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDonorInfo_PrintPage);
             string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
             Con = new SqlConnection(connectionString);
@@ -48,8 +47,8 @@ namespace LifeLineBloodBank.Forms
             label14.ForeColor = ThemeColor.PrimaryColor;
             label15.ForeColor = ThemeColor.SecondaryColor;
             label16.ForeColor = ThemeColor.PrimaryColor;
+            label3.ForeColor = ThemeColor.SecondaryColor;
         }
-
         private void Reset()
         {
             DNameTb.Text = "";
@@ -59,7 +58,6 @@ namespace LifeLineBloodBank.Forms
             DBGroupCB.SelectedIndex = -1;
             DAddressTbl.Text = "";
         }
-
         private void LoadUserData(int userId)
         {
             try
@@ -74,18 +72,40 @@ namespace LifeLineBloodBank.Forms
                 MessageBox.Show(Ex.Message);
             }
         }
-
         private void DonateBlood_Load(object sender, EventArgs e)
         {
             LoadUserData(Id);
             LoadTheme();
         }
+        private string imgLocation = "";
+        private void DPBox_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg|All Files (*.*)|*.*";
+                dialog.Title = "Select Donor Picture";
+                dialog.FilterIndex = 1; 
 
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    imgLocation = dialog.FileName; 
+                    DPBox.ImageLocation = imgLocation; 
+
+                    try
+                    {
+                        DPBox.Image = Image.FromFile(imgLocation); 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading image: " + ex.Message);
+                    }
+                }
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-            // Validate inputs
             if (string.IsNullOrEmpty(DNameTb.Text) || string.IsNullOrEmpty(DPhone.Text) ||
-                string.IsNullOrEmpty(DAgeTb.Text) || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1)
+                string.IsNullOrEmpty(DAgeTb.Text) || DGenderCB.SelectedIndex == -1 || DBGroupCB.SelectedIndex == -1 || DPBox.Image == null)
             {
                 MessageBox.Show("Missing Information.");
             }
@@ -95,25 +115,31 @@ namespace LifeLineBloodBank.Forms
             }
             else if (!int.TryParse(DAgeTb.Text, out int age) || age <= 17 || age >= 66)
             {
-                MessageBox.Show("You are not eligiable for donation at this age.");
+                MessageBox.Show("You are not eligible for donation at this age.");
             }
             else
             {
                 try
                 {
-                    // Use DonorTbl to add the donor
-                    donorTbl.AddDonor(DNameTb.Text, age, DGenderCB.SelectedItem.ToString(), DPhone.Text, DAddressTbl.Text, DBGroupCB.SelectedItem.ToString());
+                    byte[] picture = ImageToByteArray(DPBox.Image);
+                    donorTbl.AddDonor(DNameTb.Text, age, DGenderCB.SelectedItem.ToString(), DPhone.Text, DAddressTbl.Text, DBGroupCB.SelectedItem.ToString(), picture);
                     MessageBox.Show("Donor Successfully Saved.");
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
                 }
-
-                // Print donor info
                 printPreviewDialog1.Document = printDonorInfo;
                 printPreviewDialog1.ShowDialog();
                 Reset();
+            }
+        }
+        private byte[] ImageToByteArray(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat);
+                return ms.ToArray();
             }
         }
 
@@ -144,6 +170,6 @@ namespace LifeLineBloodBank.Forms
 
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Date Created: {DateTime.Now.ToString("g")}", bodyFont, Brushes.Black, startingPoint);
-        }
+        } 
     }
 }

@@ -53,6 +53,8 @@ namespace LifeLineBloodBank.Forms
             try
             {
                 DonorDGV.DataSource = donorTbl.GetAllDonors();
+                DonorDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                DonorDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
             catch (Exception ex)
             {
@@ -114,7 +116,7 @@ namespace LifeLineBloodBank.Forms
                 try
                 {
                     donorTbl.UpdateDonor(key, DNameTb.Text, age, DGenderCB.SelectedItem.ToString(),
-                                         DPhone.Text, DAddressTbl.Text, DBGroupCB.SelectedItem.ToString()); // Use DonorTbl to update the donor
+                                         DPhone.Text, DAddressTbl.Text, DBGroupCB.SelectedItem.ToString()); 
                     MessageBox.Show("Donor Updated Successfully.");
                     Reset();
                     populate();

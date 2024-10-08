@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using LifeLineBloodBank.Database;
@@ -40,6 +41,7 @@ namespace LifeLineBloodBank.Forms
                 label8.ForeColor = ThemeColor.SecondaryColor;
                 label10.ForeColor = ThemeColor.PrimaryColor;
                 label9.ForeColor = ThemeColor.SecondaryColor;
+                label11.ForeColor = ThemeColor.PrimaryColor;
             }
         }
         private void Reset()
@@ -53,18 +55,41 @@ namespace LifeLineBloodBank.Forms
             PDListCb.SelectedIndex = -1;
             PWNoCb.SelectedIndex = -1;
             PBNoCb.SelectedIndex = -1;
+            DPBox.Image = null;
         }
+        private string imgLocation = "";
+        private void DPBox_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg|All Files (*.*)|*.*";
+                dialog.Title = "Select Donor Picture";
+                dialog.FilterIndex = 1;
 
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    imgLocation = dialog.FileName;
+                    DPBox.ImageLocation = imgLocation;
+                    try
+                    {
+                        DPBox.Image = Image.FromFile(imgLocation);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading image: " + ex.Message);
+                    }
+                }
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(PNameTb.Text) || string.IsNullOrEmpty(PAgeTb.Text) || string.IsNullOrEmpty(PPhoneTb.Text) ||
                 PGenderCb.SelectedIndex == -1 || PBGroupCb.SelectedIndex == -1 || string.IsNullOrEmpty(PAdressTb.Text) ||
-                PDListCb.SelectedIndex == -1 || PWNoCb.SelectedIndex == -1 || PBNoCb.SelectedIndex == -1)
+                PDListCb.SelectedIndex == -1 || PWNoCb.SelectedIndex == -1 || PBNoCb.SelectedIndex == -1 || DPBox.Image == null)
             {
                 MessageBox.Show("Missing Information");
                 return;
             }
-
             string phone = PPhoneTb.Text;
             string[] validPrefixes = { "014", "013", "017", "018", "016", "015" };
             bool isPhoneValid = phone.Length == 11 && validPrefixes.Any(prefix => phone.StartsWith(prefix));
@@ -77,12 +102,12 @@ namespace LifeLineBloodBank.Forms
 
             try
             {
+                byte[] picture = ImageToByteArray(DPBox.Image);
                 patientsTbl.InsertPatient(PNameTb.Text, PAgeTb.Text, PPhoneTb.Text, PGenderCb.SelectedItem.ToString(),
-                                         PBGroupCb.SelectedItem.ToString(), PAdressTb.Text, PDListCb.SelectedItem.ToString(),
-                                         PWNoCb.SelectedItem.ToString(), PBNoCb.SelectedItem.ToString());
+                                          PBGroupCb.SelectedItem.ToString(), PAdressTb.Text, PDListCb.SelectedItem.ToString(),
+                                          PWNoCb.SelectedItem.ToString(), PBNoCb.SelectedItem.ToString(), picture);
 
                 MessageBox.Show("Patient Successfully Saved");
-
                 printPreviewDialog1.Document = printPatientsInfo;
                 printPreviewDialog1.ShowDialog();
                 Reset();
@@ -90,6 +115,14 @@ namespace LifeLineBloodBank.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        private byte[] ImageToByteArray(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat);
+                return ms.ToArray();
             }
         }
 
@@ -121,7 +154,6 @@ namespace LifeLineBloodBank.Forms
             startingPoint.Y += 30;
             e.Graphics.DrawString($"Date Created: {DateTime.Now.ToString("g")}", bodyFont, Brushes.Black, startingPoint);
         }
-
         private void Patients_Load(object sender, EventArgs e)
         {
             LoadTheme();

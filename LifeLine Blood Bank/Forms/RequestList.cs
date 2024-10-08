@@ -13,18 +13,18 @@ namespace LifeLineBloodBank.Forms
     public partial class RequestList : Form
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
-        private TransferTbl transferTbl; // Instance of TransferTbl
-        private BloodTbl bloodTbl; // Instance of BloodTbl
-        private RequestTbl requestTbl; // Instance of RequestTbl
+        private TransferTbl transferTbl; 
+        private BloodTbl bloodTbl; 
+        private RequestTbl requestTbl; 
         private int oldstock;
         private string selectedBloodGroup;
 
         public RequestList()
         {
             InitializeComponent();
-            bloodTbl = new BloodTbl(); // Initialize BloodTbl
-            requestTbl = new RequestTbl(); // Initialize RequestTbl
-            transferTbl = new TransferTbl(); // Initialize TransferTbl
+            bloodTbl = new BloodTbl(); 
+            requestTbl = new RequestTbl(); 
+            transferTbl = new TransferTbl(); 
             button2.Visible = false;
             bloodStock();
             populate();
@@ -76,7 +76,6 @@ namespace LifeLineBloodBank.Forms
                 DataGridViewRow row = RequestDGV.Rows[e.RowIndex];
                 selectedBloodGroup = row.Cells["RBGroup"].Value.ToString();
                 GetStock(selectedBloodGroup);
-                // Check if stock is available and adjust UI elements
                 if (oldstock > 0)
                 {
                     button2.Visible = true;
@@ -109,15 +108,13 @@ namespace LifeLineBloodBank.Forms
                 string RBGroup = selectedRow.Cells["RBGroup"].Value.ToString();
                 string REmail = selectedRow.Cells["REmail"].Value.ToString();
                 int requestId = Convert.ToInt32(selectedRow.Cells["id"].Value);
-
-                // Add transfer record
                 transferTbl.AddTransfer(RName, RBGroup);
-                // Delete the request after transfer
                 transferTbl.DeleteRequest(requestId);
 
                 MessageBox.Show("Blood Transferred Successfully.");
                 SendEmail(REmail, RName, RBGroup);
                 populate();
+                bloodStock();
                 Reset();
             }
             else
@@ -164,7 +161,6 @@ namespace LifeLineBloodBank.Forms
                     Credentials = new NetworkCredential(from, pass)
                 };
                 smtp.Send(message);
-                MessageBox.Show("Blood transfer email notification sent successfully.");
             }
             catch (Exception ex)
             {

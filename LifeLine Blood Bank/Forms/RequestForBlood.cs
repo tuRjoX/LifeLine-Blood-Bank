@@ -93,7 +93,7 @@ namespace LifeLineBloodBank.Forms
                 try
                 {
                     requestTbl.AddRequest(RNameTb.Text, RPhone.Text, REmail.Text, RBGroupCB.SelectedItem.ToString());
-                    MessageBox.Show("Request Sent Successfully.");
+                    MessageBox.Show("Request Sent Successfully & check your mail.");
                     SendEmail(REmail.Text, RNameTb.Text, RBGroupCB.SelectedItem.ToString());
                     printPreviewDialog1.Document = printRequestInfo;
                     printPreviewDialog1.ShowDialog();
@@ -112,7 +112,7 @@ namespace LifeLineBloodBank.Forms
             {
                 string from = "lifelinebloodbankbd@gmail.com";
                 string pass = "tpul kgmg gfrc nkki";
-                string subject = "Blood Request Confirmation";
+                string subject = "Request for Blood.";
                 string messageBody = $"Dear {userName},<br><br>Your request for {bloodGroup} blood has been successfully submitted.<br><br>Thank you for using our services.";
 
                 MailMessage message = new MailMessage

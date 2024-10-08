@@ -58,6 +58,8 @@ namespace LifeLineBloodBank.Forms
         private void populate()
         {
             PatientsDGV.DataSource = patientsTbl.GetPatients();
+            PatientsDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            PatientsDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void PatientsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -9,28 +9,32 @@ namespace LifeLineBloodBank.Database
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString;
 
-        public void InsertPatient(string name, string age, string phone, string gender, string bloodGroup, string address, string departmentList, string wardNo, string bedNo)
+        public void InsertPatient(string name, string age, string phone, string gender, string bloodGroup, string address, string departmentList, string wardNo, string bedNo, byte[] picture)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = $"INSERT INTO PatientsTbl (PName, PAge, PPhone, PGender, PBGroup, PAdress, PDList, PWNo, PBNo, CreatedDate) " +
-                               $"VALUES (@name, @age, @phone, @gender, @bloodGroup, @address, @departmentList, @wardNo, @bedNo, GETDATE())";
-                SqlCommand cmd = new SqlCommand(query, con);
+                string query = $"INSERT INTO PatientsTbl (PName, PAge, PPhone, PGender, PBGroup, PAdress, PDList, PWNo, PBNo, PPicture, CreatedDate) " +
+                               $"VALUES (@name, @age, @phone, @gender, @bloodGroup, @address, @departmentList, @wardNo, @bedNo, @picture, GETDATE())";
 
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@age", age);
-                cmd.Parameters.AddWithValue("@phone", phone);
-                cmd.Parameters.AddWithValue("@gender", gender);
-                cmd.Parameters.AddWithValue("@bloodGroup", bloodGroup);
-                cmd.Parameters.AddWithValue("@address", address);
-                cmd.Parameters.AddWithValue("@departmentList", departmentList);
-                cmd.Parameters.AddWithValue("@wardNo", wardNo);
-                cmd.Parameters.AddWithValue("@bedNo", bedNo);
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@age", age);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.Parameters.AddWithValue("@bloodGroup", bloodGroup);
+                    cmd.Parameters.AddWithValue("@address", address);
+                    cmd.Parameters.AddWithValue("@departmentList", departmentList);
+                    cmd.Parameters.AddWithValue("@wardNo", wardNo);
+                    cmd.Parameters.AddWithValue("@bedNo", bedNo);
+                    cmd.Parameters.AddWithValue("@picture", picture);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
+
         // Method to populate the DataGridView with patients' data
         public DataTable GetPatients()
         {

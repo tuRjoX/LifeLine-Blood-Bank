@@ -44,7 +44,10 @@
             this.DNameTb = new System.Windows.Forms.TextBox();
             this.txtUName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DPBox = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DPBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +83,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(130, 276);
+            this.label16.Location = new System.Drawing.Point(131, 408);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(75, 20);
             this.label16.TabIndex = 57;
@@ -92,7 +95,7 @@
             this.DAddressTbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.DAddressTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAddressTbl.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DAddressTbl.Location = new System.Drawing.Point(206, 279);
+            this.DAddressTbl.Location = new System.Drawing.Point(207, 411);
             this.DAddressTbl.Multiline = true;
             this.DAddressTbl.Name = "DAddressTbl";
             this.DAddressTbl.Size = new System.Drawing.Size(163, 20);
@@ -114,7 +117,7 @@
             "AB-",
             "O+",
             "O-"});
-            this.DBGroupCB.Location = new System.Drawing.Point(614, 396);
+            this.DBGroupCB.Location = new System.Drawing.Point(615, 408);
             this.DBGroupCB.Name = "DBGroupCB";
             this.DBGroupCB.Size = new System.Drawing.Size(163, 24);
             this.DBGroupCB.TabIndex = 55;
@@ -130,7 +133,7 @@
             this.DGenderCB.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.DGenderCB.Location = new System.Drawing.Point(206, 396);
+            this.DGenderCB.Location = new System.Drawing.Point(613, 327);
             this.DGenderCB.Name = "DGenderCB";
             this.DGenderCB.Size = new System.Drawing.Size(163, 24);
             this.DGenderCB.TabIndex = 54;
@@ -141,7 +144,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(493, 393);
+            this.label15.Location = new System.Drawing.Point(494, 408);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(112, 20);
             this.label15.TabIndex = 53;
@@ -152,7 +155,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(130, 396);
+            this.label14.Location = new System.Drawing.Point(494, 327);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(69, 20);
             this.label14.TabIndex = 52;
@@ -164,7 +167,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(493, 166);
+            this.label12.Location = new System.Drawing.Point(494, 155);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 20);
             this.label12.TabIndex = 51;
@@ -177,7 +180,7 @@
             this.DPhone.Enabled = false;
             this.DPhone.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DPhone.ForeColor = System.Drawing.Color.Black;
-            this.DPhone.Location = new System.Drawing.Point(614, 169);
+            this.DPhone.Location = new System.Drawing.Point(615, 158);
             this.DPhone.Multiline = true;
             this.DPhone.Name = "DPhone";
             this.DPhone.Size = new System.Drawing.Size(163, 20);
@@ -189,7 +192,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(493, 276);
+            this.label11.Location = new System.Drawing.Point(494, 236);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 20);
             this.label11.TabIndex = 49;
@@ -200,7 +203,7 @@
             this.DAgeTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.DAgeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DAgeTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DAgeTb.Location = new System.Drawing.Point(614, 279);
+            this.DAgeTb.Location = new System.Drawing.Point(615, 239);
             this.DAgeTb.Multiline = true;
             this.DAgeTb.Name = "DAgeTb";
             this.DAgeTb.Size = new System.Drawing.Size(163, 20);
@@ -211,7 +214,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(130, 166);
+            this.label13.Location = new System.Drawing.Point(131, 327);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 20);
             this.label13.TabIndex = 47;
@@ -224,7 +227,7 @@
             this.DNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DNameTb.Enabled = false;
             this.DNameTb.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DNameTb.Location = new System.Drawing.Point(206, 169);
+            this.DNameTb.Location = new System.Drawing.Point(207, 330);
             this.DNameTb.Multiline = true;
             this.DNameTb.Name = "DNameTb";
             this.DNameTb.Size = new System.Drawing.Size(163, 20);
@@ -238,7 +241,7 @@
             this.txtUName.Enabled = false;
             this.txtUName.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUName.ForeColor = System.Drawing.Color.Black;
-            this.txtUName.Location = new System.Drawing.Point(428, 91);
+            this.txtUName.Location = new System.Drawing.Point(207, 94);
             this.txtUName.Name = "txtUName";
             this.txtUName.Size = new System.Drawing.Size(163, 20);
             this.txtUName.TabIndex = 60;
@@ -247,12 +250,34 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LifeLineBloodBank.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(391, 89);
+            this.pictureBox1.Location = new System.Drawing.Point(135, 94);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 61;
             this.pictureBox1.TabStop = false;
+            // 
+            // DPBox
+            // 
+            this.DPBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.DPBox.Location = new System.Drawing.Point(207, 158);
+            this.DPBox.Name = "DPBox";
+            this.DPBox.Size = new System.Drawing.Size(90, 100);
+            this.DPBox.TabIndex = 62;
+            this.DPBox.TabStop = false;
+            this.DPBox.Click += new System.EventHandler(this.DPBox_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(131, 205);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.TabIndex = 67;
+            this.label3.Text = "Picture";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DonateBlood
             // 
@@ -260,6 +285,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(898, 619);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.DPBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUName);
             this.Controls.Add(this.label1);
@@ -281,6 +308,7 @@
             this.Text = "DonateBlood";
             this.Load += new System.EventHandler(this.DonateBlood_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DPBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +332,7 @@
         private System.Windows.Forms.TextBox DNameTb;
         private System.Windows.Forms.TextBox txtUName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox DPBox;
+        private System.Windows.Forms.Label label3;
     }
 }
