@@ -5,7 +5,7 @@
 
 # Lifeline Blood Bank Management System
 
-Lifeline Blood Bank Management System is a C# application built with Microsoft SQL Server, Guna UI, and ReaLTaiizor packages. It allows for efficient blood donation and request management for both general users and admins.
+Lifeline Blood Bank Management System is a C# application built with Microsoft SQL Server & Guna UI packages. It allows for efficient blood donation and request management for both general users and admins.
 
 ## Features
 
